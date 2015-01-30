@@ -12,9 +12,7 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  -->
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.somnus</groupId>
@@ -28,13 +26,22 @@
         
     </description>
     <inceptionYear>2015</inceptionYear>
-	<url></url>
+	<url/>
     <licenses>
         <license>
             <name>Apache 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
+	
+	    <modules>
+        <module>core</module>
+<!--         <module>command</module> -->
+<!--         <module>query</module> -->
+<!-- 		<module>web-ui</module> -->
+	<module>utils</module>
+    <module>example</module>
+    </modules>
 	
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,19 +78,16 @@
 
         <!-- Maven plugins -->
         <maven.compiler.plugin>3.1</maven.compiler.plugin>
-        <maven.enforcer.plugin>1.2</maven.enforcer.plugin>
+        <maven.enforcer.plugin>1.4</maven.enforcer.plugin>
         <maven.version.range>[3.0.0,3.2.2]</maven.version.range>
-        <java.version>1.7</java.version>
+        <maven.surefire.plugin>2.16</maven.surefire.plugin>
+        <maven.surefire.report.plugin>2.16</maven.surefire.report.plugin>
+        <jetty.console.maven.plugin>1.43</jetty.console.maven.plugin>
         <maven.tomcat7.version>2.2</maven.tomcat7.version>
 		
+        <java.version>1.7</java.version>
     </properties>
 
-    <modules>
-        <module>core</module>
-        <module>command</module>
-        <module>query</module>
-		<module>web-ui</module>
-    </modules>
 
 
     <dependencyManagement>
@@ -212,37 +216,139 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin}</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                </configuration>
-            </plugin>
-            <plugin>
+ <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin}</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>source</id>
+                            <phase>compile</phase>
+                        </execution>
+                        <execution>
+                            <id>test</id>
+                            <phase>test-compile</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin}</version>
+                    <configuration>
+                        <includes>
+                            <include>**/*Test.java</include>
+                            <include>**/*Test$*.java</include>
+                            <include>**/*Test_*.java</include>
+                            <include>**/*Spec*.java</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/Test*.java</exclude>
+                            <exclude>**/*ForTesting.java</exclude>
+                            <exclude>**/*Abstract*.java</exclude>
+                        </excludes>
+                        <useFile>true</useFile>
+                        <printSummary>true</printSummary>
+                        <outputDirectory>${project.build.directory}/surefire-reports</outputDirectory>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${maven.surefire.report.plugin}</version>
+                    <configuration>
+                        <includes>
+                            <include>**/*Test.java</include>
+                            <include>**/*Test$*.java</include>
+                            <include>**/*Test_*.java</include>
+                            <include>**/*Spec*.java</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/Test*.java</exclude>
+                            <exclude>**/*ForTesting.java</exclude>
+                            <exclude>**/*Abstract*.java</exclude>
+                        </excludes>
+                        <showSuccess>false</showSuccess>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>test</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.6.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>maven-jetty-plugin</artifactId>
+                    <version>6.1.26</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.7</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.simplericity.jettyconsole</groupId>
+                    <artifactId>jetty-console-maven-plugin</artifactId>
+                    <version>${jetty.console.maven.plugin}</version>
+                </plugin>
+                
+                <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>${maven.enforcer.plugin}</version>
@@ -277,12 +383,31 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            
+             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>${maven.tomcat7.version}</version>
             </plugin>
+            
+            </plugins>
+        </pluginManagement>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            
+           
+
         </plugins>
+        
     </build>
 
 </project>
