@@ -2,13 +2,10 @@ package com.somnus.utils.id;
 
 import java.util.UUID;
 
-import org.apache.commons.id.Hex;
-
 public class DefaultIdentifierFactory {
 
 	public static String uuidAll() {
-		return new String(Hex.encodeHex(org.apache.commons.id.uuid.UUID
-				.randomUUID().getRawBytes()));
+		return UUID.randomUUID().toString();
 	}
 
 	public static String uuidPrefix() {
