@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:axon="http://www.axonframework.org/schema/core"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+         xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.axonframework.org/schema/core http://www.axonframework.org/schema/axon-core.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+    <context:annotation-config/>
+    
+    <!-- Session文件 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <property name="configLocation" value="classpath:mybatis.xml" />  
+    </bean> 
+    
+    <!-- 配置SqlSessionTemplate -->    
+<!--     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">     -->
+<!--         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />     -->
+<!--     </bean>  -->
+    
+    <bean id="userDao" class="com.somnus.example.mybatis.dao.UserDao">
+    	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    <context:component-scan base-package="com.somnus.example.mybatis.dao"/>
+    
+</beans>
