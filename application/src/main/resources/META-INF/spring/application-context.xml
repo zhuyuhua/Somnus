@@ -15,8 +15,8 @@
     <context:annotation-config/>
     
   	<import resource="database-context.xml"/>
-<!--     <import resource="jpa-context.xml"/> -->
+    <import resource="jpa-context.xml"/>
 	
-	<import resource="mybatis-context.xml"/>
+<!-- 	<import resource="mybatis-context.xml"/> -->
 	
 </beans>

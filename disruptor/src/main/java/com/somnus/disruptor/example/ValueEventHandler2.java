@@ -2,7 +2,9 @@
  * Copyright (c) 2010-2015. Somnus Framework
  *
  */
-package com.somnus.disruptor;
+package com.somnus.disruptor.example;
+
+import java.sql.Timestamp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +27,10 @@ public class ValueEventHandler2 implements EventHandler<ValueEvent> {
 	public void onEvent(final ValueEvent event, final long sequence,
 			final boolean endOfBatch) throws Exception {
 		System.out.println("ValueEventHandler2:  Sequence: " + sequence
+				+ "  time:" + new Timestamp(System.currentTimeMillis())
 				+ "   ValueEvent: " + event.getValue());
+		event.setValue("ValueEventHandler2");
+		// Thread.sleep(2000);
 	}
 
 }

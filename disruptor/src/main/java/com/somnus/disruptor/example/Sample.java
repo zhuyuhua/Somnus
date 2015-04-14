@@ -1,4 +1,4 @@
-package com.somnus.disruptor;
+package com.somnus.disruptor.example;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,16 +18,17 @@ public class Sample {
 				ValueEvent.EVENT_FACTORY, 4, exec);
 
 		// 用来处理消费者拿到的消息。
-		final EventHandler<ValueEvent> handler1 = new ValueEventHandler();
+		final EventHandler<ValueEvent> handler1 = new ValueEventHandler1();
 
 		// ---这里测试多个EventHandler，也就是多个消费者
-		final EventHandler<ValueEvent> handler2 = new ValueEventHandler();
-
-		// disruptor.handleEventsWith(handler1, handler2);
+		final EventHandler<ValueEvent> handler2 = new ValueEventHandler2();
+		final EventHandler<ValueEvent> handler3 = new ValueEventHandler3();
+		final EventHandler<ValueEvent> handler4 = new ValueEventHandler4();
+		disruptor.handleEventsWith(handler1, handler2).then(handler3)
+				.then(handler4);
 
 		// 将 EventHandler 对象传入 Disruptor ，Disruptor 依据 EventHandler
 		// 参数个数，创建相等数量消费者对象。
-		disruptor.handleEventsWith(handler1);
 
 		// 启动
 		// 每个消费者线程都有一个等待策略：以确定当无消息可消费时，消费者是阻塞还是轮询。
@@ -39,10 +40,10 @@ public class Sample {
 		int bufferSize = ringBuffer.getBufferSize();
 		System.out.println("bufferSize =  " + bufferSize);
 
-		for (long i = 0; i < 1000; i++) {
+		for (long i = 0; i < 10; i++) {
 			long seq = ringBuffer.next();
 			try {
-				String uuid = String.valueOf(i);
+				String uuid = String.valueOf("ValueEventHandler0");
 				ValueEvent valueEvent = ringBuffer.get(seq);
 				valueEvent.setValue(uuid);
 			} finally {
