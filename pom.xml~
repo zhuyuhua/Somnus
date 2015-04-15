@@ -37,7 +37,7 @@
 	    <modules>
         <module>core</module>
 	<module>utils</module>
-    	<module>example</module>
+    <module>example</module>
     	   <module>cucumber</module>
 	   <module>jbehave</module>
     	<module>application</module>
@@ -49,7 +49,6 @@
     	<module>disruptor</module>
 
     	<module>bigdata</module>
-	<module>architecture</module>
 	    </modules>
 	
     
@@ -120,7 +119,7 @@
         <maven.tomcat7.version>2.2</maven.tomcat7.version>
         <!-- Maven 插件 end -->
         
-		<java.version>1.7</java.version>
+		<java.version>1.6</java.version>
 		
 		<!-- common tools -->
 		<joda-time.version>2.7</joda-time.version>
@@ -405,12 +404,5 @@
         
         
     </build>
-    
-    <distributionManagement>
-      <repository>  
-        <id>releases</id>  
-        <url>http://localhost:8081/nexus/content/repositories/thirdparty/</url>  
-      </repository>  
-    </distributionManagement>
 
 </project>
