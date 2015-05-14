@@ -1,0 +1,58 @@
+ <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:axon="http://www.axonframework.org/schema/core"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+         xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.axonframework.org/schema/core http://www.axonframework.org/schema/axon-core.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        
+    <context:annotation-config/>
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:mysql.database.properties"/>
+<!-- <property name="locations" value="classpath:hsqldb.database.properties"/> -->
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+         
+         <property name="packagesToScan" value="com.somus.cucumber.isolaction"/>
+         
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="${hibernate.sql.dialect}"/>
+                <property name="generateDdl" value="${hibernate.sql.generateddl}"/>
+                <property name="showSql" value="${hibernate.sql.show}"/>
+            </bean>
+        </property>
+        <property name="jpaProperties">
+           <props>
+             <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+           </props>
+        </property>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverclass}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxPoolSize" value="15"/>
+        <property name="minPoolSize" value="5"/>
+    </bean>
+
+	<tx:annotation-driven/>
+
+</beans>
