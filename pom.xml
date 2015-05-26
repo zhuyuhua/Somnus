@@ -40,7 +40,7 @@
 		<module>bigdata</module>
 		<module>architecture</module>
 		<module>test</module>
-    <module>somnus-mq</module>
+    	<module>mq</module>
   </modules>
 
 

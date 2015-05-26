@@ -1,4 +1,4 @@
-package com.somnus.mq.example.routing;
+package com.somnus.mq.rabbitmq.example.routing;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
