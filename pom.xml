@@ -31,16 +31,14 @@
 	<modules>
 		<module>core</module>
 		<module>utils</module>
-		<module>example</module>
-		<module>application</module>
 
-		<module>utils</module>
 		<module>disruptor</module>
 
 		<module>bigdata</module>
 		<module>architecture</module>
-		<module>test</module>
+<!-- 		<module>test</module> -->
     	<module>mq</module>
+    	<module>rpc</module>
   </modules>
 
 

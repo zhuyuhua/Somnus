@@ -1,8 +1,0 @@
-{
-	"commandName":"accountCommandler",
-	"commandMethod":"create",
-	"params":{
-		"accountName":"accountName1",
-		"accountNo":"100"
-	}
-}

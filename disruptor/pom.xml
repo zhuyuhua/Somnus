@@ -15,11 +15,11 @@
 		  	<artifactId>somnus-utils</artifactId>
 		    <version>0.0.1-SNAPSHOT</version>
 		 </dependency>
-<!--   		<dependency> -->
-<!-- 			<groupId>com.lmax</groupId> -->
-<!-- 			<artifactId>disruptor</artifactId> -->
-<!-- 			<version>3.3.2</version> -->
-<!-- 		</dependency> -->
+  		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.3.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jmock</groupId>
 			<artifactId>jmock-junit4</artifactId>
