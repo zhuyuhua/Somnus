@@ -1,4 +1,4 @@
-package com.somnus.thrift;
+package com.somnus.elearning;
 
 /**
  * Hello world!

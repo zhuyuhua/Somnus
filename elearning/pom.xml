@@ -4,22 +4,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.somnus</groupId>
-    <artifactId>somnus-rpc</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>somnus</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>somnus-thrift</artifactId>
-  <name>somnus-thrift</name>
+  <groupId>com.somnus.elearning</groupId>
+  <artifactId>somnus-elearning</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>somnus-elearning</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  
-  	<dependency>
-	  <groupId>org.apache.thrift</groupId>
-	  <artifactId>libthrift</artifactId>
-	  <version>0.9.2</version>
-	</dependency>
-  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>
