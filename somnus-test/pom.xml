@@ -10,9 +10,9 @@
   <name>somnus-test</name>
   <packaging>pom</packaging>
   <modules>
-	<module>cucumber</module>
-	<module>cucumber-spring</module>
-	<module>jbehave</module>
-	<module>jbehave-spring</module>
+	<module>somnus-cucumber</module>
+	<module>somnus-cucumber-spring</module>
+	<module>somnus-jbehave</module>
+	<module>somnus-jbehave-spring</module>
   </modules>
 </project>

@@ -31,9 +31,7 @@
 	<modules>
 		<module>somnus-core</module>
 		<module>somnus-utils</module>
-
 		<module>somnus-disruptor</module>
-
 		<module>somnus-bigdata</module>
 		<module>somnus-architecture</module>
  		<module>somnus-test</module>
@@ -50,7 +48,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<argLine>-Dfile.encoding=UTF-8</argLine>
 
-		<!--第三方框�? -->
+		<!--第三方框 -->
 		<axon.version>2.3</axon.version>
 		<cucumber.version>1.2.2</cucumber.version>
 

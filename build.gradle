@@ -1,28 +1,29 @@
 apply from: 'libraries.gradle'
 
 
-group = 'com.icloud'
+group = 'com.somnus'
 version = '1.0'
 
 allprojects {
+
     buildDir = 'target'
 
     apply plugin: 'java'
     apply plugin: 'eclipse-wtp'
     apply plugin: 'idea'
     apply plugin: 'maven'
+	apply plugin: 'jetty'
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 
     repositories {
-//        maven { url 'http://localhost:8082/nexus/content/groups/public' }
-//        maven { url 'http://localhost:8081/nexus/content/groups/public' }
+        maven { url 'http://localhost:8081/nexus/content/groups/public' }
         maven { url 'http://maven.oschina.net/content/groups/public/' }
         maven { url 'http://mirrors.ibiblio.org/maven2/' }
         maven { url 'https://maven.alfresco.com/nexus/content/groups/public' }
         maven { url 'https://clojars.org/repo/' }
-	maven { url 'http://jcenter.bintray.com/'}
+		maven { url 'http://jcenter.bintray.com/'}
         mavenCentral()
     }
 
@@ -33,8 +34,7 @@ allprojects {
     }
 
     configurations {
-        provided {
-            // todo : need to make sure these are non-exported
+        provided {            
             description = 'Non-exported compile-time dependencies.'
         }
         configurations {
@@ -43,6 +43,7 @@ allprojects {
     }
     sourceSets.main.compileClasspath += configurations.provided
     eclipse.classpath.plusConfigurations += configurations.provided
+	
     dependencies {
         testCompile libraries.junit
     }
@@ -127,10 +128,10 @@ allprojects {
     uploadArchives {
         repositories {
             mavenDeployer {
-                repository(url: 'http://172.31.16.127:8081/nexus/content/repositories/releases') {
+                repository(url: 'http://localhost:8081/nexus/content/repositories/releases') {
                     authentication(userName: "admin", password: "admin123")
                 }
-                snapshotRepository(url: 'http://172.31.16.127:8081/nexus/content/repositories/snapshots') {
+                snapshotRepository(url: 'http://localhost:8081/nexus/content/repositories/snapshots') {
                     authentication(userName: "admin", password: "admin123")
                 }
             }

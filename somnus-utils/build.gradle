@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus'
+version = '1.0-SNAPSHOT'
+
+jar {
+	//baseName =  'framework-core'
+}
+
+dependencies {
+	//compile project(':icloud-common:framework-config')
+	testCompile libraries.junit
+
+	
+	compile libraries.commons_lang3
+	
+	compile libraries.guava
+	
+	compile libraries.gson
+	compile libraries.orgjson
+	
+	compile libraries.rabbitmq
+	
+	compile libraries.postgresql
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

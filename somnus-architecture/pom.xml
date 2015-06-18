@@ -10,6 +10,6 @@
   <name>somnus-architecture</name>
   <packaging>pom</packaging>
   <modules>
-    <module>event-driven</module>
+    <module>somnus-event-driven</module>
   </modules>
 </project>

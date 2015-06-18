@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus'
+version = '1.0-SNAPSHOT'
+
+jar {
+	//baseName =  'framework-core'
+}
+
+dependencies {
+	//compile project(':icloud-common:framework-config')
+	testCompile libraries.junit
+	
+	compile libraries.cucumber_java
+	compile libraries.cucumber_junit
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

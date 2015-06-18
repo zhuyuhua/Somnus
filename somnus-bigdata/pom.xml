@@ -10,6 +10,6 @@
   <name>somnus-bigdata</name>
   <packaging>pom</packaging>
   <modules>
-    <module>strom</module>
+    <module>somnus-strom</module>
   </modules>
 </project>

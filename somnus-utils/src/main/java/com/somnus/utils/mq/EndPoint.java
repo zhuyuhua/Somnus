@@ -1,6 +1,7 @@
 package com.somnus.utils.mq;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -31,8 +32,9 @@ public abstract class EndPoint {
 	 * 关闭channel和connection。并非必须，因为隐含是自动调用的。
 	 * 
 	 * @throws IOException
+	 * @throws TimeoutException
 	 */
-	public void close() throws IOException {
+	public void close() throws IOException, TimeoutException {
 		this.channel.close();
 		this.connection.close();
 	}
