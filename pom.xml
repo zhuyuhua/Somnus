@@ -29,17 +29,17 @@
 	</licenses>
 
 	<modules>
-		<module>core</module>
-		<module>utils</module>
+		<module>somnus-core</module>
+		<module>somnus-utils</module>
 
-		<module>disruptor</module>
+		<module>somnus-disruptor</module>
 
-		<module>bigdata</module>
-		<module>architecture</module>
-<!-- 		<module>test</module> -->
-    	<module>mq</module>
-    	<module>rpc</module>
-    <module>elearning</module>
+		<module>somnus-bigdata</module>
+		<module>somnus-architecture</module>
+ 		<module>somnus-test</module>
+    	<module>somnus-mq</module>
+    	<module>somnus-rpc</module>
+		<module>somnus-elearning</module>
     
     
   </modules>
