@@ -9,9 +9,10 @@ allprojects {
     buildDir = 'target'
 
     apply plugin: 'java'
-    apply plugin: 'eclipse-wtp'
+    //apply plugin: 'eclipse-wtp'
     apply plugin: 'idea'
     apply plugin: 'maven'
+	apply plugin: 'eclipse' 
 	apply plugin: 'jetty'
 
     sourceCompatibility = '1.8'

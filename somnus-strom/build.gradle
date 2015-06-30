@@ -5,16 +5,12 @@ group = 'com.somnus.framework'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'framework-mq'
+	baseName =  'framework-strom'
 }
 
 dependencies {
-
+	//compile project(':icloud-common:framework-config')
 	testCompile libraries.junit
-
-	
-	compile libraries.rabbitmq
-	
 	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api

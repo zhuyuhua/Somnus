@@ -1,20 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.framework'
+group = 'com.somnus.common'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'framework-mq'
+	baseName =  'somnus-common'
 }
 
 dependencies {
 
 	testCompile libraries.junit
-
-	
-	compile libraries.rabbitmq
-	
 	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api

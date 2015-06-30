@@ -1,11 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus'
+group = 'com.somnus.framework'
 version = '1.0-SNAPSHOT'
 
 jar {
-	//baseName =  'framework-core'
+	baseName =  'framework-utils'
 }
 
 dependencies {

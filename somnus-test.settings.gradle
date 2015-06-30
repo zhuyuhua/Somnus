@@ -1,4 +1,0 @@
-include 'somnus-test:somnus-cucumber'
-include 'somnus-test:somnus-cucumber-spring'
-include 'somnus-test:somnus-jbehave'
-include 'somnus-test:somnus-jbehave-spring'

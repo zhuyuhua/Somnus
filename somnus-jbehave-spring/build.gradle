@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.jbehave'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-jbehave-spring'
+}
+
+dependencies {
+	compile project(':somnus-jbehave')
+	testCompile libraries.junit
+
+	
+	compile libraries.spring_aop
+	compile libraries.spring_aspects
+	compile libraries.spring_context
+	compile libraries.spring_context_support
+	compile libraries.spring_jdbc
+	compile libraries.spring_orm
+	compile libraries.spring_test
+	
+	compile libraries.jbehave_core
+	compile libraries.jbehave_gherkin
+	compile libraries.jbehave_spring
+	
+	compile libraries.cglib
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}
