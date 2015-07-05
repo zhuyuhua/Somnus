@@ -1,17 +1,20 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.framework'
+group = 'com.somnus.storm'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'framework-strom'
+	baseName =  'somnus-strom'
 }
 
 dependencies {
 	//compile project(':icloud-common:framework-config')
 	testCompile libraries.junit
 	
+	compile libraries.storm_core
+	
+	compile libraries.httpclient
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api
 	

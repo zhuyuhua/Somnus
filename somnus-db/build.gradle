@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.db'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-db'
+}
+
+dependencies {
+	compile project(':somnus-utils')
+	
+	testCompile libraries.junit
+	
+	compile libraries.mongo_java_driver
+	compile libraries.couchbase_client
+	compile libraries.jedis
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

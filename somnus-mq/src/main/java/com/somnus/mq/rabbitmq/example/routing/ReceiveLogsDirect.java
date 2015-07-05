@@ -4,10 +4,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
+import com.somnus.mq.rabbitmq.example.Constants;
 
 public class ReceiveLogsDirect {
-
-	private static final String EXCHANGE_NAME = "direct_logs";
 
 	public static void main(String[] argv) throws java.io.IOException,
 			java.lang.InterruptedException {
@@ -17,14 +16,19 @@ public class ReceiveLogsDirect {
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 
-		channel.exchangeDeclare(EXCHANGE_NAME, "direct");
+		channel.exchangeDeclare(Constants.EXCHANGE_DIRECT_NAME, "direct");
 		String queueName = channel.queueDeclare().getQueue();
 
-		argv = new String[] { "aa", "bb" };
+		// if (argv.length < 1) {
+		// System.err
+		// .println("Usage: ReceiveLogsDirect [info] [warning] [error]");
+		// System.exit(1);
+		// }
 
-		for (String severity : argv) {
-			channel.queueBind(queueName, EXCHANGE_NAME, severity);
-		}
+		// for (String severity : argv) {
+		channel.queueBind(queueName, Constants.EXCHANGE_DIRECT_NAME,
+				Constants.serverity_orange);
+		// }
 
 		System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
