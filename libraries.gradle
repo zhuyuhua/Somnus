@@ -16,7 +16,7 @@ ext {
 
     libraries = [
 		/* A */
-	
+		
 		// allinpay01(telpay)
 		allinpay01:             	'com.allinpay:allinpay01:1.0',
 		allinpay02:             	'com.allinpay:allinpay02:2.0',
@@ -25,7 +25,7 @@ ext {
 		activiti_spring:        	'org.activiti:activiti-spring:5.14',
 		
 		// ant	
-		ant:                    	'org.apache.ant:ant:1.9.0',
+		ant:                    	'org.apache.ant:ant:1.9.6',
 		
 		// axis	
 		axis:                   	'axis:axis:1.4',
@@ -36,8 +36,7 @@ ext {
 		aspectj_tools:          	"org.aspectj:aspectjtools:${versions.aspectj}",
 		
 		/* B */	
-		
-		// bcprov_jdk15	
+			
 		bcprov_jdk15:           	'bouncycastle:bcprov-jdk15:140',
 		
 		/* C */	
@@ -74,7 +73,7 @@ ext {
 		commons_lang:           	'commons-lang:commons-lang:2.6',
 		commons_lang3:          	'org.apache.commons:commons-lang3:3.1',
 		commons_logging:        	'org.gatein.common:commons-logging:2.1.0.Final',
-		commons_net:            	'commons-net:commons-net:3.2',
+		commons_net:            	'commons-net:commons-net:3.3',
 		commons_pool:           	'commons-pool:commons-pool:1.6',
 		commons_compress:       	'org.apache.commons:commons-compress:1.5',
 		
@@ -123,7 +122,8 @@ ext {
 		ebuildapi:              	'com.travelsky:ebuildapi:1.0',
 	
 		// ehcache
-		ehcache:                	'net.sf.ehcache:ehcache-core:2.6.5',
+		ehcache:                	'net.sf.ehcache:ehcache:2.10.0',
+		ehcache_core:				'net.sf.ehcache:ehcache-core:2.6.11',
 		ehcache_web:	    		'net.sf.ehcache:ehcache-web:2.0.4',
 	
 		/* F */
@@ -134,6 +134,9 @@ ext {
 		// freemarker
 		freemarker:             	'org.freemarker:freemarker:2.3.19',
 	
+		ftpserver_core:				'org.apache.ftpserver:ftpserver-core:1.0.6',
+		ftplet_api:					'org.apache.ftpserver:ftplet-api:1.0.6',
+		
 		/* G */
 	
 		// groovy

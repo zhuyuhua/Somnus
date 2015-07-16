@@ -1,22 +1,26 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.framework'
+group = 'com.somnus.utils'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'framework-utils'
+	baseName =  'somnus-utils'
 }
 
 dependencies {
-	//compile project(':icloud-common:framework-config')
+	
 	testCompile libraries.junit
 
 	
 	compile libraries.commons_lang3
 	compile libraries.commons_lang3
 	compile libraries.httpclient
-	
+	compile libraries.ftpserver_core
+	compile libraries.ftplet_api	
+	compile libraries.commons_net
+	compile libraries.commons_io
+	compile libraries.ant
 	
 	compile libraries.guava
 	

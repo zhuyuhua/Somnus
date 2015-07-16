@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.cache'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-cache'
+}
+
+dependencies {
+	//compile project(':somnus-common')
+	testCompile libraries.junit
+	
+	compile libraries.commons_lang3
+	
+
+	compile libraries.ehcache
+	compile libraries.ehcache_core
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}
