@@ -3,7 +3,7 @@ package com.somnus.utils.serializer;
 /**
  * 对象序列化器，将Java对象序列化为字符串形式，或者相反，从字符串反序列化为对象。
  * 
- * @author ZHUYUHUA129
+ * @author zhuyuhua
  *
  */
 public interface ObjectSerializer {

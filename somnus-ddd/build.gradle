@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.ddd'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-ddd'
+}
+
+dependencies {
+	
+	compile project(':somnus-common')
+	
+	
+
+	compile libraries.eclipse_persistence
+
+	compile libraries.spring_aop			
+	compile libraries.spring_agent        
+	compile libraries.spring_aspects       
+	compile libraries.spring_context       
+	compile libraries.spring_context_support
+	compile libraries.spring_expression   
+	compile libraries.spring_instrument  
+	compile libraries.spring_jdbc       
+	compile libraries.spring_orm                 
+	compile libraries.spring_tx           
+	compile libraries.spring_web 
+	
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	testCompile libraries.junit
+}
+
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

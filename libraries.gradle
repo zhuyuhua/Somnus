@@ -121,6 +121,7 @@ ext {
 		// ebuildapi
 		ebuildapi:              	'com.travelsky:ebuildapi:1.0',
 	
+		eclipse_persistence:		'org.eclipse.persistence:javax.persistence:2.1.0',
 		// ehcache
 		ehcache:                	'net.sf.ehcache:ehcache:2.10.0',
 		ehcache_core:				'net.sf.ehcache:ehcache-core:2.6.11',

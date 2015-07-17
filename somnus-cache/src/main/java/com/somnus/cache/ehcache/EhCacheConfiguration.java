@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * TODO
  * 
- * @author ZHUYUHUA129
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class EhCacheConfiguration {
