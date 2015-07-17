@@ -18,14 +18,14 @@ import org.slf4j.LoggerFactory;
 /**
  * TODO
  * 
- * @author:ZHUYUHUA129
+ * @author:zhuyuhua
  * @version 0.0.1
  */
 public class ReplaceFileUtil {
 
 	private static Logger logger = LoggerFactory.getLogger(ReplaceFileUtil.class);
 
-	private static String CLASS_PATH = "D:/svn/karma";
+	private static String CLASS_PATH = "D:/dev/git/Somnus";
 
 	private static AtomicInteger atomic = new AtomicInteger(0);
 
@@ -57,6 +57,13 @@ public class ReplaceFileUtil {
 
 	/**
 	 * 替换java文件指定字符串
+	 * 
+	 * @param file
+	 *            文件名
+	 * @param format
+	 *            要替换的字符串
+	 * @param replace
+	 *            待替换的字符串
 	 */
 	public static void replace(File file, String format, String replace) throws IOException {
 
@@ -110,7 +117,7 @@ public class ReplaceFileUtil {
 	public static void main(String[] args) throws IOException {
 		File file = new File(CLASS_PATH);
 
-		replace(file, "karma", "karma");
+		replace(file, "zhuyuhua", "zhuyuhua");
 
 		System.out.println("atomic:" + atomic);
 	}

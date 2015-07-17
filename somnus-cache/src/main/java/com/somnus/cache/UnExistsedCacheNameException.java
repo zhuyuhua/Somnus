@@ -7,7 +7,7 @@ package com.somnus.cache;
 /**
  * 表明指定name在缓存配置文件中不存在
  * 
- * @author ZHUYUHUA129
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class UnExistsedCacheNameException extends RuntimeException {

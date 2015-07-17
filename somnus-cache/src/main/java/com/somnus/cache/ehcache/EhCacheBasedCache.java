@@ -20,7 +20,7 @@ import net.sf.ehcache.Element;
 /**
  * 基于ehcache实现
  * 
- * @author ZHUYUHUA129
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class EhCacheBasedCache implements Cache {

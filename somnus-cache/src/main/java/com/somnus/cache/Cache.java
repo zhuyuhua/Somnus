@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * TODO
  * 
- * @author ZHUYUHUA129
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public interface Cache {

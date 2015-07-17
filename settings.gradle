@@ -10,4 +10,6 @@ include 'somnus-strom'
 include 'somnus-test'
 include 'somnus-utils'
 include 'somnus-cache'
-
+include 'somnus-ioc'
+include 'somnus-ddd'
+include 'somnus-leetcode'
