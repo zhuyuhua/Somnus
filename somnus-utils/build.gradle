@@ -12,8 +12,7 @@ dependencies {
 	
 	testCompile libraries.junit
 
-	
-	compile libraries.commons_lang3
+	compile libraries.spring_core
 	compile libraries.commons_lang3
 	compile libraries.httpclient
 	compile libraries.ftpserver_core
@@ -32,6 +31,7 @@ dependencies {
 	compile libraries.rabbitmq
 	
 	compile libraries.postgresql
+	compile libraries.velocity
 	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api

@@ -152,6 +152,10 @@ ext {
 		// guava	
 		guava:                  	'com.google.guava:guava:17.0',
 		
+		// git 
+		github:						'org.kohsuke:github-api:1.68',
+		jgit:						'org.eclipse.jgit:org.eclipse.jgit:4.0.1.201506240215-r',
+		egit:						'org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5',
 		/* H */	
 		
 		// hadoop	
@@ -244,6 +248,9 @@ ext {
 		
 		// jgrapht	
 		jgrapht:                	'org.jgrapht:jgrapht-jdk1.5:0.7.3',
+		
+		
+		
 		
 		// jivesoftware	
 		jivesoftware_smack:     	'jivesoftware:smack:3.1.0',
@@ -404,9 +411,11 @@ ext {
 		snakeyaml:              	'org.yaml:snakeyaml:1.12',
 		
 		// spring	
+		
 		spring_aop:					"org.springframework:spring-aop:${versions.spring}",
 		spring_agent:           	'org.springframework:spring-agent:2.5.6',
 		spring_aspects:         	"org.springframework:spring-aspects:${versions.spring}",
+		spring_core:				"org.springframework:spring-core:${versions.spring}",
 		spring_context:         	"org.springframework:spring-context:${versions.spring}",
 		spring_context_support: 	"org.springframework:spring-context-support:${versions.spring}",
 		spring_expression:      	"org.springframework:spring-expression:${versions.spring}",
@@ -467,6 +476,7 @@ ext {
 		// validation
 		validation:             	'javax.validation:validation-api:1.0.0.GA',
 	
+		velocity:					'org.apache.velocity:velocity:1.7',
 		/* W */
 	
 		// webdriver

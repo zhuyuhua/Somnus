@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.openci'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-openci'
+}
+
+dependencies {
+	
+	testCompile libraries.junit
+
+	compile libraries.gson
+	compile libraries.github
+    compile libraries.jgit	
+	compile libraries.egit	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}
