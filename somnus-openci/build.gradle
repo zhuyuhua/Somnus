@@ -12,7 +12,8 @@ dependencies {
 	
 	testCompile libraries.junit
 
-	compile libraries.gson
+	compile libraries.commons_lang3
+	compile libraries.commons_codec
 	compile libraries.github
     compile libraries.jgit	
 	compile libraries.egit	
