@@ -2,7 +2,7 @@
  * Copyright (c) 2010-2015. Somnus Framework
  *
  */
-package com.somnus.openci.git;
+package com.somnus.openci.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -15,11 +15,11 @@ allprojects {
 	apply plugin: 'eclipse' 
 	apply plugin: 'jetty'
 
-    sourceCompatibility = '1.7'
-    targetCompatibility = '1.7'
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
 
     repositories {
-        maven { url 'http://localhost:8082/nexus/content/groups/public' }
+        maven { url 'http://localhost:8081/nexus/content/groups/public' }
         maven { url 'http://maven.oschina.net/content/groups/public/' }
         maven { url 'http://mirrors.ibiblio.org/maven2/' }
         maven { url 'https://maven.alfresco.com/nexus/content/groups/public' }
