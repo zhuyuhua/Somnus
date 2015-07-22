@@ -27,6 +27,8 @@ import org.slf4j.LoggerFactory;
  */
 public class SvnConfig extends SSHConfig {
 
+	private static Logger logger = LoggerFactory.getLogger(SvnConfig.class);
+
 	private String svnAddress;
 	private String svnUser;
 	private String svnPassword;
@@ -68,6 +70,52 @@ public class SvnConfig extends SSHConfig {
 		this.svnPassword = svnPassword;
 	}
 
-	private static Logger logger = LoggerFactory.getLogger(SvnConfig.class);
+	/**
+	 * svnAddress
+	 *
+	 * @return svnAddress
+	 */
+	public String getSvnAddress() {
+		return svnAddress;
+	}
+
+	/**
+	 * @param svnAddress
+	 */
+	public void setSvnAddress(String svnAddress) {
+		this.svnAddress = svnAddress;
+	}
+
+	/**
+	 * svnUser
+	 *
+	 * @return svnUser
+	 */
+	public String getSvnUser() {
+		return svnUser;
+	}
+
+	/**
+	 * @param svnUser
+	 */
+	public void setSvnUser(String svnUser) {
+		this.svnUser = svnUser;
+	}
+
+	/**
+	 * svnPassword
+	 *
+	 * @return svnPassword
+	 */
+	public String getSvnPassword() {
+		return svnPassword;
+	}
+
+	/**
+	 * @param svnPassword
+	 */
+	public void setSvnPassword(String svnPassword) {
+		this.svnPassword = svnPassword;
+	}
 
 }
