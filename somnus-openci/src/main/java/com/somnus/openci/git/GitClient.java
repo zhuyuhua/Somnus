@@ -33,6 +33,8 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.openci.exception.GitClientRuntimeException;
+
 /**
  * Git客户端，用于创建项目、修改项目等
  * 
@@ -48,7 +50,19 @@ public class GitClient {
 	private String email;
 	private String localRepositoryPath;// 本地仓储地址
 
+	/**
+	 * 
+	 * @param username
+	 *            用户名
+	 * @param password
+	 *            密码
+	 * @param email
+	 *            邮箱
+	 * @param localRepositoryPath
+	 *            本地路径
+	 */
 	public GitClient(String username, String password, String email, String localRepositoryPath) {
+
 		if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(email)
 				|| StringUtils.isEmpty(localRepositoryPath)) {
 			throw new GitClientRuntimeException("username, password, email, localRepositoryPath must no be empty!");
@@ -144,6 +158,13 @@ public class GitClient {
 
 	}
 
+	/**
+	 * 
+	 * 初始化本地仓库
+	 * 
+	 * @param repositoryPhysicalPath
+	 * @param remoteRepositoryUrl
+	 */
 	public static void init(String repositoryPhysicalPath, String remoteRepositoryUrl) {
 		Repository repository = null;
 		InitCommand init = new InitCommand();
