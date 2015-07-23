@@ -6,6 +6,7 @@ ext {
 		httpcomponents:         	'4.5',
 		jetty:                  	'8.1.10.v20130312',
 		jstl:                   	'1.2',
+		kafka:              		'0.8.2.1',
 		morphia:                	'1.2.3',
 		poi:                    	'3.9',
 		slf4j:                  	'1.7.5',
@@ -274,7 +275,7 @@ ext {
 		json_lib:               	'net.sf.json-lib:json-lib:2.4:jdk15',
 		
 		// fastjson	
-		fastjson:               	'com.alibaba:fastjson:1.1.29',
+		fastjson:               	'com.alibaba:fastjson:1.1.26',
 		
 		// org.json	
 		orgjson:					"org.json:json:20090211",
@@ -297,6 +298,9 @@ ext {
 		
 		/* K */	
 		kaptcha:                	'com.github.axet:kaptcha:0.0.7',
+		/** K **/
+		kafka_clients:				"org.apache.kafka:kafka-clients:${versions.kafka}",
+		kafka:					"org.apache.kafka:kafka_2.10:${versions.kafka}",
 		
 		/* L */	
 		

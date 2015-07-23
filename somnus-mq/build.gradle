@@ -14,6 +14,8 @@ dependencies {
 
 	
 	compile libraries.rabbitmq
+	compile libraries.kafka_clients
+	compile libraries.kafka
 	
 	
 	compile libraries.slf4j_log
