@@ -45,6 +45,10 @@ public class PropertiesUtil {
 
 	private Properties properties;
 
+	public Properties getProperties() {
+		return properties;
+	}
+
 	/**
 	 * 
 	 * TODO
@@ -128,6 +132,16 @@ public class PropertiesUtil {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	public void printlnProperties() {
+		if (properties == null) {
+			return;
+		}
+		Object[] obj = properties.keySet().toArray();
+		for (Object object : obj) {
+			System.out.println("key:" + object + ",value:" + properties.get(object));
 		}
 	}
 

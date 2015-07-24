@@ -1,0 +1,2 @@
+include 'somnus-example:somnus-example-leetcode'
+include 'somnus-example:somnus-example-spring'

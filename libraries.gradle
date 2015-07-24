@@ -2,7 +2,7 @@ ext {
     versions = [
 		aspectj:                	'1.7.2',
 		groovy:                 	'2.1.3',
-		hibernate:              	'3.5.6-Final',
+		hibernate:              	'4.3.10.Final',
 		httpcomponents:         	'4.5',
 		jetty:                  	'8.1.10.v20130312',
 		jstl:                   	'1.2',
@@ -123,7 +123,7 @@ ext {
 		// ebuildapi
 		ebuildapi:              	'com.travelsky:ebuildapi:1.0',
 	
-		eclipse_persistence:		'org.eclipse.persistence:javax.persistence:2.1.0',
+		
 		// ehcache
 		ehcache:                	'net.sf.ehcache:ehcache:2.10.0',
 		ehcache_core:				'net.sf.ehcache:ehcache-core:2.6.11',
@@ -131,6 +131,9 @@ ext {
 	
 		/* F */
 	
+		// fastjson	
+		fastjson:               	'com.alibaba:fastjson:1.1.26',
+		
 		// allcom's faxapi
 		faxapi:                 	'allcom:faxapi:1.0',
 	
@@ -211,6 +214,8 @@ ext {
 		// javacsv	
 		javacsv:                	'net.sourceforge.javacsv:javacsv:2.0',
 		
+		javax_persistence:			'org.eclipse.persistence:javax.persistence:2.1.0',
+		
 		// javassist	
 		javassist:              	'org.javassist:javassist:3.17.1-GA',
 		
@@ -274,8 +279,7 @@ ext {
 		// json	
 		json_lib:               	'net.sf.json-lib:json-lib:2.4:jdk15',
 		
-		// fastjson	
-		fastjson:               	'com.alibaba:fastjson:1.1.26',
+
 		
 		// org.json	
 		orgjson:					"org.json:json:20090211",
@@ -284,6 +288,7 @@ ext {
 		jsr305:                 	'net.sourceforge.findbugs:jsr305:1.3.7',
 		
 		// jstl	
+		jstl:						"jstl:jstl:${versions.jstl}",
 		jstl_api:               	"javax.servlet.jsp.jstl:jstl-api:${versions.jstl}",
 		jstl_impl:              	"org.glassfish.web:jstl-impl:${versions.jstl}",
 		
@@ -307,15 +312,22 @@ ext {
 		// log4j	
 		log4j:                  	'log4j:log4j:1.2.17',
 		
+		// Log4j 2
+		log4j_api:					"org.apache.logging.log4j:log4j-api:2.3",
+		log4j_core:					"org.apache.logging.log4j:log4j-core:2.3",
+		
+		
 		// logging	
 		slf4j_api:              	"org.slf4j:slf4j-api:${versions.slf4j}",
 		slf4j_nop:              	"org.slf4j:slf4j-nop:${versions.slf4j}",
 		slf4j_log:              	"org.slf4j:slf4j-log4j12:${versions.slf4j}",
+		
 		jcl_over_slf4j:         	"org.slf4j:jcl-over-slf4j:${versions.slf4j}",
 		log4j_over_slf4j:       	"org.slf4j:log4j-over-slf4j:${versions.slf4j}",
 		logback:                	'ch.qos.logback:logback-classic:1.0.13',
 		logback_ext:	    		'org.logback-extensions:logback-ext-spring:0.1.1',
 	
+		
 		// lucene
 		luecne_core:            	'org.apache.lucene:lucene-core:3.6.2',
 		IKAnalyzer:             	'org.wltea.analyzer.lucene:IKAnalyzer:2012_u6',
@@ -350,7 +362,7 @@ ext {
 		myhtmlcleaner:          	'com.travelzen.tops.myhtmlcleaner:htmlcleaner:2.1',
 	
 		// mysql connector
-		mysql_connector:        	'mysql:mysql-connector-java:5.1.24',
+		mysql_connector:        	'mysql:mysql-connector-java:5.1.25',
 	
 		/* N */
 		//netty

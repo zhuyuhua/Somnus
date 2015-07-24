@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +11,15 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.rabbitmq.client.Consumer;
+import com.somnus.common.config.GlobalConfigConstant;
+import com.somnus.utils.properties.PropertiesUtil;
+
+import kafka.consumer.Consumer;
+import kafka.consumer.ConsumerConfig;
+import kafka.consumer.ConsumerIterator;
+import kafka.consumer.KafkaStream;
+import kafka.javaapi.consumer.ConsumerConnector;
+import kafka.message.MessageAndMetadata;
 
 /**
  * 
@@ -24,7 +31,7 @@ import com.rabbitmq.client.Consumer;
 public class KafkaConsumerTest {
 
 	private static Logger logger = LoggerFactory.getLogger("testReceive");
-	private String consumerConfig = GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH + "kafka.consumer.test.properties";
+	private String consumerConfig = GlobalConfigConstant.CLASS_PATH + "kafka.consumer.test.properties";
 
 	private List<String> topics; // topic
 	private int threadNum; // 每个topic线程数
@@ -50,9 +57,9 @@ public class KafkaConsumerTest {
 	}
 
 	private ConsumerConfig createConsumerConfig() {
-		Properties properties = PropertiesReader.read(consumerConfig);
-		PropertiesUtil.printlnProperties(properties);
-		return new ConsumerConfig(properties);
+		PropertiesUtil properties = PropertiesUtil.getInstance(consumerConfig);
+
+		return new ConsumerConfig(properties.getProperties());
 	}
 
 	public void startup() {

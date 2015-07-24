@@ -14,7 +14,7 @@ dependencies {
 	
 	
 
-	compile libraries.eclipse_persistence
+	compile libraries.javax_persistence
 
 	compile libraries.spring_core
 	compile libraries.spring_aop			

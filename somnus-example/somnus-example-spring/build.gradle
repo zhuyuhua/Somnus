@@ -1,0 +1,52 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.example.spring'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-example-spring'
+}
+
+dependencies {
+	
+	testCompile libraries.junit
+
+	compile libraries.commons_fileupload
+	compile libraries.commons_io
+	compile libraries.commons_pool
+	compile libraries.commons_dbcp
+	compile libraries.commons_collections
+	compile libraries.commons_beanutils
+	
+	// spring
+	compile libraries.spring_aop
+	compile libraries.spring_aspects
+	compile libraries.spring_context
+	compile libraries.spring_context_support
+	compile libraries.spring_jdbc
+	compile libraries.spring_orm
+	compile libraries.spring_test
+	compile libraries.spring_webmvc
+	compile libraries.spring_web
+	compile libraries.spring_tx
+	
+	compile libraries.hibernate_core
+	compile libraries.jstl
+	compile libraries.mysql_connector
+	compile libraries.javax_persistence
+	
+	compile libraries.servlet_api
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+	compile libraries.log4j_api
+	compile libraries.log4j_core
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

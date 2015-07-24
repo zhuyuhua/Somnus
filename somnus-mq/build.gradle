@@ -10,6 +10,9 @@ jar {
 
 dependencies {
 
+	compile project(':somnus-common')
+	compile project(':somnus-utils')
+	
 	testCompile libraries.junit
 
 	

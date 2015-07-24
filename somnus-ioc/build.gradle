@@ -14,7 +14,7 @@ dependencies {
 
 	compile project(':somnus-common')
 	
-	compile libraries.eclipse_persistence
+	compile libraries.javax_persistence
 
 	compile libraries.spring_aop			
 	compile libraries.spring_agent        

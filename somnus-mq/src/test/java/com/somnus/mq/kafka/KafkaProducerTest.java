@@ -4,25 +4,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.oracle.jrockit.jfr.Producer;
+import com.somnus.common.config.GlobalConfigConstant;
+import com.somnus.utils.properties.PropertiesUtil;
+
+import kafka.javaapi.producer.Producer;
+import kafka.producer.KeyedMessage;
+import kafka.producer.ProducerConfig;
 
 public class KafkaProducerTest {
 	private static Logger logger = LoggerFactory.getLogger(KafkaProducerTest.class);
 	private Producer<String, String> producer;
 
-	private String kafkaProducerConfig = GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
-			+ "kafka.producer.test.properties";
+	private String kafkaProducerConfig = GlobalConfigConstant.CLASS_PATH + "kafka.producer.test.properties";
 
 	public KafkaProducerTest() throws IOException {
 
-		Properties properties = PropertiesReader.read(kafkaProducerConfig);
-		ProducerConfig config = new ProducerConfig(properties);
-		PropertiesUtil.printlnProperties(properties);
+		PropertiesUtil properties = PropertiesUtil.getInstance(kafkaProducerConfig);
+		ProducerConfig config = new ProducerConfig(properties.getProperties());
 		producer = new Producer<String, String>(config);
 	}
 
