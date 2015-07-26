@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'pegasus'
+
+dependencies {
+  compile project(path: ':restli-api', configuration: 'restClient')
+  compile spec.product.pegasus.pegasusCommon
+  compile spec.product.pegasus.r2
+  compile spec.product.pegasus.restliClient
+  compile spec.product.pegasus.data
+  compile spec.product.pegasus.restliCommon
+  
+  testCompile "commons-httpclient:commons-httpclient:3.1"
+}
+
+task startFortunesClient(type: JavaExec) {
+  	main = 'com.example.fortune.RestLiFortunesClient'
+  	// jvmArgs = ["-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"] // uncomment to enable remote debugging on port 5005
+  	classpath = sourceSets.main.runtimeClasspath
+}

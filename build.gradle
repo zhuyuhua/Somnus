@@ -1,22 +1,26 @@
 apply from: 'libraries.gradle'
-
+apply from: 'config.gradle'
 
 group = 'com.somnus'
-version = '1.0'
+version = '1.0-SNAPSHOT'
+
+def projectName = "somnus"
 
 allprojects {
 
     buildDir = 'target'
 
-    apply plugin: 'java'
-    //apply plugin: 'eclipse-wtp'
-    apply plugin: 'idea'
-    apply plugin: 'maven'
-	apply plugin: 'eclipse' 
-	apply plugin: 'jetty'
+    apply plugin: 	'java'
+    apply plugin: 	'idea'
+    apply plugin: 	'maven'
+	apply plugin: 	'eclipse' 
+	apply plugin: 	'jetty'
+	
+	apply plugin:	'checkstyle'
+	
 
-    sourceCompatibility = '1.7'
-    targetCompatibility = '1.7'
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
 
     repositories {
         maven { url 'http://localhost:8082/nexus/content/groups/public' }
@@ -28,32 +32,30 @@ allprojects {
         mavenCentral()
     }
 
+	//eclipse 配置
     eclipse {
-        classpath {
-            downloadSources=true
-        }
+		classpath {
+           downloadSources=true
+		}
     }
 
-    configurations {
-        provided {            
-            description = 'Non-exported compile-time dependencies.'
-        }
-        configurations {
-            all*.exclude group: 'commons-logging', module: 'commons-logging'
-        }
-    }
-    sourceSets.main.compileClasspath += configurations.provided
-    eclipse.classpath.plusConfigurations += configurations.provided
-	
+	//项目依赖
     dependencies {
         testCompile libraries.junit
     }
-    sourceSets.main.resources {
-        if (project.hasProperty('profile')) {
-            srcDir 'src/main/resources-' + project.profile
-            srcDir 'src/test/resources-' + project.profile
-        }
-    }
+	
+	//源码结构
+	sourceSets {
+		main {
+			java {
+				srcDir 'src/main/java'
+			}
+			resources {
+				srcDir 'src/main/resources'
+			}
+		}
+	}
+    
 
     tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
@@ -129,10 +131,13 @@ allprojects {
     uploadArchives {
         repositories {
             mavenDeployer {
-                repository(url: 'http://localhost:8081/nexus/content/repositories/releases') {
+                repository(url: 'http://localhost:8082/nexus/content/repositories/releases') {
                     authentication(userName: "admin", password: "admin123")
+					pom.groupId = "com.somnus"
+					pom.version = version
+					pom.artifactId = projectName
                 }
-                snapshotRepository(url: 'http://localhost:8081/nexus/content/repositories/snapshots') {
+                snapshotRepository(url: 'http://localhost:8082/nexus/content/repositories/snapshots') {
                     authentication(userName: "admin", password: "admin123")
                 }
             }

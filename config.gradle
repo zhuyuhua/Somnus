@@ -1,0 +1,8 @@
+ext {
+    profile = project['profile']
+}
+
+def loadGroovy(){
+    def configFile = file('config.groovy')
+    new ConfigSlurper(profile).parse(configFile.toURL()).toProperties()
+}

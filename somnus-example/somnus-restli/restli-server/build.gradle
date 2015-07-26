@@ -1,0 +1,15 @@
+apply plugin: 'pegasus'
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'maven'
+
+ext.apiProject = project(':restli-api')
+
+dependencies {
+  compile project(path: ':restli-api', configuration: 'dataTemplate')
+  compile spec.product.pegasus.restliServer
+  compile spec.product.pegasus.restliNettyStandalone
+  compile lib.jetty9
+}
+
