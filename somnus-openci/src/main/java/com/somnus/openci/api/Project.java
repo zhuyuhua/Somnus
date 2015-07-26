@@ -26,7 +26,7 @@ import com.somnus.openci.exception.ProjectValidateFailureException;
 
 /**
  *
- * TODO
+ * 项目
  *
  * @author zhuyuhua
  * @since 0.0.1
@@ -71,4 +71,117 @@ public class Project {
 
         return true;
     }
+
+	/**
+	 * artifactId
+	 *
+	 * @return artifactId
+	 */
+	public String getArtifactId() {
+		return artifactId;
+	}
+
+	/**
+	 * @param artifactId
+	 */
+	public void setArtifactId(String artifactId) {
+		this.artifactId = artifactId;
+	}
+
+	/**
+	 * groupId
+	 *
+	 * @return groupId
+	 */
+	public String getGroupId() {
+		return groupId;
+	}
+
+	/**
+	 * @param groupId
+	 */
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	/**
+	 * projectName
+	 *
+	 * @return projectName
+	 */
+	public String getProjectName() {
+		return projectName;
+	}
+
+	/**
+	 * @param projectName
+	 */
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	/**
+	 * projectLead
+	 *
+	 * @return projectLead
+	 */
+	public String getProjectLead() {
+		return projectLead;
+	}
+
+	/**
+	 * @param projectLead
+	 */
+	public void setProjectLead(String projectLead) {
+		this.projectLead = projectLead;
+	}
+
+	/**
+	 * physicalPath
+	 *
+	 * @return physicalPath
+	 */
+	public String getPhysicalPath() {
+		return physicalPath;
+	}
+
+	/**
+	 * @param physicalPath
+	 */
+	public void setPhysicalPath(String physicalPath) {
+		this.physicalPath = physicalPath;
+	}
+
+	/**
+	 * description
+	 *
+	 * @return description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * developers
+	 *
+	 * @return developers
+	 */
+	public List<Developer> getDevelopers() {
+		return developers;
+	}
+
+	/**
+	 * @param developers
+	 */
+	public void setDevelopers(List<Developer> developers) {
+		this.developers = developers;
+	}
+
 }

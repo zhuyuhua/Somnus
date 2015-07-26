@@ -8,8 +8,8 @@ ext.apiProject = project(':restli-api')
 
 dependencies {
   compile project(path: ':restli-api', configuration: 'dataTemplate')
-  compile spec.product.pegasus.restliServer
-  compile spec.product.pegasus.restliNettyStandalone
-  compile lib.jetty9
+  compile lib.pegasus_restli_server
+  compile lib.pegasus_restli_netty
+
 }
 

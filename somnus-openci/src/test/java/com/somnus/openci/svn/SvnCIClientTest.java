@@ -15,22 +15,32 @@
  */
 package com.somnus.openci.svn;
 
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.openci.api.Developer;
+import com.somnus.openci.api.Project;
+import com.somnus.openci.exception.HostCannotConnectException;
+
 /**
  *
- * TODO
- *
+ * SVN测试类 需要依赖SVN服务器
+ * 
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class SvnCISClientTest {
+public class SvnCIClientTest {
 
-	private static Logger logger = LoggerFactory.getLogger(SvnCISClientTest.class);
+	private static Logger logger = LoggerFactory.getLogger(SvnCIClientTest.class);
 
 	private SvnConfig configuration;
+
+	private SvnCIClient instance;
+	private Project project;
+	private Developer developer;
 
 	private String host = "127.0.0.1";
 	private String port = "444";
@@ -43,11 +53,37 @@ public class SvnCISClientTest {
 	private String svnUser = "zhuyuhua";
 	private String svnPassword = "zhuyuhua";
 
+	private String projectName = "somnus";
+
 	@Before
 	public void setUp() throws Exception {
 
-		configuration = new SvnConfig("10.108.1.92", "apache", "opencis147", "/home/svn/",
-				"http://10.108.1.92/svn/myproject", "Koala", "Koala");
+		configuration = new SvnConfig(host, username, "opencis147", storePath, svnAddress, svnUser, svnPassword);
 
+		// 初始化项目
+		project = new Project();
+		project.setProjectName(projectName);
+		project.setPhysicalPath(storePath);
+
+		// 初始化项目开发者
+		developer = new Developer();
+		developer.setId("zyh01");
+		developer.setName("zyh_dev");
+		developer.setPassword("zyh_dev_passwd");
+	}
+
+	@Test(expected = HostCannotConnectException.class)
+	public void testHostCannotConnect() {
+		configuration.setHost(host);
+		instance = new SvnCIClient(configuration);
+		instance.connect();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		configuration = null;
+		instance = null;
+		project = null;
+		developer = null;
 	}
 }

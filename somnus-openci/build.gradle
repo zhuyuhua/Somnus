@@ -16,7 +16,10 @@ dependencies {
 	compile libraries.commons_codec
 	compile libraries.github
     compile libraries.jgit	
-	compile libraries.egit	
+	compile libraries.egit
+	compile libraries.trilead_ssh2
+	compile libraries.jcraft_jsch
+	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api
 	

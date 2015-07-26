@@ -1,5 +1,5 @@
-apply plugin: 'pegasus'
 apply plugin: 'java'
+apply plugin: 'pegasus'
 apply plugin: 'eclipse'
 
 group = 'com.somnus.example.restli.api'
@@ -9,11 +9,14 @@ jar {
 }
 
 dependencies {
+	compile lib.pegasus_restli_client
+	
+	
+	dataTemplateCompile lib.pegasus_data
+	dataTemplateGenerator lib.pegasus_generator
+	
+	restClientCompile lib.pegasus_restli_client
+	restTools lib.pegasus_restli_tools
 
-  compile spec.product.pegasus.restliClient
-  dataTemplateCompile spec.product.pegasus.data
-  dataTemplateGenerator spec.product.pegasus.generator
-  restClientCompile spec.product.pegasus.restliClient
-  restTools spec.product.pegasus.restliTools
   
 }

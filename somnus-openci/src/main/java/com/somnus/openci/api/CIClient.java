@@ -17,7 +17,7 @@ package com.somnus.openci.api;
 
 /**
  *
- * TODO
+ * CI客户端接口
  *
  * @author zhuyuhua
  * @since 0.0.1

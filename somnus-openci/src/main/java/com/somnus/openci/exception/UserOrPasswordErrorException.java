@@ -20,36 +20,16 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * CI基础异常类
+ * 用户名或者密码错误
  *
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class CIClientBaseRuntimeException extends RuntimeException {
+public class UserOrPasswordErrorException extends CIClientBaseRuntimeException {
 
+	private static Logger logger = LoggerFactory.getLogger(UserOrPasswordErrorException.class);
 
-	private static final long serialVersionUID = 1731558957987931215L;
-	
-	private static Logger logger = LoggerFactory.getLogger(CIClientBaseRuntimeException.class);
-
-	/**
-	 */
-	public CIClientBaseRuntimeException() {
-		super();
-	}
-
-	/**
-	 * @param msg
-	 */
-	public CIClientBaseRuntimeException(String msg) {
+	public UserOrPasswordErrorException(String msg) {
 		super(msg);
-	}
-
-	/**
-	 * @param string
-	 * @param e
-	 */
-	public CIClientBaseRuntimeException(String msg, Throwable e) {
-		super(msg, e);
 	}
 }

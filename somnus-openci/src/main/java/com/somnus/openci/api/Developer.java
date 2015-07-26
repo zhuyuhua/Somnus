@@ -25,7 +25,7 @@ import com.somnus.openci.exception.DeveloperValidateFailureException;
 
 /**
  *
- * TODO
+ * 开发者对象
  *
  * @author zhuyuhua
  * @since 0.0.1
@@ -75,4 +75,101 @@ public class Developer {
 		}
 		return true;
 	}
+
+	/**
+	 * id
+	 *
+	 * @return id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * name
+	 *
+	 * @return name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * password
+	 *
+	 * @return password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * fullName
+	 *
+	 * @return fullName
+	 */
+	public String getFullName() {
+		return fullName;
+	}
+
+	/**
+	 * @param fullName
+	 */
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	/**
+	 * email
+	 *
+	 * @return email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * roles
+	 *
+	 * @return roles
+	 */
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	/**
+	 * @param roles
+	 */
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
 }

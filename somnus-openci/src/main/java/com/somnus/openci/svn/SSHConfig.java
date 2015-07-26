@@ -38,6 +38,22 @@ public class SSHConfig {
 	private String storePath;
 
 	/**
+	 * @param host
+	 *            服务器地址
+	 * @param username
+	 *            用户名
+	 * @param password
+	 *            密码
+	 * @param storePath
+	 */
+	public SSHConfig(String host, String username, String password, String storePath) {
+		this.host = host;
+		this.username = username;
+		this.password = password;
+		this.storePath = storePath;
+	}
+
+	/**
 	 * host
 	 *
 	 * @return host
@@ -101,18 +117,5 @@ public class SSHConfig {
 		this.storePath = storePath;
 	}
 
-	/**
-	 * @param host
-	 * @param username
-	 * @param password
-	 * @param storePath
-	 */
-	public SSHConfig(String host, String username, String password, String storePath) {
-		super();
-		this.host = host;
-		this.username = username;
-		this.password = password;
-		this.storePath = storePath;
-	}
 
 }

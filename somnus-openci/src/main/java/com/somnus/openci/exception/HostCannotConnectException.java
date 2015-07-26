@@ -20,36 +20,19 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * CI基础异常类
+ * 主机连不上异常
  *
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class CIClientBaseRuntimeException extends RuntimeException {
+public class HostCannotConnectException extends CIClientBaseRuntimeException {
 
-
-	private static final long serialVersionUID = 1731558957987931215L;
-	
-	private static Logger logger = LoggerFactory.getLogger(CIClientBaseRuntimeException.class);
-
-	/**
-	 */
-	public CIClientBaseRuntimeException() {
-		super();
-	}
-
-	/**
-	 * @param msg
-	 */
-	public CIClientBaseRuntimeException(String msg) {
-		super(msg);
-	}
+	private static Logger logger = LoggerFactory.getLogger(HostCannotConnectException.class);
 
 	/**
 	 * @param string
-	 * @param e
 	 */
-	public CIClientBaseRuntimeException(String msg, Throwable e) {
-		super(msg, e);
+	public HostCannotConnectException(String msg) {
+		super(msg);
 	}
 }

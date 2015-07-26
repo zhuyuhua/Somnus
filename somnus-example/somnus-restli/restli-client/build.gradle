@@ -2,14 +2,14 @@ apply plugin: 'java'
 apply plugin: 'pegasus'
 
 dependencies {
-  compile project(path: ':restli-api', configuration: 'restClient')
-  compile spec.product.pegasus.pegasusCommon
-  compile spec.product.pegasus.r2
-  compile spec.product.pegasus.restliClient
-  compile spec.product.pegasus.data
-  compile spec.product.pegasus.restliCommon
-  
-  testCompile "commons-httpclient:commons-httpclient:3.1"
+	compile project(path: ':restli-api', configuration: 'restClient')
+	compile lib.pegasus_restli_common
+	compile lib.pegasus_r2
+	compile lib.pegasus_restli_client
+	compile lib.pegasus_data
+	compile lib.pegasus_pegasus_common
+	
+	testCompile lib.commons_httpclient
 }
 
 task startFortunesClient(type: JavaExec) {
