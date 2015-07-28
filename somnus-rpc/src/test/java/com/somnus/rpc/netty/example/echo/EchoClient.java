@@ -15,6 +15,8 @@
  */
 package com.somnus.rpc.netty.example.echo;
 
+import org.apache.log4j.Logger;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -32,6 +34,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  * server.
  */
 public final class EchoClient {
+
+	private static Logger logger = Logger.getLogger(EchoClient.class);
 
 	static final String HOST = System.getProperty("host", "127.0.0.1");
 	static final int PORT = Integer
@@ -57,7 +61,7 @@ public final class EchoClient {
 
 			// Start the client.
 			ChannelFuture f = b.connect(HOST, PORT).sync();
-
+			logger.debug("echoclient start.");
 			// Wait until the connection is closed.
 			f.channel().closeFuture().sync();
 		} finally {

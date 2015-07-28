@@ -26,7 +26,7 @@
     <loggers>
         <!--建立一个默认的root的logger-->
         <root level="trace">
-            <appender-ref ref="RollingFile"/>
+<!--             <appender-ref ref="RollingFile"/> -->
             <appender-ref ref="Console"/>
         </root>
 
