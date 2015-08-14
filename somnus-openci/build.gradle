@@ -19,6 +19,11 @@ dependencies {
 	compile libraries.egit
 	compile libraries.trilead_ssh2
 	compile libraries.jcraft_jsch
+	compile libraries.jenkins_ci
+	compile libraries.sonar
+	compile libraries.sonar_jira
+	compile libraries.moco
+	
 	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api
