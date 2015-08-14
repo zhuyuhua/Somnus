@@ -79,5 +79,7 @@ public class SystemUtil {
 		System.out.println("用户的主目录：" + props.getProperty("user.home"));
 
 		System.out.println("用户的当前工作目录：" + props.getProperty("user.dir"));
+
+		System.out.println("用户的当前工作目录：" + System.getProperty("user.dir"));
 	}
 }

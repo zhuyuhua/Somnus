@@ -1,6 +1,5 @@
 package com.somnus.mq.kafka;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -21,7 +20,7 @@ public class KafkaProducerTest {
 
 	private String kafkaProducerConfig = GlobalConfigConstant.CLASS_PATH + "kafka.producer.test.properties";
 
-	public KafkaProducerTest() throws IOException {
+	public KafkaProducerTest() throws Exception {
 
 		PropertiesUtil properties = PropertiesUtil.getInstance(kafkaProducerConfig);
 		ProducerConfig config = new ProducerConfig(properties.getProperties());

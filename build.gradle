@@ -19,8 +19,8 @@ allprojects {
 	apply plugin:	'checkstyle'
 	
 
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
 
     repositories {
         maven { url 'http://localhost:8082/nexus/content/groups/public' }

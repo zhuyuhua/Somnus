@@ -360,7 +360,7 @@ ext {
 		myhtmlcleaner:          	'com.travelzen.tops.myhtmlcleaner:htmlcleaner:2.1',
 	
 		// mysql connector
-		mysql_connector:        	'mysql:mysql-connector-java:5.1.25',
+		mysql_connector:        	'mysql:mysql-connector-java:5.1.30',
 	
 		/* N */
 		//netty

@@ -40,10 +40,10 @@ public class PropertiesUtil {
 	 */
 	private String propertyPath;
 
+	private Properties properties;
+
 	private PropertiesUtil() {
 	}
-
-	private Properties properties;
 
 	public Properties getProperties() {
 		return properties;
