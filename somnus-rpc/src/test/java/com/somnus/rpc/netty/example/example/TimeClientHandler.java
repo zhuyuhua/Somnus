@@ -28,6 +28,8 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 		buf.readBytes(req);
 		String body = new String(req, "UTF-8");
 		System.out.println("Now is : " + body);
+		Thread.sleep(5000);
+		
 		ByteBuf resp = Unpooled.copiedBuffer(body.getBytes());
 		ctx.write(resp);
 	}

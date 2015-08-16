@@ -374,7 +374,7 @@ ext {
 	
 		/* N */
 		//netty
-		netty:						"io.netty:netty-all:5.0.0.Alpha1",
+		netty:						"io.netty:netty-all:5.0.0.Alpha2",
 		
 		
 		/* O */

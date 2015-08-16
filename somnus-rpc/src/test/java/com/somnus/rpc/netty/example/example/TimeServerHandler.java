@@ -8,6 +8,11 @@ import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
 public class TimeServerHandler extends ChannelHandlerAdapter {
+	
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		ctx.writeAndFlush("send msg from server..");
+	}
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
@@ -17,10 +22,10 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
 		buf.readBytes(req);
 		String body = new String(req, "UTF-8");
 		System.out.println("The time server receive order : " + body);
-		String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(
-				System.currentTimeMillis()).toString() : "BAD ORDER";
+		String currentTime = "QUERY TIME ORDER"+ new Date(
+				System.currentTimeMillis()).toString();
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
 		ctx.write(resp);
 	}
