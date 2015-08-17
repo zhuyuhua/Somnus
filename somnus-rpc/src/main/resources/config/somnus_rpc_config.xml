@@ -234,6 +234,7 @@
 <value>65536</value>
 </property>
 
+
 <!-- telnet server frame max length:1024 * 512 -->
 <property>
 <name>gaea.server.telnet.frameMaxLength</name>
