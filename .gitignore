@@ -33,4 +33,5 @@ tags
 *.ipr
 *.iws
 checkstyle/
+log
 
