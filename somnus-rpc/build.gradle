@@ -9,7 +9,8 @@ jar {
 }
 
 dependencies {
-	//compile project(':icloud-common:framework-config')
+
+	compile project(':somnus-utils')
 	
 	testCompile libraries.junit
 
@@ -34,6 +35,7 @@ idea.module.iml{
 				srcDir 'src/main/server'
 				srcDir 'src/main/client'
 				srcDir 'src/main/protocol'
+				srcDir 'src/main/serializer'
 			}
 			resources {
 				srcDir 'src/main/resources'

@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * TODO
+ * 系统信息工具类
  * 
  * @author zhuyuhua
  * @version 0.0.1
@@ -19,9 +19,20 @@ public class SystemUtil {
 
 	private static Logger logger = LoggerFactory.getLogger(SystemUtil.class);
 
+	private static Properties props = System.getProperties(); // 系统属性
+	
+	/**
+	 * 
+	 * 用户的当前工作目录
+	 * @return String
+	 */
+	public static String getUserDir(){
+		return  props.getProperty("user.dir");
+		
+	}
 	public static void main(String[] args) {
 
-		Properties props = System.getProperties(); // 系统属性
+		
 
 		System.out.println("Java的运行环境版本：" + props.getProperty("java.version"));
 

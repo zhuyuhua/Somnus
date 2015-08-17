@@ -1,0 +1,14 @@
+[2015-08-17 23:06:03.247][ERROR][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(33)]-error
+[2015-08-17 23:06:03.251][WARN ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(34)]-warn
+[2015-08-17 23:06:03.252][DEBUG][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(36)]-debug
+[2015-08-17 23:06:03.252][INFO ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(37)]-info
+[2015-08-17 23:06:18.211][ERROR][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(33)]-error
+[2015-08-17 23:06:18.214][WARN ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(34)]-warn
+[2015-08-17 23:06:18.215][DEBUG][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(36)]-debug
+[2015-08-17 23:06:18.215][INFO ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(37)]-info
+[2015-08-17 23:06:25.712][ERROR][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(33)]-error
+[2015-08-17 23:06:25.715][WARN ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(34)]-warn
+[2015-08-17 23:06:25.715][INFO ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(37)]-info
+[2015-08-17 23:06:59.399][ERROR][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(33)]-error
+[2015-08-17 23:06:59.403][WARN ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(34)]-warn
+[2015-08-17 23:06:59.403][INFO ][main][com.somnus.rpc.server.bootstrap.BootStrapMain.main(37)]-info
