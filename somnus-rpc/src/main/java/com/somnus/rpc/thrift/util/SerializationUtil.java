@@ -27,8 +27,7 @@ import org.slf4j.LoggerFactory;
 /**
  * TODO
  * 
- * @author:zhuyuhua
- * @date:2015年6月30日 下午10:13:13
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class SerializationUtil {
@@ -43,6 +42,7 @@ public class SerializationUtil {
 	 * 
 	 * @since 0.0.1
 	 */
+	@SuppressWarnings("rawtypes")
 	public static byte[] base2bytes(TBase base) {
 		try {
 			return new TSerializer(factory).serialize(base);
@@ -60,7 +60,7 @@ public class SerializationUtil {
 	 * @exception @since
 	 *                0.0.1
 	 */
-	public static void bytes2base(TBase base, byte[] bytes) {
+	public static void bytes2base(@SuppressWarnings("rawtypes") TBase base, byte[] bytes) {
 		try {
 			new TDeserializer(factory).deserialize(base, bytes);
 		} catch (TException e) {

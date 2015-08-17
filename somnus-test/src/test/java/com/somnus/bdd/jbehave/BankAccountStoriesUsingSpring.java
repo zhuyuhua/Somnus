@@ -31,14 +31,13 @@ import com.somnus.bdd.jbehave.core.CoreStories;
 /**
  * 使用Spring来运行核心Story
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年3月4日 下午5:24:09
  * @version 0.0.1
  */
 public class BankAccountStoriesUsingSpring extends CoreStories {
 
-	private static Logger logger = LoggerFactory
-			.getLogger(BankAccountStoriesUsingSpring.class);
+	private static Logger logger = LoggerFactory.getLogger(BankAccountStoriesUsingSpring.class);
 
 	@Override
 	public InjectableStepsFactory stepsFactory() {
@@ -46,15 +45,12 @@ public class BankAccountStoriesUsingSpring extends CoreStories {
 	}
 
 	protected ApplicationContext createContext() {
-		return new SpringApplicationContextFactory("steps.xml")
-				.createApplicationContext();
+		return new SpringApplicationContextFactory("jbehave/steps.xml").createApplicationContext();
 	}
 
 	@Override
 	protected List<String> storyPaths() {
-		return new StoryFinder().findPaths(
-				CodeLocations.codeLocationFromClass(this.getClass()),
-				"**/*.story", "");
+		return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()), "**/*.story", "");
 
 	}
 

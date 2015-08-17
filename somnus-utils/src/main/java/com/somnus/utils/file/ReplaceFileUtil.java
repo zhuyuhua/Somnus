@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 /**
  * TODO
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class ReplaceFileUtil {
@@ -99,7 +99,7 @@ public class ReplaceFileUtil {
 			tmp = tmp.replaceAll(format, replace);
 			strBuf.append(tmp);
 			strBuf.append(System.getProperty("line.separator"));
-
+			atomic.incrementAndGet();
 		}
 
 		bufReader.close();
@@ -117,7 +117,8 @@ public class ReplaceFileUtil {
 	public static void main(String[] args) throws IOException {
 		File file = new File(CLASS_PATH);
 
-		replace(file, "zhuyuhua", "zhuyuhua");
+		replace(file, "@author zhuyuhua", "@author zhuyuhua");
+		// printlnFile(file, "@author zhuyuhua");
 
 		System.out.println("atomic:" + atomic);
 	}

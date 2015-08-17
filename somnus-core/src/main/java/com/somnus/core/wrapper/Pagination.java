@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  * 封装页码
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class Pagination<T> implements Serializable {

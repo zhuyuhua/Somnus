@@ -12,51 +12,42 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-
-/** 
- * @ClassName:TestProxy 
- * @Desc:TODO
- * @Author:joe
- * @Date:2014-1-21 下午3:06:43 
- * @Since:V 1.0 
+/**
+ * @author zhuyuhua
+ * @version 0.0.1
  */
-public class TestDynamicProxy
-{
+public class TestDynamicProxy {
 	public static void main(String[] args) {
 
-		IBookFacade facade = (IBookFacade) new BookFacadeProxy()
-				.bind(new BookFacadeImpl());
+		IBookFacade facade = (IBookFacade) new BookFacadeProxy().bind(new BookFacadeImpl());
 		facade.addBook();
 
 	}
 }
 
-interface IBookFacade
-{
+interface IBookFacade {
 	public void addBook();
 }
 
-class BookFacadeImpl implements IBookFacade
-{
+class BookFacadeImpl implements IBookFacade {
+	@Override
 	public void addBook() {
 		System.out.println("增加图书");
 	}
 
 }
 
-class BookFacadeProxy implements InvocationHandler
-{
+class BookFacadeProxy implements InvocationHandler {
 
 	private Object target;
 
 	public Object bind(Object target) {
 		this.target = target;
-		return Proxy.newProxyInstance(target.getClass().getClassLoader(),
-				target.getClass().getInterfaces(), this);
+		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
 	}
 
-	public Object invoke(Object proxy, Method method, Object[] args)
-			throws Throwable {
+	@Override
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		Object result = null;
 		System.out.println("事物开始");
 		// 执行方法

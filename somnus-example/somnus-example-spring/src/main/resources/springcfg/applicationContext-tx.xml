@@ -30,12 +30,12 @@
 		<!-- 此属性指定目标类本省是否是代理的对象，如果目标类没有实现任何类，就设为true代表自己 -->
 <!-- 		<property name="proxyTargetClass" value="false" /> -->
 		
-		<property name="proxyInterfaces" value="com.zhuyuhua.myspring.dao.UserDAO" />
+		<property name="proxyInterfaces" value="com.somnus.example.spring.dao.UserDAO" />
 		
 		<!-- 目标bean -->
 <!-- 		<property name="target" ref="userDAO" /> -->
 		<property name="target">
-			<bean class="com.zhuyuhua.myspring.dao.impl.UserDAOImpl">
+			<bean class="com.somnus.example.spring.dao.impl.UserDAOImpl">
 				<property name="sessionFactory" ref="sessionFactory"/>
 			</bean>
 		</property>

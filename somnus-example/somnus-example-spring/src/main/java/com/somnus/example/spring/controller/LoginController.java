@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
 package com.somnus.example.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,15 +32,14 @@ import com.somnus.example.spring.service.UserService;
 @Controller
 public class LoginController {
 
-	private static final Logger logger = LogManager
-			.getLogger(LoginController.class);
+	private static final Logger logger = LogManager.getLogger(LoginController.class);
 
 	@Autowired
 	private UserService userService;
 
 	@RequestMapping(value = "/login")
-	public ModelAndView login(HttpServletRequest request,
-			HttpServletResponse response, LoginForm command) throws Exception {
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response, LoginForm command)
+			throws Exception {
 		logger.debug(command);
 		String username = command.getUsername();
 

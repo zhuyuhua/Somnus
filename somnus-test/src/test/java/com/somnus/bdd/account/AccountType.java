@@ -18,7 +18,7 @@ package com.somnus.bdd.account;
 /**
  * TODO
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年3月2日 上午11:26:12
  * @version 0.0.1
  */

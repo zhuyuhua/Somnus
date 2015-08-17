@@ -16,7 +16,7 @@ allprojects {
 	apply plugin: 	'eclipse' 
 	apply plugin: 	'jetty'
 	
-	apply plugin:	'checkstyle'
+	//apply plugin:	'checkstyle'
 	
 
     sourceCompatibility = '1.7'

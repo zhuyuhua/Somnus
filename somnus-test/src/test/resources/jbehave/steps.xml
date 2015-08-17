@@ -5,9 +5,9 @@
            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
 
-  <bean class="com.somnus.jbehave.core.steps.BeforeAfterSteps" />
+  <bean class="com.somnus.bdd.jbehave.core.steps.BeforeAfterSteps" />
   
-  <bean class="com.somnus.jbehave.steps.BankAccountSteps" />
+  <bean class="com.somnus.bdd.jbehave.steps.BankAccountSteps" />
 <!-- 
   <bean class="org.jbehave.examples.core.steps.AndSteps" />
 

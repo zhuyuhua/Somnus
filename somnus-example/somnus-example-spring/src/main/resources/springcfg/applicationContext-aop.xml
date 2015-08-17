@@ -35,16 +35,16 @@
 	<!-- ==============================方式一：AOP接口================================ -->
 	<!-- ==============================利用spring自己的aop配置======================== -->
 	<!-- 业务类 -->
-	<bean id="baseBusiness" class="com.zhuyuhua.myspring.aop.business.BaseBusiness"/>
+	<bean id="baseBusiness" class="com.somnus.example.spring.aop.business.BaseBusiness"/>
 	
 	<!-- 声明通知类 -->
-	<bean id="baseBeforeAdvice" class="com.zhuyuhua.myspring.aop.advice.BaseBeforeAdvice"/>
-	<bean id="baseAfterReturnAdvice" class="com.zhuyuhua.myspring.aop.advice.BaseAfterReturnAdvice"/>
-	<bean id="baseAfterThrowsAdvice" class="com.zhuyuhua.myspring.aop.advice.BaseAfterThrowsAdvice"/>
-	<bean id="baseAroundAdvice" class="com.zhuyuhua.myspring.aop.advice.BaseAroundAdvice"/>
+	<bean id="baseBeforeAdvice" class="com.somnus.example.spring.aop.advice.BaseBeforeAdvice"/>
+	<bean id="baseAfterReturnAdvice" class="com.somnus.example.spring.aop.advice.BaseAfterReturnAdvice"/>
+	<bean id="baseAfterThrowsAdvice" class="com.somnus.example.spring.aop.advice.BaseAfterThrowsAdvice"/>
+	<bean id="baseAroundAdvice" class="com.somnus.example.spring.aop.advice.BaseAroundAdvice"/>
 	
 	<!-- 指定切点匹配类 -->
-	<bean id="pointcut" class="com.zhuyuhua.myspring.aop.pointcut.Pointcut" />
+	<bean id="pointcut" class="com.somnus.example.spring.aop.pointcut.Pointcut" />
 	
 	<!-- 包装通知，指定切点 -->
 	<bean id="matchBeforeAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
@@ -56,7 +56,7 @@
 	<bean id="businessProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 	
 		<!-- 代理对象所实现的接口，如果有接口可以这样设置 -->
-		<property name="proxyInterfaces" value="com.zhuyuhua.myspring.aop.business.IBaseBusiness" />
+		<property name="proxyInterfaces" value="com.somnus.example.spring.aop.business.IBaseBusiness" />
 		
 		<!-- 设置目标对象 -->
 		<property name="target" ref="baseBusiness" />
@@ -78,15 +78,15 @@
 	<!-- ==============================利用spring 利用aspectj来配置AOP================================ -->
 
     <!-- 声明一个业务类 -->
-    <bean id="aspectBusiness" class="com.zhuyuhua.myspring.aop.business.aspect.AspectBusiness" />
+    <bean id="aspectBusiness" class="com.somnus.example.spring.aop.business.aspect.AspectBusiness" />
 
     <!-- 声明通知类 -->
-    <bean id="aspectAdvice" class="com.zhuyuhua.myspring.aop.advice.aspect.AspectAdvice" />
+    <bean id="aspectAdvice" class="com.somnus.example.spring.aop.advice.aspect.AspectAdvice" />
 
     <aop:config>
         <aop:aspect id="businessAspect" ref="aspectAdvice">
             <!-- 配置指定切入的对象 -->
-            <aop:pointcut id="point_cut" expression="execution(* com.zhuyuhua.myspring.aop.business.aspect.AspectBusiness.*(..))" />
+            <aop:pointcut id="point_cut" expression="execution(* com.somnus.example.spring.aop.business.aspect.AspectBusiness.*(..))" />
             
             <!-- 只匹配add方法作为切入点
             <aop:pointcut id="except_add" expression="execution(* aop.schema.*.add(..))" />
@@ -106,8 +106,8 @@
     <!-- **************************************方式三：aspectj注解****************************************************** -->
     <!-- 打开aop 注解 -->
     <aop:aspectj-autoproxy />
-    <context:component-scan base-package="com.zhuyuhua.myspring.aop.business.annotation" />
-    <context:component-scan base-package="com.zhuyuhua.myspring.aop.advice.annotation" />
+    <context:component-scan base-package="com.somnus.example.spring.aop.business.annotation" />
+    <context:component-scan base-package="com.somnus.example.spring.aop.advice.annotation" />
 	
 	
 	

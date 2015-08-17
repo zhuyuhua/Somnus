@@ -48,7 +48,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 单个Story执行的核心类，所有单个Story执行必须继承这个,所有的Story名字是当前Story的名字，并且位置是在当前目录下。
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年3月4日 下午5:36:18
  * @version 0.0.1
  */

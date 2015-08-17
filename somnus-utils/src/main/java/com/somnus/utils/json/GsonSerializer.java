@@ -17,9 +17,10 @@ package com.somnus.utils.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.somnus.utils.serializer.ObjectSerializer;
 
 /**
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年7月5日 下午10:27:11
  * @version 0.0.1
  */

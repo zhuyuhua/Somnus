@@ -3,6 +3,10 @@ package com.somnus.example.spring.threadlocal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author zhuyuhua
+ * @version 0.0.1
+ */
 public class TestThreadLocal {
 
 	public static void main(String[] args) {
@@ -55,8 +59,7 @@ class TimeConsumer {
 
 	@Override
 	public String toString() {
-		StringBuffer br = new StringBuffer("操作[" + name + "]共有"
-				+ (steps.size() - 1) + "步\n");
+		StringBuffer br = new StringBuffer("操作[" + name + "]共有" + (steps.size() - 1) + "步\n");
 		for (int i = 1; i < steps.size(); i++) {
 			br.append("\t|--耗时[" + (steps.get(i) - steps.get(0)) + "ms]\n");
 		}

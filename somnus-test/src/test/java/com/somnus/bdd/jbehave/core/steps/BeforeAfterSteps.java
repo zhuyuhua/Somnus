@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Stories/Stroy/Scenario 执行前后的打印日志
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年3月4日 下午5:07:23
  * @version 0.0.1
  */

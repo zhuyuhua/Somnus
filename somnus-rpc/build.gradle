@@ -25,3 +25,18 @@ idea.module.iml{
         module.dependencies*.exported = true
     }
 }
+
+//源码结构
+	sourceSets {
+		main {
+			java {
+				//srcDir 'src/main/java'
+				srcDir 'src/main/server'
+				srcDir 'src/main/client'
+				srcDir 'src/main/protocol'
+			}
+			resources {
+				srcDir 'src/main/resources'
+			}
+		}
+	}

@@ -1,11 +1,18 @@
-/**
- * @Project:myspring
- * @Package:com.zhuyuhua.myspring.reflect 
- * @FileName:ReflectionTest.java 
- * @Date:2014-2-12 下午2:50:38 
- * @Version V1.0.0
- * Copyright(c)ShenZhen Expressway Engineering Consultants Co.,Ltd 
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
  */
+
 package com.somnus.example.spring.reflect;
 
 import java.lang.reflect.Array;
@@ -14,16 +21,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-public class ReflectionTest
-{
+public class ReflectionTest {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
 
-		args = new String[] { "com.zhuyuhua.myspring.reflect.TestArguments",
-				"2" };
+		args = new String[] { "com.zhuyuhua.myspring.reflect.TestArguments", "2" };
 
 		String str = "abc";
 		Class c1 = str.getClass();
@@ -44,13 +49,11 @@ public class ReflectionTest
 		// -------------- 构造方法的反射
 		System.out.println("==============Constructor==============");
 		// 1，获取构造器
-		Constructor<String> constructor1 = String.class
-				.getConstructor(StringBuffer.class);
+		Constructor<String> constructor1 = String.class.getConstructor(StringBuffer.class);
 		// 2，使用Constructor的有参newInstance(obj) 方法创建对象,该参数是一个对象
 		String str2 = constructor1.newInstance(new StringBuffer("abc"));
 		System.out.println("str2=" + str2);
 		System.out.println(str2.charAt(1));
-
 
 		// -------------- Field 类的反射
 		System.out.println("==============Field==============");
@@ -81,13 +84,11 @@ public class ReflectionTest
 		TestArguments.main(new String[] { "aaa", "bbb", "ccc" });
 		// (2)反射方式
 		String startingClassName = "com.zhuyuhua.myspring.reflect.TestArguments";
-		Method mainMethod = Class.forName(startingClassName).getMethod("main",
-				String[].class);
+		Method mainMethod = Class.forName(startingClassName).getMethod("main", String[].class);
 
 		// jdk1.4遗留的兼容性问题：数组中每个元素分别对应被调用方法中的一个参数,所以会抛出参数个数异常
 		// 解决方法：将该数组封装进一个Object对象
-		mainMethod.invoke(null, new Object[] { new String[] { "aaa", "bbb",
-				"ccc" } });// 相当于包一层皮
+		mainMethod.invoke(null, new Object[] { new String[] { "aaa", "bbb", "ccc" } });// 相当于包一层皮
 		mainMethod.invoke(null, (Object) new String[] { "xxx", "ooo", "yyy" });// 相当于声明不让编译器拆包
 
 		// 数组的反射
@@ -128,8 +129,7 @@ public class ReflectionTest
 			for (int x = 0; x < Array.getLength(obj); x++) {
 				System.out.println(Array.get(obj, x));
 			}
-		}
-		else { // 不是数组直接打印
+		} else { // 不是数组直接打印
 			System.out.println(obj);
 		}
 
@@ -143,8 +143,7 @@ public class ReflectionTest
 			if (field.getType() == String.class) { // 判断String字段
 				String oldValue = (String) field.get(obj); // 获取对应的值
 				String newValue = oldValue.replace('6', 'd');// String类操作
-				System.out.println("oldValue=" + oldValue + ",newValue="
-						+ newValue);
+				System.out.println("oldValue=" + oldValue + ",newValue=" + newValue);
 				field.set(obj, newValue); // 将指定对象变量上此 Field 对象表示的字段设置为指定的新值。
 			}
 		}
@@ -152,15 +151,13 @@ public class ReflectionTest
 }
 
 // 打印参数
-class TestArguments
-{
+class TestArguments {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(args));
 	}
 }
 
-class ReflectPoint
-{
+class ReflectPoint {
 	public String x;
 	public String y;
 

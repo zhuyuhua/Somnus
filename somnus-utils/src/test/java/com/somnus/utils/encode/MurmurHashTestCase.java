@@ -31,7 +31,7 @@ import com.somnus.utils.bt.ByteUtil;
 /**
  * TODO
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @version 0.0.1
  */
 public class MurmurHashTestCase {

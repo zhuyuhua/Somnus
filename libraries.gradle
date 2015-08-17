@@ -267,6 +267,7 @@ ext {
 		
 		//
 		jenkins:					'nl.tudelft:jenkins-ws-client:0.14-SNAPSHOT',
+									
 		jenkins_ci:					'com.github.danielpacak.jenkins.ci:jenkins.ci.core:1.0.0-rc4',
 		
 		sonar_jira:					'org.codehaus.sonar-plugins:sonar-jira-plugin:1.2',

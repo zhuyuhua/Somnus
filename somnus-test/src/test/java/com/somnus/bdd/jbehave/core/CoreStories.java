@@ -55,7 +55,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 公共核心Story运行示例，其他Stories必须继承这个类
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年3月4日 下午5:16:50
  * @version 0.0.1
  */

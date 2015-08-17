@@ -1,11 +1,18 @@
-/**
- * @Project:myspring
- * @Package:com.zhuyuhua.myspring.interceptor 
- * @FileName:SpringMVCInterceptor.java 
- * @Date:2014-2-18 下午4:10:04 
- * @Version V1.0.0
- * Copyright(c)ShenZhen Expressway Engineering Consultants Co.,Ltd 
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
  */
+
 package com.somnus.example.spring.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,20 +24,15 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @ClassName:SpringMVCHandlerInterceptor
- * @Desc:TODO
- * @Author:joe
- * @Date:2014-2-18 下午4:10:04
- * @Since:V 1.0
+ * @author zhuyuhua
+ * @version 0.0.1
  */
-public class SpringMVCHandlerInterceptor implements HandlerInterceptor
-{
-	/** 
+public class SpringMVCHandlerInterceptor implements HandlerInterceptor {
+	/**
 	 * @Fileds:日志记录
 	 * 
 	 */
-	private static final Logger logger = LogManager
-			.getLogger(SpringMVCHandlerInterceptor.class);
+	private static final Logger logger = LogManager.getLogger(SpringMVCHandlerInterceptor.class);
 
 	/**
 	 * preHandle方法是进行处理器拦截用的，顾名思义，该方法将在Controller处理之前进行调用，
@@ -39,8 +41,9 @@ public class SpringMVCHandlerInterceptor implements HandlerInterceptor
 	 * Controller方法调用之前调用。 SpringMVC的这种Interceptor链式结构也是可以进行中断的
 	 * ，这种中断方式是令preHandle的返 回值为false，当preHandle的返回值为false的时候整个请求就结束了。
 	 */
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 		logger.debug("preHandle");
 		return true;
 	}
@@ -57,8 +60,8 @@ public class SpringMVCHandlerInterceptor implements HandlerInterceptor
 	 * 或者是调用action，然后要在Interceptor之前调用的内容都写在调用invoke之前，
 	 * 要在Interceptor之后调用的内容都写在调用invoke方法之后。
 	 */
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler,
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		logger.debug("postHandle");
 	}
@@ -68,8 +71,8 @@ public class SpringMVCHandlerInterceptor implements HandlerInterceptor
 	 * 该方法将在整个请求完成之后，也就是DispatcherServlet渲染了视图执行，
 	 * 这个方法的主要作用是用于清理资源的，当然这个方法也只能在当前这个Interceptor的preHandle方法的返回值为true时才会执行。
 	 */
-	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		logger.debug("afterCompletion");
 	}

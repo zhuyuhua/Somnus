@@ -1,22 +1,26 @@
-/**
- * @Project:myspring
- * @Package:com.zhuyuhua.myspring.aop.aspectj 
- * @FileName:AspectAdvice.java 
- * @Date:2014-1-24 上午11:23:10 
- * @Version V1.0.0
- * Copyright(c)ShenZhen Expressway Engineering Consultants Co.,Ltd 
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
  */
+
 package com.somnus.example.spring.aop.advice.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
- * @ClassName:AspectAdvice
- * @Desc:定义一个切面
- * @Author:joe
- * @Date:2014-1-24 上午11:23:10
- * @Since:V 1.0
+ * @author zhuyuhua
+ * @version 0.0.1
  */
 public class AspectAdvice {
 	/**
@@ -73,8 +77,7 @@ public class AspectAdvice {
 		// 执行完方法的返回值：调用proceed()方法，就会触发切入点方法执行
 		Object result = pjp.proceed();
 
-		System.out.println("输出：" + args[0] + ";" + method + ";" + target + ";"
-				+ result + "\n");
+		System.out.println("输出：" + args[0] + ";" + method + ";" + target + ";" + result + "\n");
 		System.out.println("调用方法结束：之后执行！\n");
 	}
 

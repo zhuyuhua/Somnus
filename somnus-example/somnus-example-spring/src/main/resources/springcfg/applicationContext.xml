@@ -23,20 +23,20 @@
 	<import resource="classpath:/springcfg/applicationContext-jdbc.xml"/>
 	<import resource="classpath:/springcfg/applicationContext-tx.xml"/>
 	
-	<bean id="loginS" class="com.zhuyuhua.myspring.service.LoginService" name="LoginName,Login1,Login2" >
+	<bean id="loginS" class="com.somnus.example.spring.service.LoginService" name="LoginName,Login1,Login2" >
 		<property name="userService" ref="userService">
 		</property>
 	</bean>
 	
-	<bean id="userService" class="com.zhuyuhua.myspring.service.impl.UserServiceImpl">
+	<bean id="userService" class="com.somnus.example.spring.service.impl.UserServiceImpl">
 		<property name="userDAO" ref="userDAO" />
 		<property name="logInfoDAO" ref="logInfoDAO" />
 	</bean>
 	
-	<bean id="userDAO" class="com.zhuyuhua.myspring.dao.impl.UserDAOImpl">
+	<bean id="userDAO" class="com.somnus.example.spring.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-	<bean id="logInfoDAO" class="com.zhuyuhua.myspring.dao.impl.LogInfoDAOImpl">
+	<bean id="logInfoDAO" class="com.somnus.example.spring.dao.impl.LogInfoDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

@@ -23,7 +23,7 @@ import com.somnus.bdd.account.AccountType;
 /**
  * TODO
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年2月27日 下午5:33:24
  * @version 0.0.1
  */

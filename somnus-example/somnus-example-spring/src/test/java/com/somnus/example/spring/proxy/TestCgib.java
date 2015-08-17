@@ -14,15 +14,11 @@ import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
-/** 
- * @ClassName:TestCgib 
- * @Desc:TODO
- * @Author:joe
- * @Date:2014-2-14 下午3:06:20 
- * @Since:V 1.0 
+/**
+ * @author zhuyuhua
+ * @version 0.0.1
  */
-public class TestCgib
-{
+public class TestCgib {
 	public static void main(String[] args) {
 		BookFacadeCglib cglib = new BookFacadeCglib();
 		BookFacade book = (BookFacade) cglib.getInstance(new BookFacade());
@@ -30,16 +26,14 @@ public class TestCgib
 	}
 }
 
-class BookFacade
-{
+class BookFacade {
 	public String addBook() {
 		System.out.println("增加图书的方法...");
 		return "11";
 	}
 }
 
-class BookFacadeCglib implements MethodInterceptor
-{
+class BookFacadeCglib implements MethodInterceptor {
 	private Object target;
 
 	public Object getInstance(Object target) {
@@ -54,8 +48,8 @@ class BookFacadeCglib implements MethodInterceptor
 
 	}
 
-	public Object intercept(Object obj, Method method, Object[] args,
-			MethodProxy proxy) throws Throwable {
+	@Override
+	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 
 		System.out.println("事务开始");
 		Object val = proxy.invokeSuper(obj, args);

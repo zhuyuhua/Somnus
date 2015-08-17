@@ -20,7 +20,7 @@ import java.util.UUID;
 /**
  * TODO
  * 
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年2月25日 下午5:42:36
  * @version 0.0.1
  */

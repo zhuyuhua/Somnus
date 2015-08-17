@@ -24,7 +24,7 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.GsonBuilder;
 
 /**
- * @author:zhuyuhua
+ * @author zhuyuhua
  * @date:2015年7月5日 下午10:27:11
  * @version 0.0.1
  */
