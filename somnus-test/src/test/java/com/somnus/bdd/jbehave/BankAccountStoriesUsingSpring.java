@@ -32,7 +32,6 @@ import com.somnus.bdd.jbehave.core.CoreStories;
  * 使用Spring来运行核心Story
  * 
  * @author zhuyuhua
- * @date:2015年3月4日 下午5:24:09
  * @version 0.0.1
  */
 public class BankAccountStoriesUsingSpring extends CoreStories {

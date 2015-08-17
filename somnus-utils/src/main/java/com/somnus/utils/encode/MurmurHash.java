@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
  * 官方网站：https://sites.google.com/site/murmurhash/
  * 
  * @author zhuyuhua
- * @date:2015年7月5日 下午8:42:34
  * @version 0.0.1
  */
 public class MurmurHash {
