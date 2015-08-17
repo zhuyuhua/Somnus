@@ -19,7 +19,6 @@ package com.somnus.common.enums;
  * TODO
  * 
  * @author zhuyuhua
- * @date:2015年7月5日 下午8:45:51
  * @version 0.0.1
  */
 public enum MIMEType {

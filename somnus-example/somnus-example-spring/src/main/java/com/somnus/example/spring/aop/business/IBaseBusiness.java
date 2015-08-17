@@ -24,7 +24,7 @@ public interface IBaseBusiness {
 	 * 用作代理的切入点方法
 	 * 
 	 * @param obj
-	 * @return
+	 * @return String
 	 */
 	public String delete(String obj);
 
@@ -32,7 +32,7 @@ public interface IBaseBusiness {
 	 * 这方法不被切面切
 	 * 
 	 * @param obj
-	 * @return
+	 * @return String
 	 */
 	public String add(String obj);
 
@@ -40,7 +40,7 @@ public interface IBaseBusiness {
 	 * 这方法切不切呢？可以设置
 	 * 
 	 * @param obj
-	 * @return
+	 * @return String
 	 */
 	public String modify(String obj);
 }

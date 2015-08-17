@@ -117,8 +117,8 @@ public class ReplaceFileUtil {
 	public static void main(String[] args) throws IOException {
 		File file = new File(CLASS_PATH);
 
-		replace(file, "@author zhuyuhua", "@author zhuyuhua");
-		// printlnFile(file, "@author zhuyuhua");
+		// replace(file, "@author zhuyuhua", "@author zhuyuhua");
+		printlnFile(file, "@date:");
 
 		System.out.println("atomic:" + atomic);
 	}
