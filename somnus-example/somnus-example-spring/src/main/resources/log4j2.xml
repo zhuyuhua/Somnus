@@ -41,7 +41,7 @@
   </appenders>  
   
   <loggers> 
-   	<Logger name="com.zhuyuhua.myspring.controller" level="warn">
+   	<Logger name="com.zhuyuhua.myspring.controller" level="debug">
       	<AppenderRef ref="Console"/>
     </Logger>
   	

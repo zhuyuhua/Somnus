@@ -21,7 +21,6 @@ import java.util.UUID;
  * TODO
  * 
  * @author zhuyuhua
- * @date:2015年2月25日 下午5:42:36
  * @version 0.0.1
  */
 public class Account {
@@ -80,8 +79,8 @@ public class Account {
 	 * 
 	 * @param type
 	 * @return Object
-	 * @exception
-	 * @since 0.0.1
+	 * @exception @since
+	 *                0.0.1
 	 */
 	public static Account ofType(AccountType type) {
 		return new Account(type);
@@ -92,8 +91,8 @@ public class Account {
 	 * 
 	 * @param amount2
 	 * @return Account
-	 * @exception
-	 * @since 0.0.1
+	 * @exception @since
+	 *                0.0.1
 	 */
 	public Account withInitalBalance(int amount) {
 		this.amount = amount;

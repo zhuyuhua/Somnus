@@ -24,12 +24,10 @@ import cucumber.api.junit.Cucumber;
  * TODO
  * 
  * @author zhuyuhua
- * @date:2015年2月26日 下午3:52:13
  * @version 0.0.1
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "html:target/cucumber-html-report",
-		"json:target/cucumber-json-report.json",
+@CucumberOptions(plugin = { "html:target/cucumber-html-report", "json:target/cucumber-json-report.json",
 		"junit:target/cucumber-junit-report.xml" }, features = { "classpath:features/account/create.feature" })
 public class BankAccountCreateTest {
 

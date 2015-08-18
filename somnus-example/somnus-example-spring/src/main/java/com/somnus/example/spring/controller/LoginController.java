@@ -57,5 +57,9 @@ public class LoginController {
 	public void show() {
 		System.out.println("-----show----");
 	}
+	
+	public static void main(String[] args) {
+		logger.debug("aaa");
+	}
 
 }

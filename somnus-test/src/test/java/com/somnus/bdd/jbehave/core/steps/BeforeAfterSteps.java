@@ -33,13 +33,11 @@ import org.slf4j.LoggerFactory;
  * Stories/Stroy/Scenario 执行前后的打印日志
  * 
  * @author zhuyuhua
- * @date:2015年3月4日 下午5:07:23
  * @version 0.0.1
  */
 public class BeforeAfterSteps {
 
-	private static Logger logger = LoggerFactory
-			.getLogger(BeforeAfterSteps.class);
+	private static Logger logger = LoggerFactory.getLogger(BeforeAfterSteps.class);
 
 	@BeforeStories
 	public void beforeStories() {
@@ -99,11 +97,9 @@ public class BeforeAfterSteps {
 	}
 
 	@AfterScenario(uponType = ScenarioType.NORMAL)
-	public void afterScenario(@Named("variant") String variant,
-			@Named("theme") String theme) {
+	public void afterScenario(@Named("variant") String variant, @Named("theme") String theme) {
 		if (variant.length() > 0 && theme.length() > 0) {
-			logger.debug("After Normal Scenario with variant '" + variant
-					+ "' and theme '" + theme + "'.");
+			logger.debug("After Normal Scenario with variant '" + variant + "' and theme '" + theme + "'.");
 		} else {
 			logger.debug("After Normal Scenario with any outcome ...");
 		}

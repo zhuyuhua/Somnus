@@ -35,7 +35,6 @@ import org.slf4j.LoggerFactory;
  * 针对JavaBean Class的工具类。
  * 
  * @author zhuyuhua
- * @date:2015年7月5日 下午10:31:28
  * @version 0.0.1
  */
 public class BeanClassUtils {

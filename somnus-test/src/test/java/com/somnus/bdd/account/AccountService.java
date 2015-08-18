@@ -23,12 +23,10 @@ import org.springframework.stereotype.Service;
  * TODO
  * 
  * @author zhuyuhua
- * @date:2015年3月11日 下午5:00:44
  * @version 0.0.1
  */
 @Service("accountService")
 public class AccountService {
 
-	private static Logger logger = LoggerFactory
-			.getLogger(AccountService.class);
+	private static Logger logger = LoggerFactory.getLogger(AccountService.class);
 }

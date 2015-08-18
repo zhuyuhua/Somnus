@@ -56,7 +56,6 @@ import org.slf4j.LoggerFactory;
  * 公共核心Story运行示例，其他Stories必须继承这个类
  * 
  * @author zhuyuhua
- * @date:2015年3月4日 下午5:16:50
  * @version 0.0.1
  */
 public class CoreStories extends JUnitStories {
@@ -67,17 +66,12 @@ public class CoreStories extends JUnitStories {
 	private Context context = new Context();
 	private Format contextFormat = new ContextOutput(context);
 	private ContextView contextView = new JFrameContextView().sized(640, 120);
-	private ContextStepMonitor contextStepMonitor = new ContextStepMonitor(
-			context, contextView, xref.getStepMonitor());
+	private ContextStepMonitor contextStepMonitor = new ContextStepMonitor(context, contextView, xref.getStepMonitor());
 
 	public CoreStories() {
-		configuredEmbedder().embedderControls()
-				.doGenerateViewAfterStories(true)
-				.doIgnoreFailureInStories(false).doIgnoreFailureInView(true)
-				.doVerboseFailures(true).useThreads(2)
-				.useStoryTimeoutInSecs(60);
-		configuredEmbedder().useEmbedderControls(
-				new PropertyBasedEmbedderControls());
+		configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
+				.doIgnoreFailureInView(true).doVerboseFailures(true).useThreads(2).useStoryTimeoutInSecs(60);
+		configuredEmbedder().useEmbedderControls(new PropertyBasedEmbedderControls());
 
 	}
 
@@ -96,43 +90,31 @@ public class CoreStories extends JUnitStories {
 		ParameterConverters parameterConverters = new ParameterConverters();
 		// factory to allow parameter conversion and loading from external
 		// resources (used by StoryParser too)
-		ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(
-				new LocalizedKeywords(),
-				new LoadFromClasspath(embeddableClass), parameterConverters,
-				new TableTransformers());
+		ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(),
+				new LoadFromClasspath(embeddableClass), parameterConverters, new TableTransformers());
 		// add custom converters
-		parameterConverters.addConverters(new DateConverter(
-				new SimpleDateFormat("yyyy-MM-dd")),
+		parameterConverters.addConverters(new DateConverter(new SimpleDateFormat("yyyy-MM-dd")),
 				new ExamplesTableConverter(examplesTableFactory));
 		return new MostUsefulConfiguration()
-				.useStoryLoader(new LoadFromClasspath(embeddableClass))
+				.useStoryLoader(
+						new LoadFromClasspath(
+								embeddableClass))
 				.useStoryParser(new RegexStoryParser(examplesTableFactory))
-				.useStoryReporterBuilder(
-						new StoryReporterBuilder()
-								.withCodeLocation(
-										CodeLocations
-												.codeLocationFromClass(embeddableClass))
-								.withDefaultFormats()
-								.withViewResources(viewResources)
-								.withFormats(contextFormat, CONSOLE, TXT,
-										HTML_TEMPLATE, XML_TEMPLATE)
-								.withFailureTrace(true)
-								.withFailureTraceCompression(true)
-								.withCrossReference(xref))
+				.useStoryReporterBuilder(new StoryReporterBuilder()
+						.withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass)).withDefaultFormats()
+						.withViewResources(viewResources)
+						.withFormats(contextFormat, CONSOLE, TXT, HTML_TEMPLATE, XML_TEMPLATE).withFailureTrace(true)
+						.withFailureTraceCompression(true).withCrossReference(xref))
 				.useParameterConverters(parameterConverters)
 				// 使用 '%' 代替 '$' 来标示参数
-				.useStepPatternParser(
-						new RegexPrefixCapturingPatternParser("%"))
-				.useStepMonitor(contextStepMonitor);
+				.useStepPatternParser(new RegexPrefixCapturingPatternParser("%")).useStepMonitor(contextStepMonitor);
 	}
 
 	@Override
 	protected List<String> storyPaths() {
 
 		String filter = System.getProperty("story.filter", "**/*.story");
-		return new StoryFinder().findPaths(
-				codeLocationFromClass(this.getClass()), filter,
-				"**/failing_before*.story");
+		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), filter, "**/failing_before*.story");
 	}
 
 }

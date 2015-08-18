@@ -21,7 +21,6 @@ import com.somnus.utils.serializer.ObjectSerializer;
 
 /**
  * @author zhuyuhua
- * @date:2015年7月5日 下午10:27:11
  * @version 0.0.1
  */
 public class GsonSerializer implements ObjectSerializer {

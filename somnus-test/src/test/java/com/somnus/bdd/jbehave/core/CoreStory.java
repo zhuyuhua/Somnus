@@ -49,7 +49,6 @@ import org.slf4j.LoggerFactory;
  * 单个Story执行的核心类，所有单个Story执行必须继承这个,所有的Story名字是当前Story的名字，并且位置是在当前目录下。
  * 
  * @author zhuyuhua
- * @date:2015年3月4日 下午5:36:18
  * @version 0.0.1
  */
 public abstract class CoreStory extends JUnitStory {
@@ -59,10 +58,8 @@ public abstract class CoreStory extends JUnitStory {
 	private final CrossReference xref = new CrossReference();
 
 	public CoreStory() {
-		configuredEmbedder().embedderControls()
-				.doGenerateViewAfterStories(true)
-				.doIgnoreFailureInStories(false).doIgnoreFailureInView(true)
-				.useThreads(1).useStoryTimeoutInSecs(60);
+		configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
+				.doIgnoreFailureInView(true).useThreads(1).useStoryTimeoutInSecs(60);
 	}
 
 	@Override
@@ -74,38 +71,27 @@ public abstract class CoreStory extends JUnitStory {
 		ParameterConverters parameterConverters = new ParameterConverters();
 		// factory to allow parameter conversion and loading from external
 		// resources (used by StoryParser too)
-		ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(
-				new LocalizedKeywords(),
-				new LoadFromClasspath(embeddableClass), parameterConverters,
-				new TableTransformers());
+		ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(),
+				new LoadFromClasspath(embeddableClass), parameterConverters, new TableTransformers());
 		// add custom converters
-		parameterConverters.addConverters(new DateConverter(
-				new SimpleDateFormat("yyyy-MM-dd")),
+		parameterConverters.addConverters(new DateConverter(new SimpleDateFormat("yyyy-MM-dd")),
 				new ExamplesTableConverter(examplesTableFactory));
 
 		return new MostUsefulConfiguration()
-				.useStoryControls(
-						new StoryControls().doDryRun(false)
-								.doSkipScenariosAfterFailure(false))
-				.useStoryLoader(new LoadFromClasspath(embeddableClass))
-				.useStoryParser(new RegexStoryParser(examplesTableFactory))
+				.useStoryControls(new StoryControls().doDryRun(false).doSkipScenariosAfterFailure(false))
+				.useStoryLoader(
+						new LoadFromClasspath(embeddableClass))
+				.useStoryParser(
+						new RegexStoryParser(
+								examplesTableFactory))
 				.useStoryPathResolver(new UnderscoredCamelCaseResolver())
-				.useStoryReporterBuilder(
-						new StoryReporterBuilder()
-								.withCodeLocation(
-										CodeLocations
-												.codeLocationFromClass(embeddableClass))
-								.withDefaultFormats()
-								.withPathResolver(new ResolveToPackagedName())
-								.withViewResources(viewResources)
-								.withFormats(CONSOLE, TXT, HTML, XML)
-								.withFailureTrace(true)
-								.withFailureTraceCompression(true)
-								.withCrossReference(xref))
+				.useStoryReporterBuilder(new StoryReporterBuilder()
+						.withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass)).withDefaultFormats()
+						.withPathResolver(new ResolveToPackagedName()).withViewResources(viewResources)
+						.withFormats(CONSOLE, TXT, HTML, XML).withFailureTrace(true).withFailureTraceCompression(true)
+						.withCrossReference(xref))
 				.useParameterConverters(parameterConverters)
-				.useStepPatternParser(
-						new RegexPrefixCapturingPatternParser("%"))
-				.useStepMonitor(xref.getStepMonitor());
+				.useStepPatternParser(new RegexPrefixCapturingPatternParser("%")).useStepMonitor(xref.getStepMonitor());
 	}
 
 }

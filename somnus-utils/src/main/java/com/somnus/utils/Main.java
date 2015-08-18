@@ -13,28 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.bdd.account;
+package com.somnus.utils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
+ *
  * TODO
- * 
+ *
  * @author zhuyuhua
- * @version 0.0.1
+ * @since 0.0.1
  */
-public enum AccountType {
+public class Main {
 
-	SAVING, SETTLE;
+	private static Logger logger = LoggerFactory.getLogger(Main.class);
 
-	public static AccountType valueOfCode(String code) {
-		if (code == null || code.trim().equals("")) {
-			return null;
-		}
-		for (AccountType type : values()) {
-			if (type.toString().equalsIgnoreCase(code)) {
-				return type;
-			}
-		}
-		return null;
+	/** 
+	 * TODO
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		logger.debug("aaa");
 	}
 
 }

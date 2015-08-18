@@ -41,7 +41,6 @@ import com.google.common.base.Optional;
  * TODO
  * 
  * @author zhuyuhua
- * @date:2015年7月5日 下午8:54:23
  * @version 0.0.1
  */
 public class DateTimeUtil {
