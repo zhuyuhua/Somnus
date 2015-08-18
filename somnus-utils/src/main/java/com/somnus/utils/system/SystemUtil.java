@@ -20,6 +20,9 @@ public class SystemUtil {
 	private static Logger logger = LoggerFactory.getLogger(SystemUtil.class);
 
 	private static Properties props = System.getProperties(); // 系统属性
+<<<<<<< HEAD
+
+=======
 	
 	/**
 	 * 
@@ -30,6 +33,7 @@ public class SystemUtil {
 		return  props.getProperty("user.dir");
 		
 	}
+>>>>>>> b820fc1484f57511b5e60c32ad7d31007a71d047
 	public static void main(String[] args) {
 
 		
@@ -92,5 +96,9 @@ public class SystemUtil {
 		System.out.println("用户的当前工作目录：" + props.getProperty("user.dir"));
 
 		System.out.println("用户的当前工作目录：" + System.getProperty("user.dir"));
+	}
+
+	public static String getUserDir() {
+		return props.getProperty("user.dir");
 	}
 }
