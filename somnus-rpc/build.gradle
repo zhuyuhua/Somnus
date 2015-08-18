@@ -9,10 +9,7 @@ jar {
 }
 
 dependencies {
-<<<<<<< HEAD
-=======
 
->>>>>>> b820fc1484f57511b5e60c32ad7d31007a71d047
 	compile project(':somnus-utils')
 	
 	testCompile libraries.junit
