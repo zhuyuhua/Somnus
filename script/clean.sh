@@ -1,2 +1,3 @@
-alias gradle=/d/java/software/gradle-2.4/bin/gradle
-gradle --parallel --info cleaneclipse
+alias gradle=/d/java/lib/gradle-2.2.1/bin/gradle
+gradle  --parallel clean  -Pprofile=dev
+
