@@ -27,6 +27,7 @@ dependencies {
 	compile libraries.orgjson
 	compile libraries.json_lib
 	compile libraries.joda_time
+	compile libraries.javassist
 	
 	compile libraries.rabbitmq
 	

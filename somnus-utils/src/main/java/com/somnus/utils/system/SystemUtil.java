@@ -19,6 +19,8 @@ public class SystemUtil {
 
 	private static Logger logger = LoggerFactory.getLogger(SystemUtil.class);
 
+	private static Properties props = System.getProperties(); // 系统属性
+
 	public static void main(String[] args) {
 
 		Properties props = System.getProperties(); // 系统属性
@@ -81,5 +83,9 @@ public class SystemUtil {
 		System.out.println("用户的当前工作目录：" + props.getProperty("user.dir"));
 
 		System.out.println("用户的当前工作目录：" + System.getProperty("user.dir"));
+	}
+
+	public static String getUserDir() {
+		return props.getProperty("user.dir");
 	}
 }

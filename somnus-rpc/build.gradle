@@ -9,7 +9,7 @@ jar {
 }
 
 dependencies {
-	//compile project(':icloud-common:framework-config')
+	compile project(':somnus-utils')
 	
 	testCompile libraries.junit
 
@@ -30,7 +30,7 @@ idea.module.iml{
 	sourceSets {
 		main {
 			java {
-				//srcDir 'src/main/java'
+				srcDir 'src/main/java'
 				srcDir 'src/main/server'
 				srcDir 'src/main/client'
 				srcDir 'src/main/protocol'
