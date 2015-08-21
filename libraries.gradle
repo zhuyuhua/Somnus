@@ -25,6 +25,8 @@ ext {
 		activiti_engine:        	'org.activiti:activiti-engine:5.14',
 		activiti_spring:        	'org.activiti:activiti-spring:5.14',
 		
+        antlr:                      'org.antlr:antlr4:4.5.1',
+        
 		// ant	
 		ant:                    	'org.apache.ant:ant:1.9.6',
 		
@@ -74,7 +76,10 @@ ext {
 		commons_jexl:           	'commons-jexl:commons-jexl:20040901.055348',
 		commons_lang:           	'commons-lang:commons-lang:2.6',
 		commons_lang3:          	'org.apache.commons:commons-lang3:3.1',
-		commons_logging:        	'org.gatein.common:commons-logging:2.1.0.Final',
+		//commons_logging:        	'org.gatein.common:commons-logging:2.1.0.Final',
+        commons_logging:            'commons-logging:commons-logging:1.2',
+        
+
 		commons_net:            	'commons-net:commons-net:3.3',
 		commons_pool:           	'commons-pool:commons-pool:1.6',
 		commons_compress:       	'org.apache.commons:commons-compress:1.5',
@@ -132,7 +137,7 @@ ext {
 		/* F */
 	
 		// fastjson	
-		fastjson:               	'com.alibaba:fastjson:1.1.26',
+		fastjson:               	'com.alibaba:fastjson:1.2.6',
 		
 		// allcom's faxapi
 		faxapi:                 	'allcom:faxapi:1.0',
@@ -376,7 +381,9 @@ ext {
 		/* N */
 		//netty
 		netty:						"io.netty:netty-all:5.0.0.Alpha2",
-		
+		netty3:                     'org.jboss.netty:netty:3.1.5.GA',
+
+
 		
 		/* O */
 	

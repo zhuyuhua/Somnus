@@ -26,6 +26,7 @@ dependencies {
 	compile libraries.gson
 	compile libraries.orgjson
 	compile libraries.json_lib
+	compile libraries.fastjson
 	compile libraries.joda_time
 	compile libraries.javassist
 	

@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.rpc.client'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-rpc-client'
+}
+
+dependencies {
+
+	//compile project(':somnus-utils')
+	
+	compile project(':somnus-rpc:somnus-rpc-protocol')
+	compile project(':somnus-rpc:somnus-rpc-serializer')
+	
+	compile project(':somnus-rpc:somnus-rpc-server')
+	
+	testCompile libraries.junit
+	compile libraries.commons_logging
+	
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}
+
+//源码结构
+	sourceSets {
+		main {
+			java {
+				srcDir 'src/main/java'
+			}
+			resources {
+				srcDir 'src/main/resources'
+			}
+		}
+	}

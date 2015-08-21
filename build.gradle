@@ -4,8 +4,6 @@ apply from: 'config.gradle'
 group = 'com.somnus'
 version = '1.0-SNAPSHOT'
 
-def projectName = "somnus"
-
 allprojects {
 
     buildDir = 'target'
