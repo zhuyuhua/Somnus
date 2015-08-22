@@ -535,7 +535,7 @@ ext {
 		/* Z */
 	
 		// zookeeper
-		zookeeper:              	'org.apache.zookeeper:zookeeper:3.4.5',
+		zookeeper:              	'org.apache.zookeeper:zookeeper:3.4.6',
 		
 	
 		// maria jdbc

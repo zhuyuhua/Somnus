@@ -1,3 +1,4 @@
+include 'somnus-conf'
 include 'somnus-common'
 include 'somnus-core'
 include 'somnus-db'

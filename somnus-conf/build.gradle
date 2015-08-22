@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.conf'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-conf'
+}
+
+dependencies {
+
+	testCompile libraries.junit
+	
+	compile libraries.zookeeper
+
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}
