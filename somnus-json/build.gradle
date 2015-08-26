@@ -15,6 +15,9 @@ dependencies {
 	
 	testCompile libraries.junit
 	//compile libraries.commons_logging
+	
+	compile libraries.antlr
+
 	compile libraries.gson
 	compile libraries.orgjson
 	compile libraries.json_lib
