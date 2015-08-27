@@ -14,6 +14,8 @@ dependencies {
 	compile project(':somnus-rpc:somnus-rpc-serializer')
 	//compile project(':somnus-json')
 	
+    compile fileTree(dir: 'lib', include: '*.jar')
+    
 	testCompile libraries.junit
 	compile libraries.commons_logging
 
