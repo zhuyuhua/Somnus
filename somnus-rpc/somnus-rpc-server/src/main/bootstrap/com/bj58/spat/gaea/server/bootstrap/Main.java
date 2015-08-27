@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import sun.misc.Signal;
 
 import com.bj58.spat.gaea.server.bootstrap.signal.OperateSignal;
@@ -91,7 +90,7 @@ public class Main {
 		String serviceFolderPath = rootPath + "service/deploy/" + serviceName;
 		String gaeaConfigDefaultPath = rootPath + "conf/gaea_config.xml";
 		String gaeaConfigPath = serviceFolderPath + "/gaea_config.xml";
-		String log4jConfigDefaultPath = rootPath	 + "conf/gaea_log4j.xml";
+		String log4jConfigDefaultPath = rootPath + "conf/gaea_log4j.xml";
 		String log4jConfigPath = serviceFolderPath + "/gaea_log4j.xml";
 		
 		// load log4j
@@ -363,7 +362,6 @@ public class Main {
 	 */
 	private static void registerExcetEven() {
 		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
 			public void run() {
 				for(IServer server : Global.getSingleton().getServerList()) {
 					try {

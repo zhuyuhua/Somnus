@@ -16,12 +16,15 @@
 package com.bj58.sfft.json;
 
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import jdk.nashorn.internal.parser.JSONParser;
+import com.bj58.sfft.json.tools.mapper.JSONMapper;
 
 /**
  *
@@ -32,8 +35,6 @@ import jdk.nashorn.internal.parser.JSONParser;
  */
 public class JsonHelper {
 
-	private static Logger logger = LoggerFactory.getLogger(JsonHelper.class);
-
 	public static String toJsonExt(Object obj) throws Exception {
 		if (obj == null) {
 			return "null";
@@ -41,22 +42,6 @@ public class JsonHelper {
 		ObjectClass oc = new ObjectClass(obj);
 		String result = new JSONObject(oc).toString();
 		return result.substring(10, result.length() - 1);
-	}
-
-	public static class ObjectClass {
-		private Object result;
-
-		public void setResult(Object result) {
-			this.result = result;
-		}
-
-		public Object getResult() {
-			return this.result;
-		}
-
-		public ObjectClass(Object result) {
-			setResult(result);
-		}
 	}
 
 	public static Object toJava(String jsonStr, Class<?> clazz) throws Exception {
@@ -77,6 +62,72 @@ public class JsonHelper {
 			}
 		}
 		return bean;
+	}
+
+	public static Object toJava(String jsonStr, Class<?> containClass, Class<?> itemClass) throws Exception {
+		if (jsonStr.equalsIgnoreCase("null")) {
+			return null;
+		}
+		Object bean = null;
+		StringReader sdr = null;
+		try {
+			if (jsonStr.startsWith("[")) {
+				JSONArray jsonArray = new JSONArray(jsonStr);
+
+				if ((containClass == List.class) || (containClass == ArrayList.class))
+					bean = new ArrayList();
+				else if (containClass == Vector.class)
+					bean = new Vector();
+				else if ((containClass == Set.class) || (containClass == HashSet.class)) {
+					bean = new HashSet();
+				}
+
+				for (int i = 0; i < jsonArray.length(); i++)
+					try {
+						String itemJson = jsonArray.get(i).toString();
+						if ((itemClass == String.class) || (itemClass == java.util.Date.class)
+								|| (itemClass == java.sql.Date.class)) {
+							itemJson = "\"" + itemJson + "\"";
+						}
+						sdr = new StringReader(itemJson);
+						JSONParser parser = new JSONParser(sdr);
+						Object item = JSONMapper.toJava(parser.nextValue(), itemClass);
+						((Collection) bean).add(item);
+					} catch (Exception ex) {
+						ex.printStackTrace();
+					} finally {
+						if (sdr != null)
+							sdr.close();
+					}
+			} else {
+				sdr = new StringReader(jsonStr);
+				JSONParser parser = new JSONParser(sdr);
+				bean = JSONMapper.toJava(parser.nextValue(), itemClass);
+			}
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (sdr != null) {
+				sdr.close();
+			}
+		}
+		return bean;
+	}
+
+	public static class ObjectClass {
+		private Object result;
+
+		public void setResult(Object result) {
+			this.result = result;
+		}
+
+		public Object getResult() {
+			return this.result;
+		}
+
+		public ObjectClass(Object result) {
+			setResult(result);
+		}
 	}
 
 }
