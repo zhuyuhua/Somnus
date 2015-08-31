@@ -74,15 +74,15 @@ public class JsonHelper {
 			if (jsonStr.startsWith("[")) {
 				JSONArray jsonArray = new JSONArray(jsonStr);
 
-				if ((containClass == List.class) || (containClass == ArrayList.class))
+				if ((containClass == List.class) || (containClass == ArrayList.class)) {
 					bean = new ArrayList();
-				else if (containClass == Vector.class)
+				} else if (containClass == Vector.class) {
 					bean = new Vector();
-				else if ((containClass == Set.class) || (containClass == HashSet.class)) {
+				} else if ((containClass == Set.class) || (containClass == HashSet.class)) {
 					bean = new HashSet();
 				}
 
-				for (int i = 0; i < jsonArray.length(); i++)
+				for (int i = 0; i < jsonArray.length(); i++) {
 					try {
 						String itemJson = jsonArray.get(i).toString();
 						if ((itemClass == String.class) || (itemClass == java.util.Date.class)
@@ -96,9 +96,11 @@ public class JsonHelper {
 					} catch (Exception ex) {
 						ex.printStackTrace();
 					} finally {
-						if (sdr != null)
+						if (sdr != null) {
 							sdr.close();
+						}
 					}
+				}
 			} else {
 				sdr = new StringReader(jsonStr);
 				JSONParser parser = new JSONParser(sdr);
