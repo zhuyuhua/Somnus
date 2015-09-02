@@ -18,43 +18,41 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package entity;
+package com.somnus.example.components;
 
-import com.bj58.spat.gaea.serializer.component.annotation.GaeaMember;
-import com.bj58.spat.gaea.serializer.component.annotation.GaeaSerializable;
+import java.util.List;
+import java.util.ArrayList;
 
+import com.bj58.spat.gaea.server.contract.annotation.ServiceBehavior;
+import com.somnus.example.contract.INewsService;
+import com.somnus.example.entity.News;
 
 /**
- * 实体类
+ * 对外提供服务接口实现类
  * 
- * @GaeaSerializable 标记当前类为需要序列化的类
- * @GaeaMember 标记该字段为需要序列化字段
+ * @ServiceBehavior 标记该类对外提供服务，服务契约为INewsService
  * 
  * @author @author Service Platform Architecture Team (spat@58.com)
  */
+@ServiceBehavior
+public class NewsService implements INewsService {
 
-@GaeaSerializable
-public class News {
-
-	@GaeaMember
-	private int newsID;
-
-	@GaeaMember
-	private String title;
-
-	public int getNewsID() {
-		return newsID;
+	@Override
+	public News getNewsByID(int newsID) throws Exception {
+		return NewsService.getNews();
 	}
 
-	public void setNewsID(int newsID) {
-		this.newsID = newsID;
+	@Override
+	public List<News> getNewsByCateID() throws Exception {
+		List<News> list = new ArrayList<News>();
+		list.add(NewsService.getNews());
+		return list;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	private static News getNews() {
+		News news = new News();
+		news.setNewsID(58);
+		news.setTitle("58同城一个神奇的网站");
+		return news;
 	}
 }

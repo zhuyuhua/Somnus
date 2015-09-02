@@ -1,0 +1,179 @@
+[09-02 10:34:54 367 INFO ] [main] server.bootstrap.Main - +++++++++++++++++++++ staring +++++++++++++++++++++
+
+[09-02 10:34:54 387 INFO ] [main] server.bootstrap.Main - user.dir: D:\dev\git\Gaea\gaea\bin
+[09-02 10:34:54 388 INFO ] [main] server.bootstrap.Main - rootPath: D:\dev\git\Gaea\gaea\bin/../
+[09-02 10:34:54 388 INFO ] [main] server.bootstrap.Main - service gaea_config.xml: D:\dev\git\Gaea\gaea\bin/../service/deploy/demo/gaea_config.xml
+[09-02 10:34:54 389 INFO ] [main] server.bootstrap.Main - default gaea_config.xml: D:\dev\git\Gaea\gaea\bin/../conf/gaea_config.xml
+[09-02 10:34:54 389 INFO ] [main] server.bootstrap.Main - service gaea_log4j.xml: D:\dev\git\Gaea\gaea\bin/../service/deploy/demo/gaea_log4j.xml
+[09-02 10:34:54 389 INFO ] [main] server.bootstrap.Main - default gaea_log4j.xml: D:\dev\git\Gaea\gaea\bin/../conf/gaea_log4j.xml
+[09-02 10:34:54 390 INFO ] [main] server.bootstrap.Main - load service config...
+[09-02 10:34:54 691 INFO ] [main] server.bootstrap.Main - gaea.service.name: demo
+[09-02 10:34:54 691 INFO ] [main] server.bootstrap.Main - -----------------loading global jars------------------
+[09-02 10:34:54 715 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\deploy\demo\demo.jar
+[09-02 10:34:54 716 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\antlr-3.3.jar
+[09-02 10:34:54 716 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\antlr-runtime-3.3.jar
+[09-02 10:34:54 717 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.beanquery-0.0.1-SNAPSHOT.jar
+[09-02 10:34:54 717 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.core-0.0.1-SNAPSHOT.jar
+[09-02 10:34:54 718 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.dao-1.0.0-SNAPSHOT.jar
+[09-02 10:34:54 718 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.memcached-0.0.1-rc1.jar
+[09-02 10:34:54 718 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\commons-discovery-0.2.jar
+[09-02 10:34:54 719 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\httpclient-4.0.1.jar
+[09-02 10:34:54 722 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\httpcore-4.0.1.jar
+[09-02 10:34:54 725 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\jaxrpc.jar
+[09-02 10:34:54 728 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\jcl-over-slf4j-1.6.1.jar
+[09-02 10:34:54 731 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\jyaml-1.3.jar
+[09-02 10:34:54 733 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\mysql-connector-java-5.1.6-bin.jar
+[09-02 10:34:54 737 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\slf4j-api-1.6.1.jar
+[09-02 10:34:54 740 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\slf4j-log4j12-1.6.1.jar
+[09-02 10:34:54 744 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\service\lib\sqljdbc4-2.0.jar
+[09-02 10:34:54 747 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\antlrall-2.7.2.jar
+[09-02 10:34:54 749 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.protocol-1.0.0.jar
+[09-02 10:34:54 752 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.serializer-1.0.0.jar
+[09-02 10:34:54 755 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.server-1.0.0.jar
+[09-02 10:34:54 757 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\commons-logging.jar
+[09-02 10:34:54 760 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\javassist.jar
+[09-02 10:34:54 763 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\json-2.0.1.jar
+[09-02 10:34:54 766 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\log4j-1.2.15.jar
+[09-02 10:34:54 768 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\netty-3.1.5.GA.jar
+[09-02 10:34:54 771 INFO ] [main] deploy.hotdeploy.GlobalClassLoader - append jar to classpath:file:D:\dev\git\Gaea\gaea\lib\tools.jar
+[09-02 10:34:54 773 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:34:54 777 INFO ] [main] server.bootstrap.Main - --------------------loading proxys-------------------
+[09-02 10:34:54 784 INFO ] [main] deploy.bytecode.ScanClass - begin scan jar from path:D:\dev\git\Gaea\gaea\bin/../service/deploy/demo/
+[09-02 10:34:54 888 INFO ] [main] deploy.bytecode.ScanClass - finish scan jar
+[09-02 10:34:54 891 INFO ] [main] deploy.bytecode.ProxyClassCreater - loading dynamic proxy v1...
+[09-02 10:34:54 894 INFO ] [main] deploy.bytecode.ProxyClassCreater - loading => NewsServiceProxyStub1441161294889
+[09-02 10:34:54 898 INFO ] [main] deploy.bytecode.ProxyClassCreater - class name:components.NewsService
+[09-02 10:34:55 114 DEBUG] [main] deploy.bytecode.ProxyClassCreater - create method:getNewsByCateID
+[09-02 10:34:55 118 DEBUG] [main] deploy.bytecode.ProxyClassCreater - method(getNewsByCateID) source code:public com.bj58.spat.gaea.server.contract.context.GaeaResponse getNewsByCateID(com.bj58.spat.gaea.server.contract.context.GaeaContext context) throws com.bj58.spat.gaea.server.util.ServiceFrameException {com.bj58.spat.gaea.server.core.convert.IConvert convert = com.bj58.spat.gaea.server.core.convert.ConvertFacotry.getConvert(context.getGaeaRequest().getProtocol());com.bj58.spat.gaea.protocol.sdp.RequestProtocol request = (com.bj58.spat.gaea.protocol.sdp.RequestProtocol)context.getGaeaRequest().getProtocol().getSdpEntity();java.util.List listKV = request.getParaKVList();if(listKV.size() == 0){java.util.List listOutPara = new java.util.ArrayList();try {java.util.List returnValue = serviceProxy.getNewsByCateID();return new com.bj58.spat.gaea.server.contract.context.GaeaResponse(returnValue, listOutPara);} catch (Exception e) {throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.getNewsByCateID--msg:invoke real service error", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.ServiceException, e);}}throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.getNewsByCateID--msg:not fond method error", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.NotFoundMethodException, null);}
+[09-02 10:34:55 162 DEBUG] [main] deploy.bytecode.ProxyClassCreater - create method:getNewsByID
+[09-02 10:34:55 166 DEBUG] [main] deploy.bytecode.ProxyClassCreater - method(getNewsByID) source code:public com.bj58.spat.gaea.server.contract.context.GaeaResponse getNewsByID(com.bj58.spat.gaea.server.contract.context.GaeaContext context) throws com.bj58.spat.gaea.server.util.ServiceFrameException {com.bj58.spat.gaea.server.core.convert.IConvert convert = com.bj58.spat.gaea.server.core.convert.ConvertFacotry.getConvert(context.getGaeaRequest().getProtocol());com.bj58.spat.gaea.protocol.sdp.RequestProtocol request = (com.bj58.spat.gaea.protocol.sdp.RequestProtocol)context.getGaeaRequest().getProtocol().getSdpEntity();java.util.List listKV = request.getParaKVList();if(listKV.size() == 1 && (((com.bj58.spat.gaea.protocol.utility.KeyValuePair)listKV.get(0)).getKey().toString().equalsIgnoreCase("int")|| ((com.bj58.spat.gaea.protocol.utility.KeyValuePair)listKV.get(0)).getKey().toString().equalsIgnoreCase("Integer"))){java.util.List listOutPara = new java.util.ArrayList();int arg0 = 0;try {arg0 = convert.convertToint(((com.bj58.spat.gaea.protocol.utility.KeyValuePair)listKV.get(0)).getValue());} catch (Exception e) {throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.getNewsByID--msg:parse gaeaRequest error", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.ParaException, e);}try {entity.News returnValue = serviceProxy.getNewsByID(arg0);return new com.bj58.spat.gaea.server.contract.context.GaeaResponse(returnValue, listOutPara);} catch (Exception e) {throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.getNewsByID--msg:invoke real service error", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.ServiceException, e);}}throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.getNewsByID--msg:not fond method error", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.NotFoundMethodException, null);}
+[09-02 10:34:55 199 DEBUG] [main] deploy.bytecode.ProxyClassCreater - create invoke method:public com.bj58.spat.gaea.server.contract.context.GaeaResponse invoke(com.bj58.spat.gaea.server.contract.context.GaeaContext context) throws com.bj58.spat.gaea.server.util.ServiceFrameException {String methodName = ((com.bj58.spat.gaea.protocol.sdp.RequestProtocol)context.getGaeaRequest().getProtocol().getSdpEntity()).getMethodName();if(methodName.equalsIgnoreCase("getNewsByCateID")){return getNewsByCateID(context);}if(methodName.equalsIgnoreCase("getNewsByID")){return getNewsByID(context);}throw new com.bj58.spat.gaea.server.util.ServiceFrameException("method:NewsServiceProxyStub1441161294889.invoke--msg:not found method ("+methodName+")", context.getChannel().getRemoteIP(), context.getChannel().getLocalIP(), context.getGaeaRequest().getProtocol().getSdpEntity(), com.bj58.spat.gaea.server.util.ErrorState.NotFoundMethodException, null);}
+[09-02 10:34:55 219 INFO ] [main] deploy.bytecode.ProxyClassCreater - load dynamic proxy success!!!
+[09-02 10:34:55 222 INFO ] [main] deploy.bytecode.CreateManager - proxy class buffer creater finish!!!
+[09-02 10:34:55 226 INFO ] [main] deploy.bytecode.ProxyFactoryCreater - begin create ProxyFactory:ProxyFactory1441161294889
+[09-02 10:34:55 234 DEBUG] [main] deploy.bytecode.ProxyFactoryCreater - ProxyFactory source code:public com.bj58.spat.gaea.server.contract.context.IProxyStub getProxy(String lookup) {if(lookup.equalsIgnoreCase("NewsService")){return proxyNewsServicedemo;}return null;}}
+[09-02 10:34:55 238 INFO ] [main] deploy.bytecode.ProxyFactoryCreater - create ProxyFactory success!!!
+[09-02 10:34:55 243 INFO ] [main] deploy.bytecode.CreateManager - proxy factory buffer creater finish!!!
+[09-02 10:34:55 245 INFO ] [main] deploy.bytecode.CreateManager - dynamic load class:NewsServiceProxyStub1441161294889
+[09-02 10:34:55 249 INFO ] [main] deploy.bytecode.CreateManager - crate ProxyFactory instance!!!
+[09-02 10:34:55 251 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:34:55 254 INFO ] [main] server.bootstrap.Main - -----------------loading init beans------------------
+[09-02 10:34:55 257 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.contract.context.SerializerClassInit
+[09-02 10:34:55 266 INFO ] [main] contract.log.SystemPrintStream - Scan jar files begin!
+[09-02 10:34:55 268 ERROR] [main] contract.log.SystemPrintStream - 开始扫描全部引用jar包，如果扫描过程过长请在启动vm参数中设置gaea.serializer.basepakage或者设置gaea.serializer.scantype=asyn使用异步模式扫描。
+[09-02 10:34:55 273 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/bin/
+[09-02 10:34:55 277 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/tools.jar
+[09-02 10:34:56 522 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/antlrall-2.7.2.jar
+[09-02 10:34:56 635 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/com.bj58.spat.gaea.protocol-1.0.0.jar
+[09-02 10:34:56 644 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/com.bj58.spat.gaea.serializer-1.0.0.jar
+[09-02 10:34:56 659 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/com.bj58.spat.gaea.server-1.0.0.jar
+[09-02 10:34:56 721 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/commons-logging.jar
+[09-02 10:34:56 728 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/javassist.jar
+[09-02 10:34:56 815 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/json-2.0.1.jar
+[09-02 10:34:56 849 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/log4j-1.2.15.jar
+[09-02 10:34:56 897 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/netty-3.1.5.GA.jar
+[09-02 10:34:56 993 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:/D:/dev/git/Gaea/gaea/lib/tools.jar
+[09-02 10:34:57 909 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\deploy\demo\demo.jar
+[09-02 10:34:57 912 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\antlr-3.3.jar
+[09-02 10:34:58 289 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\antlr-runtime-3.3.jar
+[09-02 10:34:58 308 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.beanquery-0.0.1-SNAPSHOT.jar
+[09-02 10:34:58 315 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.core-0.0.1-SNAPSHOT.jar
+[09-02 10:34:58 329 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.dao-1.0.0-SNAPSHOT.jar
+[09-02 10:34:58 346 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\com.bj58.spat.memcached-0.0.1-rc1.jar
+[09-02 10:34:58 360 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\commons-discovery-0.2.jar
+[09-02 10:34:58 369 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\httpclient-4.0.1.jar
+[09-02 10:34:58 401 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\httpcore-4.0.1.jar
+[09-02 10:34:58 419 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\jaxrpc.jar
+[09-02 10:34:58 424 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\jcl-over-slf4j-1.6.1.jar
+[09-02 10:34:58 429 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\jyaml-1.3.jar
+[09-02 10:34:58 438 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\mysql-connector-java-5.1.6-bin.jar
+[09-02 10:34:58 744 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\slf4j-api-1.6.1.jar
+[09-02 10:34:58 750 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\slf4j-log4j12-1.6.1.jar
+[09-02 10:34:58 754 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\service\lib\sqljdbc4-2.0.jar
+[09-02 10:34:59 093 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\antlrall-2.7.2.jar
+[09-02 10:34:59 197 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.protocol-1.0.0.jar
+[09-02 10:34:59 205 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.serializer-1.0.0.jar
+[09-02 10:34:59 216 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\com.bj58.spat.gaea.server-1.0.0.jar
+[09-02 10:34:59 260 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\commons-logging.jar
+[09-02 10:34:59 266 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\javassist.jar
+[09-02 10:34:59 356 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\json-2.0.1.jar
+[09-02 10:34:59 387 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\log4j-1.2.15.jar
+[09-02 10:34:59 433 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\netty-3.1.5.GA.jar
+[09-02 10:34:59 503 INFO ] [main] contract.log.SystemPrintStream - scanByURLClassLoader:D:\dev\git\Gaea\gaea\lib\tools.jar
+[09-02 10:35:00 418 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.sdp.com.bj58.spat.gaea.protocol.sdp.ExceptionProtocol
+[09-02 10:35:00 421 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.sdp.com.bj58.spat.gaea.protocol.sdp.HandclaspProtocol
+[09-02 10:35:00 424 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.sdp.com.bj58.spat.gaea.protocol.sdp.RequestProtocol
+[09-02 10:35:00 426 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.sdp.com.bj58.spat.gaea.protocol.sdp.ResetProtocol
+[09-02 10:35:00 430 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.sdp.com.bj58.spat.gaea.protocol.sdp.ResponseProtocol
+[09-02 10:35:00 433 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.protocol.utility.com.bj58.spat.gaea.protocol.utility.KeyValuePair
+[09-02 10:35:00 435 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.serializer.component.com.bj58.spat.gaea.serializer.component.ClassScaner
+[09-02 10:35:00 438 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.serializer.component.com.bj58.spat.gaea.serializer.component.TypeMap
+[09-02 10:35:00 440 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.serializer.component.annotation.com.bj58.spat.gaea.serializer.component.annotation.GaeaSerializable
+[09-02 10:35:00 447 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.serializer.component.exception.com.bj58.spat.gaea.serializer.component.exception.DisallowedSerializeException
+[09-02 10:35:00 450 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.serializer.serializer.com.bj58.spat.gaea.serializer.serializer.ObjectSerializer
+[09-02 10:35:00 456 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.EnmReadState
+[09-02 10:35:00 459 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.Info
+[09-02 10:35:00 462 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.NewClass
+[09-02 10:35:00 465 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.SimpleClass
+[09-02 10:35:00 467 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.State
+[09-02 10:35:00 469 INFO ] [main] contract.log.SystemPrintStream - scaning Serializer.Serializer.SubClass
+[09-02 10:35:00 472 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.enterprise.entity.com.bj58.enterprise.entity.Enterprise
+[09-02 10:35:00 474 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.enterprise.entity.com.bj58.enterprise.entity.SESUser
+[09-02 10:35:00 478 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.enterprise.entity.com.bj58.enterprise.entity.User
+[09-02 10:35:00 480 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.server.core.communication.http.com.bj58.spat.gaea.server.core.communication.http.News
+[09-02 10:35:00 484 INFO ] [main] contract.log.SystemPrintStream - scaning com.bj58.spat.gaea.server.util.com.bj58.spat.gaea.server.util.News
+[09-02 10:35:00 486 INFO ] [main] contract.log.SystemPrintStream - scaning entity.entity.News
+[09-02 10:35:00 488 INFO ] [main] contract.log.SystemPrintStream - Scan jar files completed!
+[09-02 10:35:00 490 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:35:00 494 INFO ] [main] server.bootstrap.Main - -----------loading global request filters------------
+[09-02 10:35:00 496 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.ProtocolParseFilter
+[09-02 10:35:00 500 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.HandclaspFilter
+[09-02 10:35:00 503 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.ExecuteMethodFilter
+[09-02 10:35:00 506 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:35:00 508 INFO ] [main] server.bootstrap.Main - -----------loading global response filters-----------
+[09-02 10:35:00 510 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.ProtocolCreateFilter
+[09-02 10:35:00 551 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.ExecuteTimeFilter
+[09-02 10:35:00 585 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:35:00 588 INFO ] [main] server.bootstrap.Main - -----------loading connection filters-----------
+[09-02 10:35:00 590 INFO ] [main] server.bootstrap.Main - load: com.bj58.spat.gaea.server.filter.IPFilter
+[09-02 10:35:00 594 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:35:00 598 INFO ] [main] server.bootstrap.Main - ------------------load secureKey start---------------------
+[09-02 10:35:00 601 INFO ] [main] server.bootstrap.Main - ------------------load secureKey end----------------------
+
+[09-02 10:35:00 603 INFO ] [main] server.bootstrap.Main - ------------------signal registr start---------------------
+[09-02 10:35:00 605 INFO ] [main] server.bootstrap.Main - ------------------signal registr success----------------------
+
+[09-02 10:35:00 609 INFO ] [main] server.bootstrap.Main - ------------------ starting servers -----------------
+[09-02 10:35:00 611 INFO ] [main] server.bootstrap.Main - gaea.server.tcp is starting...
+[09-02 10:35:00 691 INFO ] [main] communication.tcp.SocketServer - loading invoker...
+[09-02 10:35:00 728 INFO ] [main] core.proxy.AsyncInvokerHandle - async worker count:100
+[09-02 10:35:00 731 INFO ] [main] communication.tcp.SocketServer - initing server...
+[09-02 10:35:00 732 INFO ] [main] communication.tcp.SocketServer - -- socket server config --
+[09-02 10:35:00 734 INFO ] [main] communication.tcp.SocketServer - -- listen ip: 0.0.0.0
+[09-02 10:35:00 735 INFO ] [main] communication.tcp.SocketServer - -- port: 9090
+[09-02 10:35:00 736 INFO ] [main] communication.tcp.SocketServer - -- tcpNoDelay: true
+[09-02 10:35:00 738 INFO ] [main] communication.tcp.SocketServer - -- receiveBufferSize: 65536
+[09-02 10:35:00 740 INFO ] [main] communication.tcp.SocketServer - -- sendBufferSize: 65536
+[09-02 10:35:00 741 INFO ] [main] communication.tcp.SocketServer - -- frameMaxLength: 524288
+[09-02 10:35:00 743 INFO ] [main] communication.tcp.SocketServer - -- worker thread count: 32
+[09-02 10:35:00 745 INFO ] [main] communication.tcp.SocketServer - --------------------------
+[09-02 10:35:00 747 INFO ] [main] communication.tcp.SocketServer - demo SocketServer starting...
+[09-02 10:35:00 865 INFO ] [main] server.bootstrap.Main - gaea.server.tcpstarted success!!!
+
+[09-02 10:35:00 868 INFO ] [main] server.bootstrap.Main - gaea.server.telnet is starting...
+[09-02 10:35:00 872 INFO ] [main] communication.telnet.TelnetServer - ----------------telnet server config------------------
+[09-02 10:35:00 874 INFO ] [main] communication.telnet.TelnetServer - -- telnet server listen ip: 0.0.0.0
+[09-02 10:35:00 876 INFO ] [main] communication.telnet.TelnetServer - -- telnet server port: 7070
+[09-02 10:35:00 878 INFO ] [main] communication.telnet.TelnetServer - ------------------------------------------------------
+[09-02 10:35:00 884 INFO ] [main] server.bootstrap.Main - gaea.server.telnetstarted success!!!
+
+[09-02 10:35:00 887 INFO ] [main] server.bootstrap.Main - -------------------------end-------------------------
+
+[09-02 10:35:00 890 INFO ] [main] server.bootstrap.Main - +++++++++++++++++++++ server start success!!! +++++++++++++++++++++
+

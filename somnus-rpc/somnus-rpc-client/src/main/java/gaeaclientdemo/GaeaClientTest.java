@@ -20,18 +20,24 @@
  */
 package gaeaclientdemo;
 
+import java.io.File;
 import java.util.List;
 
 import com.bj58.spat.gaea.client.GaeaInit;
 import com.bj58.spat.gaea.client.proxy.builder.ProxyFactory;
+import com.somnus.example.contract.INewsService;
+import com.somnus.example.entity.News;
 
-import contract.INewsService;
-import entity.News;
 
 public class GaeaClientTest {
+	
+	private static String GAEA_CONFIG_PATH  = GaeaClientTest.class.getResource("/").getPath();
+	
 	public static void main(String[] args) throws Exception {
+		File file = new File(GAEA_CONFIG_PATH+"gaea.config");
+		System.out.println(file.exists());
 		// 加载配置文件
-		GaeaInit.init("E:\\workspace\\workspace-mars\\gaeaClientDemo\\src\\gaeaclientdemo\\gaea.config");
+		GaeaInit.init(GAEA_CONFIG_PATH+"gaea.config");
 		/**
 		 * 调用URL 格式:tcp://服务名//接口实现类 
 		 * 备注: 

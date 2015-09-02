@@ -18,40 +18,26 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package components;
+package com.somnus.example.contract;
 
-import entity.News;
 import java.util.List;
-import java.util.ArrayList;
-import contract.INewsService;
-import com.bj58.spat.gaea.server.contract.annotation.ServiceBehavior;
+import com.bj58.spat.gaea.server.contract.annotation.OperationContract;
+import com.bj58.spat.gaea.server.contract.annotation.ServiceContract;
+import com.somnus.example.entity.News;
 
 /**
- * 对外提供服务接口实现类
+ * 对外提供服务接口类
  * 
- * @ServiceBehavior 标记该类对外提供服务，服务契约为INewsService
+ * @ServiceContract 标记该接口对外提供服务
+ * @OperationContract 标记该方法对外暴露
  * 
  * @author @author Service Platform Architecture Team (spat@58.com)
  */
-@ServiceBehavior
-public class NewsService implements INewsService {
+@ServiceContract
+public interface INewsService {
+	@OperationContract
+	public News getNewsByID(int newsID) throws Exception;
 
-	@Override
-	public News getNewsByID(int newsID) throws Exception {
-		return NewsService.getNews();
-	}
-
-	@Override
-	public List<News> getNewsByCateID() throws Exception {
-		List<News> list = new ArrayList<News>();
-		list.add(NewsService.getNews());
-		return list;
-	}
-
-	private static News getNews() {
-		News news = new News();
-		news.setNewsID(58);
-		news.setTitle("58同城一个神奇的网站");
-		return news;
-	}
+	@OperationContract
+	public List<News> getNewsByCateID() throws Exception;
 }

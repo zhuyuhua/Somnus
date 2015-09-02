@@ -5,8 +5,7 @@ include 'somnus-db'
 include 'somnus-document'
 include 'somnus-mvc'
 include 'somnus-mq'
-//include 'somnus-rpc'
-include 'somnus-script'
+
 include 'somnus-strom'
 include 'somnus-test'
 include 'somnus-utils'
@@ -15,7 +14,7 @@ include 'somnus-ioc'
 include 'somnus-ddd'
 include 'somnus-leetcode'
 include 'somnus-plugin'
-//include 'somnus-openci'
+
 include 'somnus-restful'
 include 'somnus-json'
 

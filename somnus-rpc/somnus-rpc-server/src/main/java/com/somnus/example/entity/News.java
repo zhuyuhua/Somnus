@@ -18,27 +18,43 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package contract;
+package com.somnus.example.entity;
 
-import java.util.List;
-import com.bj58.spat.gaea.server.contract.annotation.OperationContract;
-import com.bj58.spat.gaea.server.contract.annotation.ServiceContract;
+import com.bj58.spat.gaea.serializer.component.annotation.GaeaMember;
+import com.bj58.spat.gaea.serializer.component.annotation.GaeaSerializable;
 
-import entity.News;
 
 /**
- * 对外提供服务接口类
+ * 实体类
  * 
- * @ServiceContract 标记该接口对外提供服务
- * @OperationContract 标记该方法对外暴露
+ * @GaeaSerializable 标记当前类为需要序列化的类
+ * @GaeaMember 标记该字段为需要序列化字段
  * 
  * @author @author Service Platform Architecture Team (spat@58.com)
  */
-@ServiceContract
-public interface INewsService {
-	@OperationContract
-	public News getNewsByID(int newsID) throws Exception;
 
-	@OperationContract
-	public List<News> getNewsByCateID() throws Exception;
+@GaeaSerializable
+public class News {
+
+	@GaeaMember
+	private int newsID;
+
+	@GaeaMember
+	private String title;
+
+	public int getNewsID() {
+		return newsID;
+	}
+
+	public void setNewsID(int newsID) {
+		this.newsID = newsID;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }
