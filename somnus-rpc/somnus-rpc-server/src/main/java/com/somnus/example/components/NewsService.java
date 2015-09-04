@@ -18,37 +18,41 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package gaeaclientdemo;
+package com.somnus.example.components;
 
-import java.io.File;
 import java.util.List;
+import java.util.ArrayList;
 
-import com.bj58.spat.gaea.client.GaeaInit;
-import com.bj58.spat.gaea.client.proxy.builder.ProxyFactory;
+import com.bj58.spat.gaea.server.contract.annotation.ServiceBehavior;
 import com.somnus.example.contract.INewsService;
 import com.somnus.example.entity.News;
 
-public class GaeaClientTest {
+/**
+ * 对外提供服务接口实现类
+ * 
+ * @ServiceBehavior 标记该类对外提供服务，服务契约为INewsService
+ * 
+ * @author @author Service Platform Architecture Team (spat@58.com)
+ */
+@ServiceBehavior
+public class NewsService implements INewsService {
 
-	private static String GAEA_CONFIG_PATH = GaeaClientTest.class.getResource("/").getPath();
+	@Override
+	public News getNewsByID(int newsID) throws Exception {
+		return NewsService.getNews();
+	}
 
-	public static void main(String[] args) throws Exception {
+	@Override
+	public List<News> getNewsByCateID() throws Exception {
+		List<News> list = new ArrayList<News>();
+		list.add(NewsService.getNews());
+		return list;
+	}
 
-		File file = new File(GAEA_CONFIG_PATH + "gaea.config");
-		System.out.println(file.exists());
-
-		// 加载配置文件
-		GaeaInit.init(GAEA_CONFIG_PATH + "gaea.config");
-		/**
-		 * 调用URL 格式:tcp://服务名//接口实现类 备注: 服务名：需要与gaea.config中的服务名一一对应
-		 * 接口实现类：具体调用接口的接口实现类
-		 */
-		final String url = "tcp://demo/NewsService";
-		INewsService newsService = ProxyFactory.create(INewsService.class, url);
-		List<News> list = newsService.getNewsByCateID();
-		for (News news : list) {
-			System.out.println("ID is " + news.getNewsID() + " title is " + news.getTitle());
-		}
-
+	private static News getNews() {
+		News news = new News();
+		news.setNewsID(58);
+		news.setTitle("58同城一个神奇的网站");
+		return news;
 	}
 }

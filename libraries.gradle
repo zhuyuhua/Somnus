@@ -431,6 +431,9 @@ ext {
 		// reflections	
 		reflections:            	'org.reflections:reflections:0.9.8',
 		
+		// resteasy
+		resteasy_jaxrs:					'org.jboss.resteasy:resteasy-jaxrs:3.0.12.Final',
+		
 		// rhino	
 		rhino:                  	'org.mozilla:rhino:1.7R4',
 		
