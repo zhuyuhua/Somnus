@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.bj58.sfft.json;
+package com.bj58.sfft.json.jsontools.parser;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -21,10 +21,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.parser.JSONLexer;
+import com.bj58.sfft.json.jsontools.model.JSONValue;
+import com.bj58.sfft.json.jsontools.parser.impl.JSONParserAntlr;
 
 /**
  * TODO
- * 
+ *
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年8月27日
@@ -38,8 +40,9 @@ public class JSONParser {
 	public JSONParser(InputStream aStream, String aStreamName) {
 		JSONLexer lexer = new JSONLexer(aStream);
 		this.parser = new JSONParserAntlr(lexer);
-		if (aStreamName != null)
+		if (aStreamName != null) {
 			this.streamName = aStreamName;
+		}
 	}
 
 	public JSONParser(InputStream aStream) {
@@ -49,8 +52,9 @@ public class JSONParser {
 	public JSONParser(Reader aReader, String aStreamName) {
 		JSONLexer lexer = new JSONLexer(aReader);
 		this.parser = new JSONParserAntlr(lexer);
-		if (aStreamName != null)
+		if (aStreamName != null) {
 			this.streamName = aStreamName;
+		}
 	}
 
 	public JSONParser(Reader aReader) {
