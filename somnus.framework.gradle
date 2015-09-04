@@ -18,10 +18,6 @@ include 'somnus-plugin'
 include 'somnus-restful'
 //include 'somnus-json'
 
+
 include 'somnus-rpc:somnus-rpc-client'
 include 'somnus-rpc:somnus-rpc-server'
-include 'somnus-rpc:somnus-rpc-protocol'
-include 'somnus-rpc:somnus-rpc-serializer'
-
-include 'somnus-rpc:somnus-rpc-client-demo'
-include 'somnus-rpc:somnus-rpc-server-demo'

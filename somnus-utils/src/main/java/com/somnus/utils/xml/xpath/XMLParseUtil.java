@@ -163,6 +163,7 @@ public class XMLParseUtil {
 	public Node selectSingleNode(Node node, String expression) throws XPathExpressionException {
 		XPathExpression xpexpreesion = this.xpath.compile(expression);
 		Object object = xpexpreesion.evaluate(node, XPathConstants.NODE);
+
 		return (Node) object;
 	}
 

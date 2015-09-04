@@ -1,30 +1,22 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.rpc.server'
+group = 'com.somnus.rpc.server.demo'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'somnus-rpc-server'
+	baseName =  'somnus-rpc-server-demo'
 }
 
 dependencies {
 
-	compile project(':somnus-rpc:somnus-rpc-protocol')
-	compile project(':somnus-rpc:somnus-rpc-serializer')
-	//compile project(':somnus-json')
+	//compile project(':somnus-utils')
 	
-    compile fileTree(dir: 'lib', include: '*.jar')
-    
+	
 	testCompile libraries.junit
 	compile libraries.commons_logging
-
-	
-	compile libraries.javassist
-	compile libraries.netty3
-	compile libraries.antlr
-
-	
+	compile libraries.netty5
+    compile libraries.thrift
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api
 	
@@ -38,22 +30,6 @@ idea.module.iml{
 //源码结构
 	sourceSets {
 		main {
-			java {
-				srcDir 'src/main/bootstrap'
-				srcDir 'src/main/filter'
-				srcDir 'src/main/secure'
-				srcDir 'src/main/contract'
-				srcDir 'src/main/core'
-				srcDir 'src/main/deploy'
-				srcDir 'src/main/performance'
-				srcDir 'src/main/util'
-				srcDir 'src/main/java'
-			}
-			resources {
-				srcDir 'src/main/resources'
-			}
-		}
-        test {
 			java {
 				srcDir 'src/main/java'
 			}
