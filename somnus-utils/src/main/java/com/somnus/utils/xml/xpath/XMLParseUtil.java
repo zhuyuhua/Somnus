@@ -28,8 +28,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -42,12 +40,11 @@ import org.xml.sax.SAXException;
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class XMLParseUtil {
+public final class XMLParseUtil {
 
-	private static Logger logger = LoggerFactory.getLogger(XMLParseUtil.class);
-	private DocumentBuilder builder;
+	private static DocumentBuilder builder;
 
-	private XPath xpath;
+	private static XPath xpath;
 
 	/**
 	 * 默认构造函数
@@ -55,9 +52,14 @@ public class XMLParseUtil {
 	 * @throws ParserConfigurationException
 	 *             创建XML解析器出错！
 	 */
-	public XMLParseUtil() throws ParserConfigurationException {
+
+	static {
 		DocumentBuilderFactory domfactory = DocumentBuilderFactory.newInstance();
-		builder = domfactory.newDocumentBuilder();
+		try {
+			builder = domfactory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
 
 		XPathFactory xpfactory = XPathFactory.newInstance();
 		xpath = xpfactory.newXPath();
@@ -81,7 +83,7 @@ public class XMLParseUtil {
 	 *             SAX异常
 	 * @see [类、类#方法、类#成员]
 	 */
-	public Document parseDocument(String path) throws IOException, SAXException {
+	public static Document parseDocument(String path) throws IOException, SAXException {
 		return builder.parse(path);
 	}
 
@@ -141,9 +143,9 @@ public class XMLParseUtil {
 	 *             XPath表达式异常
 	 * @see [类、类#方法、类#成员]
 	 */
-	public NodeList selectNodes(Node node, String expression) throws XPathExpressionException {
+	public static NodeList selectNodes(Node node, String expression) throws XPathExpressionException {
 		// XPath对象编译XPath表达式
-		XPathExpression xpexpreesion = this.xpath.compile(expression);
+		XPathExpression xpexpreesion = xpath.compile(expression);
 		Object object = xpexpreesion.evaluate(node, XPathConstants.NODESET);
 		return (NodeList) object;
 	}
@@ -160,8 +162,8 @@ public class XMLParseUtil {
 	 *             XPath表达式异常
 	 * @see [类、类#方法、类#成员]
 	 */
-	public Node selectSingleNode(Node node, String expression) throws XPathExpressionException {
-		XPathExpression xpexpreesion = this.xpath.compile(expression);
+	public static Node selectSingleNode(Node node, String expression) throws XPathExpressionException {
+		XPathExpression xpexpreesion = xpath.compile(expression);
 		Object object = xpexpreesion.evaluate(node, XPathConstants.NODE);
 
 		return (Node) object;
@@ -179,8 +181,8 @@ public class XMLParseUtil {
 	 *             XPath表达式异常
 	 * @see [类、类#方法、类#成员]
 	 */
-	public String getNodeStringValue(Node node, String expression) throws XPathExpressionException {
-		XPathExpression xpexpreesion = this.xpath.compile(expression);
+	public static String getNodeStringValue(Node node, String expression) throws XPathExpressionException {
+		XPathExpression xpexpreesion = xpath.compile(expression);
 		Object object = xpexpreesion.evaluate(node, XPathConstants.STRING);
 		return (String) object;
 	}

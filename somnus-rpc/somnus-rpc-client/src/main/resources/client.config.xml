@@ -11,13 +11,20 @@
 				protected="true" />
 			<!-- serialize:序列化方式 encoder:序列号采用的编码 compressType:是否压缩 -->
 			<Protocol serialize="GAEA" encoder="UTF-8" compressType="UnCompress" />
+			
 		</Commmunication>
+		
 		<Loadbalance>
 			<!-- deadTimeout:服务器挂后心跳检测间隔时间 maxCurrentUser:最大当前用户数，超过此数服务器将置为busy状态 -->
 			<Server deadTimeout="00:00:10">
-				<add name="servername" host="127.0.0.1" port="10000"
-					maxCurrentUser="50" />
+				<add name="servername" host="127.0.0.1" port="10000" maxCurrentUser="50" weithtRate="2"/>
 			</Server>
 		</Loadbalance>
+		
+		<!-- 
+		<Secure>
+			<Key info="aaaa"></Key>
+		</Secure>
+		 -->
 	</Service>
 </GAEA>

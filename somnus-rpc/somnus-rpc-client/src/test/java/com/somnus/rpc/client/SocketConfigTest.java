@@ -15,12 +15,17 @@
  */
 package com.somnus.rpc.client;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import com.somnus.rpc.client.config.profile.KeyProfile;
+import com.somnus.rpc.client.config.profile.ProtocolProfile;
+import com.somnus.rpc.client.config.profile.ServerProfile;
 import com.somnus.rpc.client.config.profile.SocketPoolProfile;
 import com.somnus.utils.xml.xpath.XMLParseUtil;
 
@@ -36,21 +41,58 @@ public class SocketConfigTest {
 	private static Logger logger = LoggerFactory.getLogger(SocketConfigTest.class);
 
 	private static String client_config = SocketConfigTest.class.getResource("/").getPath() + "client.config.xml";
+	XMLParseUtil parseUtil = null;
+	Document doc = null;
+	Node serviceNode = null;
+
+	@Before
+	public void Before() throws Exception {
+
+		Document doc = XMLParseUtil.parseDocument(client_config);
+		// <Service>
+		serviceNode = XMLParseUtil.selectSingleNode(doc, "//Service[@name='servername']");
+	}
 
 	@Test
 	public void testSocketPoolProfile() throws Exception {
 
-		XMLParseUtil parseUtil = new XMLParseUtil();
-		Document doc = parseUtil.parseDocument(client_config);
-
-		// <service>
-		Node serviceNode = parseUtil.selectSingleNode(doc, "//Service[@name='servername']");
-
 		// <SocketPool />
-		Node socketNode = parseUtil.selectSingleNode(serviceNode, "Commmunication/SocketPool");
+		Node socketNode = XMLParseUtil.selectSingleNode(serviceNode, "Commmunication/SocketPool");
 
 		SocketPoolProfile poolProfile = new SocketPoolProfile(socketNode);
 		System.out.println(poolProfile);
+	}
+
+	@Test
+	public void testProtocolProfile() throws Exception {
+
+		// <Protocol />
+		Node protocolNode = XMLParseUtil.selectSingleNode(serviceNode, "Commmunication/Protocol");
+
+		ProtocolProfile profile = new ProtocolProfile(protocolNode);
+
+		System.out.println(profile);
+
+	}
+
+	@Test
+	public void testServerProfile() throws Exception {
+
+		NodeList servers = XMLParseUtil.selectNodes(serviceNode, "Loadbalance/Server/add");
+
+		ServerProfile profile;
+		for (int i = 0; i < servers.getLength(); i++) {
+			profile = new ServerProfile(servers.item(i));
+			System.out.println(profile);
+		}
+
+	}
+
+	@Test
+	public void testKeyProfile() throws Exception {
+		Node keyNode = parseUtil.selectSingleNode(serviceNode, "Secure/Key");
+		KeyProfile profile = new KeyProfile(keyNode);
+		System.out.println(profile);
 	}
 
 }

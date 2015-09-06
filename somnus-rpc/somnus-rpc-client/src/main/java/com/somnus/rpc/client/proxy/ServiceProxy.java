@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.somnus.rpc.client.config.ServiceConfig;
+import com.somnus.rpc.client.lb.ServerDispatcher;
 
 /**
  *
@@ -33,7 +34,7 @@ public class ServiceProxy {
 
 	private static Logger logger = LoggerFactory.getLogger(ServiceProxy.class);
 
-	private Dispatcher dispatcher;
+	private ServerDispatcher dispatcher;
 	private ServiceConfig config;
 	private int sessionId = 1;
 	private int requestTime = 0;// 超时重连次数
@@ -46,8 +47,10 @@ public class ServiceProxy {
 	 * @param serviceName
 	 */
 	public ServiceProxy(String serviceName) {
-		config = ServiceConfig.GetConfig(serviceName);
-		dispatcher = new Dispatcher(config);
+
+		config = ServiceConfig.getConfig(serviceName);
+
+		dispatcher = new ServerDispatcher(config);
 
 		requestTime = config.getSocketPool().getReconnectTime();
 		int serverCount = 1;

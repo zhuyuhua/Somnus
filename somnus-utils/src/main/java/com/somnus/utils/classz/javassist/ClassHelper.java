@@ -14,6 +14,7 @@
  */
 package com.somnus.utils.classz.javassist;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
@@ -35,7 +36,7 @@ import javassist.bytecode.MethodInfo;
 
 /**
  * TODO
- * 
+ *
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年8月18日
@@ -43,6 +44,60 @@ import javassist.bytecode.MethodInfo;
 public class ClassHelper {
 
 	private static Logger logger = LoggerFactory.getLogger(ClassHelper.class);
+
+	private static final String CLASS_PATH = ClassHelper.class.getResource("/").getPath();
+
+	private static final String CLASS_PATH2 = CLASS_PATH.substring(1).replaceAll("/", "\\\\");
+
+	public static void main(String[] args) {
+		String str = "E:/svn/git/Somnus/somnus-utils/bin/";
+		System.out.println(CLASS_PATH);
+		System.out.println(str.replaceAll("/", "\\\\"));
+	}
+
+	/**
+	 *
+	 * TODO
+	 *
+	 * @param classPath
+	 *            classpath下的包或者类， 例如com.xxx.xxx.xxx.class or com.xxx
+	 * @param classLoader
+	 * @return
+	 */
+	public static Set<Class<?>> getClassFromClass(String classPath, ClassLoader classLoader) {
+
+		Set<Class<?>> classes = new LinkedHashSet<Class<?>>();
+
+		getClassFromClassPath(classes, CLASS_PATH + classPath.replaceAll("\\.", "/"), classLoader);
+
+		return classes;
+
+	}
+
+	private static void getClassFromClassPath(Set<Class<?>> classes, String classPath, ClassLoader classLoader) {
+		File file = new File(classPath);
+		if (file.isDirectory()) {
+			File[] files = file.listFiles();
+			for (File tempFile : files) {
+				getClassFromClassPath(classes, tempFile.getAbsolutePath(), classLoader);
+			}
+		} else {
+			if (classPath.endsWith(".class")) {
+				String packageName = classPath.replace(CLASS_PATH2, "");
+				String className = packageName.substring(0, packageName.lastIndexOf(".class")).replaceAll("\\\\", ".");
+				System.out.println(className);
+				Class<?> cls = null;
+				try {
+					cls = classLoader.loadClass(className);
+				} catch (Throwable ex) {
+
+				}
+				if (cls != null) {
+					classes.add(cls);
+				}
+			}
+		}
+	}
 
 	public static Set<Class<?>> getClassFromJar(String jarPath, ClassLoader classLoader)
 			throws IOException, ClassNotFoundException {

@@ -17,12 +17,12 @@ package com.somnus.rpc.client.config.profile;
 
 import org.w3c.dom.Node;
 
-import com.somnus.rpc.client.ClientConfigConstant;
+import com.somnus.rpc.client.ConfigConstant;
+import com.somnus.rpc.client.config.NodeHelper;
 import com.somnus.utils.time.TimeSpanHelper;
 
 /**
- *
- * TODO
+ * 连接池类，对应client.config.xml的<SocketPool>
  *
  * @author zhuyuhua
  * @since 0.0.1
@@ -47,29 +47,29 @@ public class SocketPoolProfile {
 
 	public SocketPoolProfile(Node node) {
 
-		this.minPoolSize = getNodeValueForInt(node, "minPoolSize");
-		this.maxPoolSize = getNodeValueForInt(node, "maxPoolSize");
-		this.sendTimeout = TimeSpanHelper.getIntFromTimeSpan(getNodeValue(node, "sendTimeout"));
-		this.receiveTimeout = TimeSpanHelper.getIntFromTimeMsSpan(getNodeValue(node, "receiveTimeout"));
-		this.waitTimeout = TimeSpanHelper.getIntFromTimeSpan(getNodeValue(node, "waitTimeout"));
-		this.nagle = Boolean.parseBoolean(getNodeValue(node, "nagle"));
-		this.shrinkInterval = TimeSpanHelper.getIntFromTimeSpan(getNodeValue(node, "autoShrink"));
-		this.bufferSize = getNodeValueForInt(node, "bufferSize");
+		this.minPoolSize = NodeHelper.getNodeValueForInt(node, "minPoolSize");
+		this.maxPoolSize = NodeHelper.getNodeValueForInt(node, "maxPoolSize");
+		this.sendTimeout = TimeSpanHelper.getIntFromTimeSpan(NodeHelper.getNodeValue(node, "sendTimeout"));
+		this.receiveTimeout = TimeSpanHelper.getIntFromTimeMsSpan(NodeHelper.getNodeValue(node, "receiveTimeout"));
+		this.waitTimeout = TimeSpanHelper.getIntFromTimeSpan(NodeHelper.getNodeValue(node, "waitTimeout"));
+		this.nagle = Boolean.parseBoolean(NodeHelper.getNodeValue(node, "nagle"));
+		this.shrinkInterval = TimeSpanHelper.getIntFromTimeSpan(NodeHelper.getNodeValue(node, "autoShrink"));
+		this.bufferSize = NodeHelper.getNodeValueForInt(node, "bufferSize");
 
-		if (bufferSize < ClientConfigConstant.DEFAULT_BUFFER_SIZE) {
-			bufferSize = ClientConfigConstant.DEFAULT_BUFFER_SIZE;
+		if (bufferSize < ConfigConstant.DEFAULT_BUFFER_SIZE) {
+			bufferSize = ConfigConstant.DEFAULT_BUFFER_SIZE;
 		}
 
 		Node nProtected = node.getAttributes().getNamedItem("protected");
 		if (nProtected == null) {
-			this._protected = ClientConfigConstant.DEFAULT_PROTECTED;
+			this._protected = ConfigConstant.DEFAULT_PROTECTED;
 		} else {
 			this._protected = Boolean.parseBoolean(nProtected.getNodeValue());
 		}
 
 		Node nPackage = node.getAttributes().getNamedItem("maxPakageSize");
 		if (nPackage == null) {
-			this.maxPakageSize = ClientConfigConstant.DEFAULT_MAX_PAKAGE_SIZE;
+			this.maxPakageSize = ConfigConstant.DEFAULT_MAX_PAKAGE_SIZE;
 		} else {
 			this.maxPakageSize = Integer.parseInt(nPackage.getNodeValue());
 		}
@@ -84,14 +84,6 @@ public class SocketPoolProfile {
 
 		this.recvBufferSize = 1024 * 1024 * 8;
 		this.sendBufferSize = 1024 * 1024 * 8;
-	}
-
-	private int getNodeValueForInt(Node node, String nameItem) {
-		return Integer.parseInt(node.getAttributes().getNamedItem(nameItem).getNodeValue());
-	}
-
-	private String getNodeValue(Node node, String nameItem) {
-		return node.getAttributes().getNamedItem(nameItem).getNodeValue();
 	}
 
 	/**

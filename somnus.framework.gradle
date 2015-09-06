@@ -16,8 +16,7 @@ include 'somnus-leetcode'
 include 'somnus-plugin'
 
 include 'somnus-restful'
-//include 'somnus-json'
 
-
-include 'somnus-rpc:somnus-rpc-client'
 include 'somnus-rpc:somnus-rpc-server'
+include 'somnus-rpc:somnus-rpc-client'
+

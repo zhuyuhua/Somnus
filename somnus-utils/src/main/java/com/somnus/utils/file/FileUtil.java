@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * TODO
- * 
+ *
  * @author zhuyuhua
  * @since 2015年7月19日
  */
@@ -36,9 +36,9 @@ public class FileUtil {
 	private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
 	/**
-	 * 
+	 *
 	 * 获取文件内容
-	 * 
+	 *
 	 * @param file
 	 * @return String
 	 * @throws IOException
@@ -55,6 +55,13 @@ public class FileUtil {
 		return result.toString();
 	}
 
+	/**
+	 * get all rar/jar/war/ear which in dir
+	 *
+	 * @param dirList
+	 * @return
+	 * @throws IOException
+	 */
 	public static List<String> getUniqueLibPath(String... dirs) throws IOException {
 
 		List<String> jarList = new ArrayList<String>();

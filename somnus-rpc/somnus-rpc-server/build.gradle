@@ -1,16 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.rpc.server.demo'
+group = 'com.somnus.rpc.server'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'somnus-rpc-server-demo'
+	baseName =  'somnus-rpc-server'
 }
 
 dependencies {
 
-	//compile project(':somnus-utils')
+	compile project(':somnus-utils')
 	
 	
 	testCompile libraries.junit
@@ -35,6 +35,14 @@ idea.module.iml{
 			}
 			resources {
 				srcDir 'src/main/resources'
+			}
+		}
+		test {
+			java {
+				srcDir 'src/test/java'
+			}
+			resources {
+				srcDir 'src/test/resources'
 			}
 		}
 	}

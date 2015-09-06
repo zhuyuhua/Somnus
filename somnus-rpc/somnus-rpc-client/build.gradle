@@ -1,17 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-group = 'com.somnus.rpc.client.demo'
+group = 'com.somnus.rpc.client'
 version = '1.0-SNAPSHOT'
 
 jar {
-	baseName =  'somnus-rpc-demo-client'
+	baseName =  'somnus-rpc-client'
 }
 
 dependencies {
 
 	compile project(':somnus-utils')
-	compile project(':somnus-rpc-server')
+	compile project(':somnus-rpc:somnus-rpc-server')
 	
 	testCompile libraries.junit
 	compile libraries.commons_logging

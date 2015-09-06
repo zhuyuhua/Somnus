@@ -20,7 +20,6 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.slf4j.Logger;
@@ -42,24 +41,13 @@ public class XMLParseUtilTest {
 
 	private static Logger logger = LoggerFactory.getLogger(XMLParseUtilTest.class);
 
-	private static XMLParseUtil xmlParse = null;
-
-	static {
-		try {
-			xmlParse = new XMLParseUtil();
-		} catch (ParserConfigurationException e) {
-			System.out.println("异常：创建XML解析器过程中有一个严重的配置错误！");
-			e.printStackTrace();
-		}
-	}
-
 	private static Document getDoc(String fileName) {
 
 		String path = XMLParseUtilTest.class.getResource("/").getPath() + fileName;
 
 		Document doc = null;
 		try {
-			doc = xmlParse.parseDocument(path);
+			doc = XMLParseUtil.parseDocument(path);
 		} catch (MalformedURLException e) {
 			System.out.println("异常：传入文件路径错误！找不到要解析的文件！");
 			e.printStackTrace();
@@ -94,7 +82,7 @@ public class XMLParseUtilTest {
 				/**
 				 * [title/@lang='en']表示选取的book节点，必须满足子节点title的lang属性为en
 				 */
-				bookNodeList = xmlParse.selectNodes(doc, "//bookstore/book[title/@lang='en']");
+				bookNodeList = XMLParseUtil.selectNodes(doc, "//bookstore/book[title/@lang='en']");
 
 			} catch (XPathExpressionException e) {
 				System.out.println("异常：XPath表达式错误！");
@@ -106,7 +94,7 @@ public class XMLParseUtilTest {
 
 				for (int i = 0; i < bookNodeList.getLength(); i++) {
 					Node node = bookNodeList.item(i);
-					Book book = parseBookNode(xmlParse, node);
+					Book book = parseBookNode(node);
 					bookList.add(book);
 				}
 
@@ -127,7 +115,7 @@ public class XMLParseUtilTest {
 	 * @throws XPathExpressionException
 	 * @see [类、类#方法、类#成员]
 	 */
-	public static Book parseBookNode(XMLParseUtil util, Node node) {
+	public static Book parseBookNode(Node node) {
 		String lang = "";
 		String title = "";
 		String author = "";
@@ -135,31 +123,31 @@ public class XMLParseUtilTest {
 		String price = "";
 
 		try {
-			title = util.getNodeStringValue(node, "./title");
+			title = XMLParseUtil.getNodeStringValue(node, "./title");
 		} catch (XPathExpressionException e) {
 			System.out.println("异常：XPath表达式错误！");
 			e.printStackTrace();
 		}
 		try {
-			lang = util.getNodeStringValue(node, "./title/@lang");
+			lang = XMLParseUtil.getNodeStringValue(node, "./title/@lang");
 		} catch (XPathExpressionException e) {
 			System.out.println("异常：XPath表达式错误！");
 			e.printStackTrace();
 		}
 		try {
-			author = util.getNodeStringValue(node, "./author");
+			author = XMLParseUtil.getNodeStringValue(node, "./author");
 		} catch (XPathExpressionException e) {
 			System.out.println("异常：XPath表达式错误！");
 			e.printStackTrace();
 		}
 		try {
-			year = util.getNodeStringValue(node, "./year");
+			year = XMLParseUtil.getNodeStringValue(node, "./year");
 		} catch (XPathExpressionException e) {
 			System.out.println("异常：XPath表达式错误！");
 			e.printStackTrace();
 		}
 		try {
-			price = util.getNodeStringValue(node, "./price");
+			price = XMLParseUtil.getNodeStringValue(node, "./price");
 		} catch (XPathExpressionException e) {
 			System.out.println("异常：XPath表达式错误！");
 			e.printStackTrace();

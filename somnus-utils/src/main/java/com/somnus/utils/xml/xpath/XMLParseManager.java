@@ -17,11 +17,7 @@ package com.somnus.utils.xml.xpath;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.IOException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.slf4j.Logger;
@@ -45,11 +41,7 @@ public class XMLParseManager {
 	private XMLParseUtil xmlParser;
 
 	public XMLParseManager() throws ServiceException {
-		try {
-			xmlParser = new XMLParseUtil();
-		} catch (ParserConfigurationException e) {
-			throw new ServiceException("XMLParseManager@XMLParseManager(): " + "Failed to create XML parser!" + e);
-		}
+		xmlParser = new XMLParseUtil();
 	}
 
 	/**
