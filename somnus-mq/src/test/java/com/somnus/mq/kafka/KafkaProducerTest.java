@@ -18,7 +18,7 @@ public class KafkaProducerTest {
 	private static Logger logger = LoggerFactory.getLogger(KafkaProducerTest.class);
 	private Producer<String, String> producer;
 
-	private String kafkaProducerConfig = GlobalConfigConstant.CLASS_PATH + "kafka.producer.test.properties";
+	private String kafkaProducerConfig = GlobalConfigConstant.CLASS_PATH + "kafka/kafka.producer.properties";
 
 	public KafkaProducerTest() throws Exception {
 
@@ -64,7 +64,7 @@ public class KafkaProducerTest {
 			Long start = System.currentTimeMillis();
 
 			for (int i = 0; i < 10; i++) {
-				producer.send("test-topic-" + i, System.currentTimeMillis() + "");
+				producer.send("testzhu", System.currentTimeMillis() + "-" + i);
 			}
 
 			System.out.println(System.currentTimeMillis() - start);
