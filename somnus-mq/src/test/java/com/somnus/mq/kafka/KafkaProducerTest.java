@@ -64,7 +64,7 @@ public class KafkaProducerTest {
 			Long start = System.currentTimeMillis();
 
 			for (int i = 0; i < 10; i++) {
-				producer.send("testzhu", System.currentTimeMillis() + "-" + i);
+				producer.send("test", System.currentTimeMillis() + "-" + i);
 			}
 
 			System.out.println(System.currentTimeMillis() - start);

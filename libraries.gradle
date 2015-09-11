@@ -314,9 +314,11 @@ ext {
 		
 		/* K */	
 		kaptcha:                	'com.github.axet:kaptcha:0.0.7',
+		
 		/** K **/
 		kafka_clients:				"org.apache.kafka:kafka-clients:${versions.kafka}",
-		kafka:					"org.apache.kafka:kafka_2.10:${versions.kafka}",
+		kafka:						"org.apache.kafka:kafka_2.10:${versions.kafka}",
+		
 		
 		/* L */	
 		

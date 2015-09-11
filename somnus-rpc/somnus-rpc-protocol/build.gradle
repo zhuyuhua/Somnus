@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.somnus.rpc.protocol'
+version = '1.0-SNAPSHOT'
+
+jar {
+	baseName =  'somnus-rpc-protocol'
+}
+
+dependencies {
+
+	compile project(':somnus-utils')
+	compile project(':somnus-rpc:somnus-rpc-server')
+	
+	testCompile libraries.junit
+	compile libraries.commons_logging
+	compile libraries.netty5
+    compile libraries.thrift
+	compile libraries.slf4j_log
+	compile libraries.slf4j_api
+	
+}
+idea.module.iml{
+    whenMerged { module ->
+        module.dependencies*.exported = true
+    }
+}

@@ -31,7 +31,7 @@ import kafka.message.MessageAndMetadata;
 public class KafkaConsumerTest {
 
 	private static Logger logger = LoggerFactory.getLogger("testReceive");
-	private String consumerConfig = GlobalConfigConstant.CLASS_PATH + "kafka.consumer.test.properties";
+	private static String consumerConfig = GlobalConfigConstant.CLASS_PATH + "kafka/kafka.consumer.properties";
 
 	private List<String> topics; // topic
 	private int threadNum; // 每个topic线程数
@@ -122,9 +122,7 @@ public class KafkaConsumerTest {
 				MessageAndMetadata<byte[], byte[]> item = it.next();
 
 				String message = new String(item.message());
-				Long time = Long.valueOf(message);
-				System.out.println(System.currentTimeMillis() - time);
-				// System.out.println(message + " from the index is " + index);
+				 System.out.println(message + " from the index is " + index);
 			}
 		}
 	}
@@ -134,9 +132,8 @@ public class KafkaConsumerTest {
 		logger.debug(KafkaConsumerTest.class.getName());
 
 		List<String> topics = new ArrayList<String>();
-		for (int i = 0; i < 500; i++) {
-			topics.add("test-topic-" + i);
-		}
+			topics.add("test");
+		
 		KafkaConsumerTest consumer = new KafkaConsumerTest(topics, 1);
 		consumer.startup();
 	}

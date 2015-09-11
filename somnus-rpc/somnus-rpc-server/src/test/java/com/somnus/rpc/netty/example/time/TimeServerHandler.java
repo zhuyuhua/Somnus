@@ -26,7 +26,7 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
 				new Date(System.currentTimeMillis()).toString()	: "BAD ORDER";
 		ByteBuf resp = Unpooled.copiedBuffer(curentTime.getBytes());
 		ctx.write(resp);
-		System.out.println("服务器做出了响应");
+		System.out.println("服务器做出了响应:"+System.currentTimeMillis());
 	}
 
 	@Override

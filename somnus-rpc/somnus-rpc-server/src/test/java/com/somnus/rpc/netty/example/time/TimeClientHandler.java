@@ -23,7 +23,7 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		System.out.println("客户端收到服务器响应数据");
+		System.out.println("客户端收到服务器响应数据:"+System.currentTimeMillis());
 		ByteBuf buf = (ByteBuf) msg;
 		byte[] req = new byte[buf.readableBytes()];
 		buf.readBytes(req);

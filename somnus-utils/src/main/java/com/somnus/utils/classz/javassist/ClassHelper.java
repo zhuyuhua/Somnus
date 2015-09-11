@@ -49,12 +49,7 @@ public class ClassHelper {
 
 	private static final String CLASS_PATH2 = CLASS_PATH.substring(1).replaceAll("/", "\\\\");
 
-	public static void main(String[] args) {
-		String str = "E:/svn/git/Somnus/somnus-utils/bin/";
-		System.out.println(CLASS_PATH);
-		System.out.println(str.replaceAll("/", "\\\\"));
-	}
-
+	
 	/**
 	 *
 	 * TODO
@@ -163,6 +158,16 @@ public class ClassHelper {
 
 		CtMethod cm = cc.getDeclaredMethod(method.getName(), pool.get(paramTypeNames));
 		return cm.getParameterAnnotations();
+	}
+	
+	public static void main(String[] args) throws NoSuchMethodException, SecurityException, Exception {
+		Object[][] objs = getParamAnnotations(String.class, String.class.getMethod("endsWith", String.class));
+		for (int i = 0; i < objs.length; i++) {
+			Object[] objects = objs[i];
+			for (Object object : objects) {
+				System.out.println(object);
+			}
+		}
 	}
 
 }
