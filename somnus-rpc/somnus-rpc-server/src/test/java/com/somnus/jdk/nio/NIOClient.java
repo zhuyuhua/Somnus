@@ -21,9 +21,12 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.somnus.utils.date.DateTimeUtil;
 
 /**
  * TODO
@@ -44,7 +47,7 @@ public class NIOClient {
      * @param port  连接的服务器的端口号          
      * @throws IOException 
      */  
-    public void initClient(String ip,int port) throws IOException {  
+	public void initClient(String ip, int port) throws Exception {
         // 获得一个Socket通道  
         SocketChannel channel = SocketChannel.open();  
         // 设置通道为非阻塞  
@@ -64,14 +67,16 @@ public class NIOClient {
      * @throws IOException 
      */  
     @SuppressWarnings("unchecked")  
-    public void listen() throws IOException {  
+	public void listen() throws Exception {
         // 轮询访问selector  
         while (true) {  
             selector.select();  
             // 获得selector中选中的项的迭代器  
-            Iterator ite = this.selector.selectedKeys().iterator();  
+			Set<SelectionKey> selectKeys = selector.selectedKeys();
+			Iterator<SelectionKey> ite = selectKeys.iterator();
+
             while (ite.hasNext()) {  
-                SelectionKey key = (SelectionKey) ite.next();  
+                SelectionKey key = ite.next();  
                 // 删除已选的key,以防重复处理  
                 ite.remove();  
                 // 连接事件发生  
@@ -87,34 +92,39 @@ public class NIOClient {
                     channel.configureBlocking(false);  
   
                     //在这里可以给服务端发送信息哦  
-                    channel.write(ByteBuffer.wrap(new String("向服务端发送了一条信息").getBytes()));  
+					channel.write(ByteBuffer.wrap(("发消息给客户端：" + DateTimeUtil.getFullTodayStr()).getBytes("utf-8")));
                     //在和服务端连接成功之后，为了可以接收到服务端的信息，需要给通道设置读的权限。  
                     channel.register(this.selector, SelectionKey.OP_READ);  
                       
                     // 获得了可读的事件  
                 } else if (key.isReadable()) {  
-                        read(key);  
+					// read(key);
                 }  
   
             }  
   
         }  
     }  
-    /** 
-     * 处理读取服务端发来的信息 的事件 
-     * @param key 
-     * @throws IOException  
-     */  
-    public void read(SelectionKey key) throws IOException{  
+    
+	/**
+	 * 处理读取服务端发来的信息 的事件
+	 * 
+	 * @param key
+	 * @throws Exception
+	 */  
+	public void read(SelectionKey key) throws Exception {
     	// 服务器可读取消息:得到事件发生的Socket通道  
         SocketChannel channel = (SocketChannel) key.channel();  
         // 创建读取的缓冲区  
-        ByteBuffer buffer = ByteBuffer.allocate(10);  
+		ByteBuffer buffer = ByteBuffer.allocate(1024);
         channel.read(buffer);  
         byte[] data = buffer.array();  
-        String msg = new String(data).trim();  
-        System.out.println("服务端收到信息："+msg);  
-        ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());  
+		String msg = new String(data, "utf-8").trim();
+		logger.debug("客户端收到信息：" + msg);
+		Thread.sleep(5000);
+		msg = DateTimeUtil.getFullTodayStr();
+		logger.debug("发给服务端：" + msg);
+		ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes("utf-8"));
         channel.write(outBuffer);// 将消息回送给客户端
     }  
       
@@ -123,7 +133,7 @@ public class NIOClient {
      * 启动客户端测试 
      * @throws IOException  
      */  
-    public static void main(String[] args) throws IOException {  
+	public static void main(String[] args) throws Exception {
         NIOClient client = new NIOClient();  
         client.initClient("localhost",8000);  
         client.listen();  

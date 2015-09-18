@@ -32,6 +32,7 @@ public class TimeClient {
 						}
 					});
 
+
 			ChannelFuture future = b.connect(host, port).sync();
 
 			future.channel().closeFuture().sync();

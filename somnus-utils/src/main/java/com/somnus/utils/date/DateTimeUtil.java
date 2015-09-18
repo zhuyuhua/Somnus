@@ -54,6 +54,8 @@ public class DateTimeUtil {
 
 	public final static String TIME_PATTERN = "HH:mm:ss";
 
+	private final static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+
 	public final static String DATE_TIME_PATTERN = DATE_PATTERN + " " + TIME_PATTERN;
 
 	private DateTimeUtil() {
@@ -95,7 +97,7 @@ public class DateTimeUtil {
 		DateTime dValue;
 
 		if (sFormat == null || "".equals(sFormat)) {
-			sFormat = "yyyy-MM-dd HH:mm:ss";
+			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(sFormat).withLocale(locale);
@@ -110,7 +112,7 @@ public class DateTimeUtil {
 		DateTime dValue;
 
 		if (sFormat == null || "".equals(sFormat)) {
-			sFormat = "yyyy-MM-dd HH:mm:ss";
+			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(sFormat);
@@ -147,7 +149,7 @@ public class DateTimeUtil {
 
 	public static String formatDate(DateTime date, String sFormat) {
 		if (StringUtils.isBlank(sFormat)) {
-			sFormat = "yyyy-MM-dd HH:mm:ss";
+			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
 		return formatDate(date, DateTimeZone.getDefault(), Locale.getDefault(), sFormat);
 	}
@@ -180,6 +182,15 @@ public class DateTimeUtil {
 	public static String getTodayStr() {
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+
+		DateTime todate = new DateTime(System.currentTimeMillis());
+		String today = dateTimeFormatter.print(todate);
+		return today;
+	}
+
+	public static String getFullTodayStr() {
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(YYYY_MM_DD_HH_MM_SS);
 
 		DateTime todate = new DateTime(System.currentTimeMillis());
 		String today = dateTimeFormatter.print(todate);
@@ -1112,6 +1123,7 @@ public class DateTimeUtil {
 		// System.out.print(getDate("20MAR14", "ddMMMyy", Locale.US));
 		Date date = new Date();
 		DateTime dateTime = new DateTime(date);
+		System.out.println(getTodayStr());
 		System.out.println(dateTime.getDayOfWeek());
 		System.out.println(getDayOfWeek(date));
 		date = DateUtils.addDays(date, -5);
@@ -1122,5 +1134,7 @@ public class DateTimeUtil {
 			date = DateUtils.addDays(date, (5 - d));
 		}
 		System.out.println(getDayOfWeek(date));
+
+		System.out.println("getFullTodayStr:" + getFullTodayStr());
 	}
 }
