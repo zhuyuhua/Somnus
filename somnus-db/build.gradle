@@ -18,6 +18,30 @@ dependencies {
 	compile libraries.jedis
 	compile libraries.mysql_connector
 	
+	
+	compile libraries.hadoop_core
+	compile libraries.hadoop_common
+	compile libraries.hadoop_hdfs
+	
+	compile libraries.hbase_annotations
+	compile libraries.hbase_client
+	compile libraries.hbase_common
+	compile libraries.hbase_examples
+	compile libraries.hbase_hadoop_compat
+	compile libraries.hbase_hadoop2_compat
+	compile libraries.hbase_it
+	compile libraries.hbase_prefix_tree
+	compile libraries.hbase_protocol
+	compile libraries.hbase_rest
+	compile libraries.hbase_server
+	compile libraries.htrace_core
+	compile libraries.hbase_checkstyle
+	
+	compile libraries.netty5
+	compile libraries.protobuf_java
+	compile libraries.zookeeper
+	
+	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api
 	
