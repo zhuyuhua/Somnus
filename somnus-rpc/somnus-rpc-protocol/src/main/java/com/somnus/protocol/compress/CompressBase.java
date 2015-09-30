@@ -17,6 +17,8 @@ package com.somnus.protocol.compress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.protocol.enumeration.CompressType;
+
 /**
  * 压缩基础类
  * @author zhuyuhua
@@ -26,5 +28,16 @@ import org.slf4j.LoggerFactory;
 public class CompressBase {
 
 	private static Logger logger = LoggerFactory.getLogger(CompressBase.class);
+
+	/**
+	 * TODO
+	 * @param compressType
+	 * @return
+	 * @since JDK 1.6
+	 */
+	public static CompressBase getInstance(CompressType compressType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
