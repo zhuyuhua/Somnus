@@ -17,7 +17,7 @@ package com.somnus.protocol.serializer;
 
 import java.nio.charset.Charset;
 
-import com.somnus.protocol.SerializeType;
+import com.somnus.protocol.enumeration.SerializeType;
 
 /**
  *
@@ -28,7 +28,7 @@ import com.somnus.protocol.SerializeType;
  */
 public abstract class SerializeBase {
 
-	private static GaeaSerialize gaeaSerialize = new GaeaSerialize();
+	private static SomusSerialize gaeaSerialize = new SomusSerialize();
 
 	private static JSONSerialize jsonSerialize = new JSONSerialize();
 

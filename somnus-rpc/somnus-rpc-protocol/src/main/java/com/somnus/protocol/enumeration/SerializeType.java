@@ -13,10 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.protocol.serializer;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.somnus.protocol.enumeration;
 
 /**
  *
@@ -25,17 +22,26 @@ import org.slf4j.LoggerFactory;
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class GaeaSerialize extends SerializeBase {
+public enum SerializeType {
 
-	private static Logger logger = LoggerFactory.getLogger(GaeaSerialize.class);
+	JSON(1), JAVABinary(2), XML(3), SomnusBinary(4);
 
-	@Override
-	public byte[] serialize(Object obj) throws Exception {
-		return null;
+	private final int num;
+
+	public int getNum() {
+		return num;
 	}
 
-	@Override
-	public Object deserialize(byte[] data, Class<?> cls) throws Exception {
+	private SerializeType(int num) {
+		this.num = num;
+	}
+
+	public static SerializeType getSerializeType(int num) {
+		for (SerializeType type : SerializeType.values()) {
+			if (type.getNum() == num) {
+				return type;
+			}
+		}
 		return null;
 	}
 }

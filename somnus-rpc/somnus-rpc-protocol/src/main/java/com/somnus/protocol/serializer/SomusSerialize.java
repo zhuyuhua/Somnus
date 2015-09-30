@@ -13,48 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.protocol;
+package com.somnus.protocol.serializer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
- * 压缩类型
+ * TODO
  *
  * @author zhuyuhua
  * @since 0.0.1
  */
-public enum CompressType {
+public class SomusSerialize extends SerializeBase {
 
-	/**
-	 * 不压缩(无意义编号为0)
-	 */
-	UnCompress(0),
+	private static Logger logger = LoggerFactory.getLogger(SomusSerialize.class);
 
-	/**
-	 * 7zip
-	 */
-	SevenZip(1),
-
-	/**
-	 * DES加密
-	 */
-	DES(2);
-
-	private final int num;
-
-	public int getNum() {
-		return num;
+	private static final Serializer serializer = new Serializer();
+	
+	@Override
+	public byte[] serialize(Object obj) throws Exception {
+		 return serializer.Serialize(obj);
 	}
 
-	private CompressType(int num) {
-		this.num = num;
-	}
-
-	public static CompressType getCompressType(int num) throws Exception {
-		for (CompressType type : CompressType.values()) {
-			if (type.getNum() == num) {
-				return type;
-			}
-		}
-		throw new Exception("末知的压缩格式");
+	@Override
+	public Object deserialize(byte[] data, Class<?> cls) throws Exception {
+		 return serializer.Derialize(data, cls);
 	}
 }

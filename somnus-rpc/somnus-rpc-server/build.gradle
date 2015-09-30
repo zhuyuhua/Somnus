@@ -11,7 +11,7 @@ jar {
 dependencies {
 
 	compile project(':somnus-utils')
-	
+	compile project(':somnus-rpc:somnus-rpc-protocol')
 	
 	testCompile libraries.junit
 	compile libraries.commons_logging

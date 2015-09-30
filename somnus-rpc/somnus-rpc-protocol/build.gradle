@@ -11,8 +11,7 @@ jar {
 dependencies {
 
 	compile project(':somnus-utils')
-	compile project(':somnus-rpc:somnus-rpc-server')
-	
+
 	testCompile libraries.junit
 	compile libraries.commons_logging
 	compile libraries.netty5

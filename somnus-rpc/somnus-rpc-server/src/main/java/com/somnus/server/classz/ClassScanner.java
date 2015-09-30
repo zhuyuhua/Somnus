@@ -29,10 +29,6 @@ import org.slf4j.LoggerFactory;
 
 import com.somnus.server.classz.loader.DynamicClassLoader;
 import com.somnus.server.common.ClassType;
-import com.somnus.server.component.annotation.AnnotationUtil;
-import com.somnus.server.component.annotation.Operation;
-import com.somnus.server.component.annotation.Service;
-import com.somnus.server.component.annotation.ServiceImpl;
 import com.somnus.server.deploy.annotation.HttpPathParameter;
 import com.somnus.server.deploy.annotation.HttpRequestMapping;
 import com.somnus.server.deploy.bean.ClassInfo;

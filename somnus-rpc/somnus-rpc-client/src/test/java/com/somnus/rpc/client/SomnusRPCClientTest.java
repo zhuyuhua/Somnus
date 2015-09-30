@@ -18,8 +18,8 @@ package com.somnus.rpc.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import contract.INewsService;
-import javassist.util.proxy.ProxyFactory;
+import com.somnus.example.contract.NewsService;
+import com.somnus.rpc.client.proxy.builder.ProxyFactory;
 
 /**
  *
@@ -38,7 +38,7 @@ public class SomnusRPCClientTest {
 		 * 接口实现类：具体调用接口的接口实现类
 		 */
 		final String url = "tcp://servername/NewsService";
-		INewsService newsService = ProxyFactory.create(INewsService.class, url);
+		NewsService newsService = ProxyFactory.create(NewsService.class, url);
 		// List<News> list = newsService.getNewsByCateID();
 		// for (News news : list) {
 		// System.out.println("ID is " + news.getNewsID() + " title is " +

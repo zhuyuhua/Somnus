@@ -35,6 +35,7 @@ public class ConfigConstant {
 
 	public static String DEFAULT_CONFIG_PATH = null;
 
+	// session最大数，超过后，从0开始
 	public static final long MAX_SESSIONID = 1024 * 1024 * 1024;
 
 	public static final int DEFAULT_MAX_CURRENT_USER_COUNT = 2000;

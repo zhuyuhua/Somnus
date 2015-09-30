@@ -22,9 +22,11 @@ import java.lang.reflect.Method;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.rpc.client.proxy.bean.MethodCaller;
+
 /**
  *
- * TODO
+ * 代理操作类
  *
  * @author zhuyuhua
  * @since 0.0.1
@@ -33,9 +35,9 @@ public class DefaultProxyStandard implements InvocationHandler, ProxyStandard, S
 
 	private static Logger logger = LoggerFactory.getLogger(DefaultProxyStandard.class);
 
-	private Class<?> interfaceClass;
+	private Class<?> interfaceClass;// 接口类
 
-	private MethodCaller methodCaller;
+	private MethodCaller methodCaller;// 调用方法
 
 	/**
 	 * @param interfaceClass
@@ -50,11 +52,15 @@ public class DefaultProxyStandard implements InvocationHandler, ProxyStandard, S
 		this.methodCaller = new MethodCaller(serviceName, lookup);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Object proxy：指被代理的对象。
+	 * 
+	 * Method method：要调用的方法
+	 * 
+	 * Object[] args：方法调用时所需要的参数
 	 *
 	 * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object,
-	 * java.lang.reflect.Method, java.lang.Object[])
+	 *      java.lang.reflect.Method, java.lang.Object[])
 	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

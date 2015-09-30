@@ -23,8 +23,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
 
-import com.somnus.protocol.CompressType;
-import com.somnus.protocol.SerializeType;
+import com.somnus.protocol.enumeration.CompressType;
+import com.somnus.protocol.enumeration.SerializeType;
 import com.somnus.protocol.serializer.SerializeBase;
 
 /**

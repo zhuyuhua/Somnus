@@ -13,18 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.protocol;
+package com.somnus.protocol.enumeration;
 
 /**
  *
- * TODO
+ * 压缩类型
  *
  * @author zhuyuhua
  * @since 0.0.1
  */
-public enum SerializeType {
+public enum CompressType {
 
-	JSON(1), JAVABinary(2), XML(3), SomnusBinary(4);
+	/**
+	 * 不压缩(无意义编号为0)
+	 */
+	UnCompress(0),
+
+	/**
+	 * 7zip
+	 */
+	SevenZip(1),
+
+	/**
+	 * DES加密
+	 */
+	DES(2);
 
 	private final int num;
 
@@ -32,16 +45,16 @@ public enum SerializeType {
 		return num;
 	}
 
-	private SerializeType(int num) {
+	private CompressType(int num) {
 		this.num = num;
 	}
 
-	public static SerializeType getSerializeType(int num) {
-		for (SerializeType type : SerializeType.values()) {
+	public static CompressType getCompressType(int num) throws Exception {
+		for (CompressType type : CompressType.values()) {
 			if (type.getNum() == num) {
 				return type;
 			}
 		}
-		return null;
+		throw new Exception("末知的压缩格式");
 	}
 }

@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * TODO
+ * 代理工厂，用于生成接口
  *
  * @author zhuyuhua
  * @since 0.0.1
@@ -63,11 +63,8 @@ public class ProxyFactory {
 	}
 
 	/**
-	 * 
 	 * @param strUrl
-	 *            ex: tcp://
-	 ***/
-	/***
+	 *            ex: tcp://servername/NewsService
 	 * @param type
 	 *            接口类
 	 * @return
