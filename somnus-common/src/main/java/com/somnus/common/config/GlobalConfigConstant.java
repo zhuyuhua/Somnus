@@ -21,5 +21,7 @@ public final class GlobalConfigConstant {
 
 	public static void main(String[] args) {
 		System.out.println(CLASS_PATH);
+
+
 	}
 }

@@ -17,6 +17,6 @@ include 'somnus-plugin'
 
 include 'somnus-restful'
 
-include 'somnus-rpc:somnus-rpc-server'
-include 'somnus-rpc:somnus-rpc-client'
-include 'somnus-rpc:somnus-rpc-protocol'
+//include 'somnus-rpc:somnus-rpc-server'
+//include 'somnus-rpc:somnus-rpc-client'
+//include 'somnus-rpc:somnus-rpc-protocol'

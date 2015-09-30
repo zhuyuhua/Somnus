@@ -10,7 +10,16 @@ jar {
 
 dependencies {
 
+	compile project(':somnus-common')
+	compile project(':somnus-utils')
+	
 	testCompile libraries.junit
+	
+	compile libraries.flume_ng_core
+	compile libraries.flume_ng_sdk
+	
+	compile libraries.avro
+	compile libraries.avro_tools
 	
 	compile libraries.slf4j_log
 	compile libraries.slf4j_api

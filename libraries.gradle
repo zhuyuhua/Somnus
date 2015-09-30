@@ -1,18 +1,20 @@
 ext {
     versions = [
-		aspectj:                	'1.7.2',
-		groovy:                 	'2.1.3',
-		hibernate:              	'4.3.10.Final',
-		hbase:							'0.98.13-hadoop2',
-		httpcomponents:         	'4.5',
-		jetty:                  	'8.1.10.v20130312',
-		jstl:                   	'1.2',
-		kafka:              		'0.8.2.1',
-		morphia:                	'1.2.3',
-		poi:                    	'3.9',
-		slf4j:                  	'1.7.5',
-		spring:                 	'4.1.6.RELEASE',
-		spring_security:        	'4.1.6.RELEASE'
+		avro:						"1.7.7",
+		aspectj:                	"1.7.2",
+		flume:						"1.6.0",
+		groovy:                 	"2.1.3",
+		hibernate:              	"4.3.10.Final",
+		hbase:						"0.98.13-hadoop2",
+		httpcomponents:         	"4.5",
+		jetty:                  	"8.1.10.v20130312",
+		jstl:                   	"1.2",
+		kafka:              		"0.8.2.1",
+		morphia:                	"1.2.3",
+		poi:                    	"3.9",
+		slf4j:                  	"1.7.5",
+		spring:                 	"4.1.6.RELEASE",
+		spring_security:        	"4.1.6.RELEASE"
 
     ]
 
@@ -20,81 +22,88 @@ ext {
 		/* A */
 		
 		// allinpay01(telpay)
-		allinpay01:             	'com.allinpay:allinpay01:1.0',
-		allinpay02:             	'com.allinpay:allinpay02:2.0',
+		allinpay01:             	"com.allinpay:allinpay01:1.0",
+		allinpay02:             	"com.allinpay:allinpay02:2.0",
 		
-		activiti_engine:        	'org.activiti:activiti-engine:5.14',
-		activiti_spring:        	'org.activiti:activiti-spring:5.14',
+		activiti_engine:        	"org.activiti:activiti-engine:5.14",
+		activiti_spring:        	"org.activiti:activiti-spring:5.14",
 		
-        antlr:                      'org.antlr:antlr4:4.5.1',
+        antlr:                      "org.antlr:antlr4:4.5.1",
         
 		// ant	
-		ant:                    	'org.apache.ant:ant:1.9.6',
+		ant:                    	"org.apache.ant:ant:1.9.6",
 		
 		// axis	
-		axis:                   	'axis:axis:1.4',
+		axis:                   	"axis:axis:1.4",
 		
 		// aspectj	
 		aspectj:                	"org.aspectj:aspectjweaver:${versions.aspectj}",
 		aspectj_rt:             	"org.aspectj:aspectjrt:${versions.aspectj}",
 		aspectj_tools:          	"org.aspectj:aspectjtools:${versions.aspectj}",
 		
+		//avro
+		avro:						"org.apache.avro:avro:${versions.avro}",
+		avro_tools:					"org.apache.avro:avro-tools:${versions.avro}",
+		avro_mapred:				"org.apache.avro:avro-mapred:${versions.avro}",
+		avro_ipc:					"org.apache.avro:avro-ipc:${versions.avro}",
+		avro_compiler:				"org.apache.avro:avro-compiler:${versions.avro}",
+		
+		
 		/* B */	
-			
-		bcprov_jdk15:           	'bouncycastle:bcprov-jdk15:140',
+	
 		
 		/* C */	
 		
 		// c3p0	
-		c3p0:                   	'c3p0:c3p0:0.9.1.2',
+		c3p0:                   	"c3p0:c3p0:0.9.1.2",
 	
 		// chinapnr
-		chinapnr01:             	'com.chinapnr:chinapnr01:1.0',
-		chinapnr02:             	'com.chinapnr:chinapnr02:2.0',
+		chinapnr01:             	"com.chinapnr:chinapnr01:1.0",
+		chinapnr02:             	"com.chinapnr:chinapnr02:2.0",
 		
 		// closure compiler	
-		closure_compiler:       	'com.google.javascript:closure-compiler:r1592',
+		closure_compiler:       	"com.google.javascript:closure-compiler:r1592",
 		
 		// cobertura	
-		cobertura:              	'net.sourceforge.cobertura:cobertura:1.9.4',
+		cobertura:              	"net.sourceforge.cobertura:cobertura:1.9.4",
 		
 		// collections	
-		collections_generic:    	'net.sourceforge.collections:collections-generic:4.01',
+		collections_generic:    	"net.sourceforge.collections:collections-generic:4.01",
 		
 		
 		// commons:	
-		commons_beanutils:      	'commons-beanutils:commons-beanutils:1.8.3',
-		commons_cli:            	'commons-cli:commons-cli:1.2',
-		commons_collections:    	'commons-collections:commons-collections:3.2.1',
-		commons_configuration:  	'commons-configuration:commons-configuration:1.9',
-		commons_codec:				'commons-codec:commons-codec:1.10',
-		commons_dbcp:           	'commons-dbcp:commons-dbcp:1.4',
-		commons_discovery:      	'commons-discovery:commons-discovery:20040218.194635',
-		commons_fileupload:     	'commons-fileupload:commons-fileupload:1.3',
-		commons_httpclient:     	'commons-httpclient:commons-httpclient:3.7',
-		commons_io:             	'commons-io:commons-io:2.4',
-		commons_id:             	'org.littleshoot:littleshoot-commons-id:1.0.3',
-		commons_jexl:           	'commons-jexl:commons-jexl:20040901.055348',
-		commons_lang:           	'commons-lang:commons-lang:2.6',
-		commons_lang3:          	'org.apache.commons:commons-lang3:3.1',
-		//commons_logging:        	'org.gatein.common:commons-logging:2.1.0.Final',
-        commons_logging:            'commons-logging:commons-logging:1.2',
+		commons_beanutils:      	"commons-beanutils:commons-beanutils:1.8.3",
+		commons_cli:            	"commons-cli:commons-cli:1.2",
+		commons_collections:    	"commons-collections:commons-collections:3.2.1",
+		commons_configuration:  	"commons-configuration:commons-configuration:1.9",
+		commons_codec:				"commons-codec:commons-codec:1.10",
+		commons_dbcp:           	"commons-dbcp:commons-dbcp:1.4",
+		commons_discovery:      	"commons-discovery:commons-discovery:20040218.194635",
+		commons_fileupload:     	"commons-fileupload:commons-fileupload:1.3",
+		commons_httpclient:     	"commons-httpclient:commons-httpclient:3.7",
+		commons_io:             	"commons-io:commons-io:2.4",
+		commons_id:             	"org.littleshoot:littleshoot-commons-id:1.0.3",
+		commons_jexl:           	"commons-jexl:commons-jexl:20040901.055348",
+		commons_lang:           	"commons-lang:commons-lang:2.6",
+		commons_lang3:          	"org.apache.commons:commons-lang3:3.1",
+		//commons_logging:        	"org.gatein.common:commons-logging:2.1.0.Final",
+        commons_logging:            "commons-logging:commons-logging:1.2",
         
 
-		commons_net:            	'commons-net:commons-net:3.3',
-		commons_pool:           	'commons-pool:commons-pool:1.6',
-		commons_compress:       	'org.apache.commons:commons-compress:1.5',
+		commons_net:            	"commons-net:commons-net:3.3",
+		commons_pool:           	"commons-pool:commons-pool:1.6",
+		commons_compress:       	"org.apache.commons:commons-compress:1.5",
 		
 		// couchbase
-		couchbase_client:			'com.couchbase.client:couchbase-client:1.4.9',
+		couchbase_client:			"com.couchbase.client:couchbase-client:1.4.9",
 
 		// cglib	
 		cglib:						"cglib:cglib:2.2.2",
-		cglib_asm:              	'cglib:cglib-asm:1.0',
-		cglib_nodep:            	'cglib:cglib-nodep:2.1_3',
+		cglib_asm:              	"cglib:cglib-asm:1.0",
+		cglib_nodep:            	"cglib:cglib-nodep:2.1_3",
 		
 		// curator	
-		curator:                	'com.netflix.curator:curator-recipes:1.2.5',
+		curator:                	"com.netflix.curator:curator-recipes:1.2.5",
 	
 		//cucumber
 		cucumber_java:	    		"info.cukes:cucumber-java:${versions.cucumber_version}",
@@ -102,52 +111,59 @@ ext {
 		cucumber_spring:	    	"info.cukes:cucumber-spring:${versions.cucumber_version}",
 	
 		// cxf
-		cxf:                    	'org.apache.cxf:cxf-bundle:2.7.5',
+		cxf:                    	"org.apache.cxf:cxf-bundle:2.7.5",
 	
 		/* D */
 	
 		// dnsjava
-		dnsjava:                	'dnsjava:dnsjava:2.1.1',
+		dnsjava:                	"dnsjava:dnsjava:2.1.1",
 	
 		// dom4j
-		dom4j:                  	'dom4j:dom4j:1.6.1',
+		dom4j:                  	"dom4j:dom4j:1.6.1",
 	
 		// dozer
-		dozer:                  	'net.sf.dozer:dozer:5.4.0',
+		dozer:                  	"net.sf.dozer:dozer:5.4.0",
 	
 		// drools
-		drools_compiler:	    	'org.drools:drools-compiler:5.4.0.Final',
-		drools_spring:	    		'org.drools:drools-spring:5.4.0.Final',
-		drools_core:	    		'org.drools:drools-core:5.4.0.Final',
+		drools_compiler:	    	"org.drools:drools-compiler:5.4.0.Final",
+		drools_spring:	    		"org.drools:drools-spring:5.4.0.Final",
+		drools_core:	    		"org.drools:drools-core:5.4.0.Final",
 		/* E */
 	
 		// easymock
-		easymock:               	'org.easymock:easymock:3.0',
+		easymock:               	"org.easymock:easymock:3.0",
 	
 		// eventstore2
-		eventstore2:	    		'no.ks:eventstore2:2.3.3',
+		eventstore2:	    		"no.ks:eventstore2:2.3.3",
 		// ebuildapi
-		ebuildapi:              	'com.travelsky:ebuildapi:1.0',
+		ebuildapi:              	"com.travelsky:ebuildapi:1.0",
 	
 		
 		// ehcache
-		ehcache:                	'net.sf.ehcache:ehcache:2.10.0',
-		ehcache_core:				'net.sf.ehcache:ehcache-core:2.6.11',
-		ehcache_web:	    		'net.sf.ehcache:ehcache-web:2.0.4',
+		ehcache:                	"net.sf.ehcache:ehcache:2.10.0",
+		ehcache_core:				"net.sf.ehcache:ehcache-core:2.6.11",
+		ehcache_web:	    		"net.sf.ehcache:ehcache-web:2.0.4",
 	
 		/* F */
 	
 		// fastjson	
-		fastjson:               	'com.alibaba:fastjson:1.2.6',
+		fastjson:               	"com.alibaba:fastjson:1.2.6",
 		
-		// allcom's faxapi
-		faxapi:                 	'allcom:faxapi:1.0',
+		// allcom"s faxapi
+		faxapi:                 	"allcom:faxapi:1.0",
 	
 		// freemarker
-		freemarker:             	'org.freemarker:freemarker:2.3.19',
+		freemarker:             	"org.freemarker:freemarker:2.3.19",
 	
-		ftpserver_core:				'org.apache.ftpserver:ftpserver-core:1.0.6',
-		ftplet_api:					'org.apache.ftpserver:ftplet-api:1.0.6',
+		ftpserver_core:				"org.apache.ftpserver:ftpserver-core:1.0.6",
+		ftplet_api:					"org.apache.ftpserver:ftplet-api:1.0.6",
+		
+		flume_ng_core:				"org.apache.flume:flume-ng-core:1.6.0",
+		flume_ng_sdk:				"org.apache.flume:flume-ng-sdk:1.6.0",
+		flume_ng_configuration:		"org.apache.flume:flume-ng-configuration:1.6.0",
+		flume_ng_node:				"org.apache.flume:flume-ng-node:1.6.0",
+		
+		
 		
 		/* G */
 	
@@ -158,22 +174,22 @@ ext {
 		guice:                  	"com.google.inject:guice:3.0",
 		
 		// gson	
-		gson:                   	'com.google.code.gson:gson:2.3',
+		gson:                   	"com.google.code.gson:gson:2.3",
 		
 		
 		// guava	
-		guava:                  	'com.google.guava:guava:17.0',
+		guava:                  	"com.google.guava:guava:17.0",
 		
 		// git 
-		github:						'org.kohsuke:github-api:1.69',
-		jgit:						'org.eclipse.jgit:org.eclipse.jgit:4.0.1.201506240215-r',
-		egit:						'org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5',
+		github:						"org.kohsuke:github-api:1.69",
+		jgit:						"org.eclipse.jgit:org.eclipse.jgit:4.0.1.201506240215-r",
+		egit:						"org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5",
 		
 		
 		/* H */	
 		
 		// hadoop	
-		hadoop_core:            			'org.apache.hadoop:hadoop-core:1.2.1',
+		hadoop_core:            			"org.apache.hadoop:hadoop-core:1.2.1",
 		hadoop_test:						"org.apache.hadoop:hadoop-test:1.2.1",
 		hadoop_auth:						"org.apache.hadoop:hadoop-auth:2.7.1",
 		hadoop_common:						"org.apache.hadoop:hadoop-common:2.7.1",
@@ -183,7 +199,7 @@ ext {
 
 		
 		// hbase	
-		hbase:                  			'org.apache.hbase:hbase:0.90.5',
+		hbase:                  			"org.apache.hbase:hbase:0.90.5",
 		
 		hbase_annotations:					"org.apache.hadoop.hbase:hbase-annotations:${versions.hbase}",
 		hbase_client:						"org.apache.hadoop.hbase:hbase-client:${versions.hbase}",
@@ -206,7 +222,7 @@ ext {
 		hibernate_annotation:   	"org.hibernate:hibernate-annotations:${versions.hibernate}",
 		hibernate_core:         	"org.hibernate:hibernate-core:${versions.hibernate}",
 		hibernate_c3p0:				"org.hibernate:hibernate-c3p0:${versions.hibernate}",
-		hibernate_validator:    	'org.hibernate:hibernate-validator:4.1.0.Final',
+		hibernate_validator:    	"org.hibernate:hibernate-validator:4.1.0.Final",
 		
 		// httpcomponents	
 		httpclient:             	"org.apache.httpcomponents:httpclient:${versions.httpcomponents}",
@@ -215,16 +231,16 @@ ext {
 		/* I */	
 		
 		// ibatis	
-		ibatis:                 	'org.apache.ibatis:ibatis-sqlmap:2.3.4.726',
+		ibatis:                 	"org.apache.ibatis:ibatis-sqlmap:2.3.4.726",
 		
 		// ibator	
-		ibator:                 	'org.apache.ibatis:ibator:1.2.1.681',
+		ibator:                 	"org.apache.ibatis:ibator:1.2.1.681",
 		
 		// icu4j	
-		icu4j:                  	'com.ibm.icu:icu4j:51.1',
+		icu4j:                  	"com.ibm.icu:icu4j:51.1",
 		
 		// inject	
-		inject:                 	'javax.inject:javax.inject:1',
+		inject:                 	"javax.inject:javax.inject:1",
 	
 		// cucumber
 		cucumber_java:				"info.cukes:cucumber-java:1.2.2",
@@ -233,31 +249,31 @@ ext {
 		/* J */
 	
 		// jackson json processor
-		jackson_core_asl: 			'org.codehaus.jackson:jackson-core-asl:1.9.12',
-		jackson_mapper_asl:     	'org.codehaus.jackson:jackson-mapper-asl:1.9.12',
+		jackson_core_asl: 			"org.codehaus.jackson:jackson-core-asl:1.9.12",
+		jackson_mapper_asl:     	"org.codehaus.jackson:jackson-mapper-asl:1.9.12",
 	
 		// jacob
-		jacob:                  	'net.sf.jacob-project:jacob:1.17',
+		jacob:                  	"net.sf.jacob-project:jacob:1.17",
 		
 		// jactor	
-		jactor:                 	'org.agilewiki.jactor:jactor:4.6.2.0',
+		jactor:                 	"org.agilewiki.jactor:jactor:4.6.2.0",
 		
 		// javacsv	
-		javacsv:                	'net.sourceforge.javacsv:javacsv:2.0',
+		javacsv:                	"net.sourceforge.javacsv:javacsv:2.0",
 		
-		javax_persistence:			'org.eclipse.persistence:javax.persistence:2.1.0',
+		javax_persistence:			"org.eclipse.persistence:javax.persistence:2.1.0",
 		
 		// javassist	
-		javassist:              	'org.javassist:javassist:3.17.1-GA',
+		javassist:              	"org.javassist:javassist:3.17.1-GA",
 		
 		// javaee-api	
-		javaee_api:             	'javax:javaee-api:6.0',
+		javaee_api:             	"javax:javaee-api:6.0",
 		
 		// javatuples	
-		javatuples:             	'org.javatuples:javatuples:1.2',
+		javatuples:             	"org.javatuples:javatuples:1.2",
 		
 		// jaxen	
-		jaxen:                  	'jaxen:jaxen:1.1.6',
+		jaxen:                  	"jaxen:jaxen:1.1.6",
 			
 		// jbehave	
 		jbehave_core:				"org.jbehave:jbehave-core:3.9.5",
@@ -266,13 +282,13 @@ ext {
 			
 			
 		// jchardet	
-		jchardet:               	'net.sourceforge.jchardet:jchardet:1.0',
+		jchardet:               	"net.sourceforge.jchardet:jchardet:1.0",
 		
 		// jdom	
-		jdom:                   	'org.jdom:jdom:2.0.2',
+		jdom:                   	"org.jdom:jdom:2.0.2",
 	
 		// jedis	
-		jedis:                  	'redis.clients:jedis:2.7.2',
+		jedis:                  	"redis.clients:jedis:2.7.2",
 		
 		// jetty	
 		jetty_servlet:          	"org.eclipse.jetty:jetty-servlet:${versions.jetty}",
@@ -281,47 +297,47 @@ ext {
 		jetty_xml:              	"org.eclipse.jetty:jetty-xml:${versions.jetty}",
 		
 		// jfreechart	
-		jfreechart:             	'jfree:jfreechart:1.0.13',
+		jfreechart:             	"jfree:jfreechart:1.0.13",
 		
 		// jgraph	
-		jgraph:                 	'jgraph:jgraph:5.13.0.0',
+		jgraph:                 	"jgraph:jgraph:5.13.0.0",
 		
 		// jgrapht	
-		jgrapht:                	'org.jgrapht:jgrapht-jdk1.5:0.7.3',
+		jgrapht:                	"org.jgrapht:jgrapht-jdk1.5:0.7.3",
 		
 		
 		
 		
 		// jivesoftware	
-		jivesoftware_smack:     	'jivesoftware:smack:3.1.0',
+		jivesoftware_smack:     	"jivesoftware:smack:3.1.0",
 		
 		//
-		jenkins:					'nl.tudelft:jenkins-ws-client:0.14-SNAPSHOT',
+		jenkins:					"nl.tudelft:jenkins-ws-client:0.14-SNAPSHOT",
 									
-		jenkins_ci:					'com.github.danielpacak.jenkins.ci:jenkins.ci.core:1.0.0-rc4',
+		jenkins_ci:					"com.github.danielpacak.jenkins.ci:jenkins.ci.core:1.0.0-rc4",
 		
-		sonar_jira:					'org.codehaus.sonar-plugins:sonar-jira-plugin:1.2',
-		sonar:						'org.codehaus.sonar:sonar-plugin-api:5.1',
+		sonar_jira:					"org.codehaus.sonar-plugins:sonar-jira-plugin:1.2",
+		sonar:						"org.codehaus.sonar:sonar-plugin-api:5.1",
 		
 		// jmagick	
-		jmagick:                	'jmagick:jmagick:6.6.9',
+		jmagick:                	"jmagick:jmagick:6.6.9",
 		
 		// jna	
-		jna:                    	'net.java.dev.jna:jna:3.5.2',
+		jna:                    	"net.java.dev.jna:jna:3.5.2",
 		
 		// joda	
-		joda_time:              	'joda-time:joda-time:2.8.1',
+		joda_time:              	"joda-time:joda-time:2.8.1",
 		
 		// jscience	
-		jscience:               	'org.jscience:jscience:4.3.1',
+		jscience:               	"org.jscience:jscience:4.3.1",
 		
-		jcraft_jsch:				'com.jcraft:jsch:0.1.53',
+		jcraft_jsch:				"com.jcraft:jsch:0.1.53",
 		// json	
-		json_lib:               	'net.sf.json-lib:json-lib:2.4:jdk15',
+		json_lib:               	"net.sf.json-lib:json-lib:2.4:jdk15",
 
 			
 		// jsr305	
-		jsr305:                 	'net.sourceforge.findbugs:jsr305:1.3.7',
+		jsr305:                 	"net.sourceforge.findbugs:jsr305:1.3.7",
 		
 		// jstl	
 		jstl:						"jstl:jstl:${versions.jstl}",
@@ -329,16 +345,16 @@ ext {
 		jstl_impl:              	"org.glassfish.web:jstl-impl:${versions.jstl}",
 		
 		// junit	
-		junit:                  	'junit:junit:4.11',
+		junit:                  	"junit:junit:4.11",
 		
 		// jta	
-		jta:                    	'javax.transaction:javax.transaction-api:1.2',
+		jta:                    	"javax.transaction:javax.transaction-api:1.2",
 		
 		// jxl	
-		jxl:                    	'net.sourceforge.jexcelapi:jxl:2.6.12',
+		jxl:                    	"net.sourceforge.jexcelapi:jxl:2.6.12",
 		
 		/* K */	
-		kaptcha:                	'com.github.axet:kaptcha:0.0.7',
+		kaptcha:                	"com.github.axet:kaptcha:0.0.7",
 		
 		/** K **/
 		kafka_clients:				"org.apache.kafka:kafka-clients:${versions.kafka}",
@@ -348,7 +364,7 @@ ext {
 		/* L */	
 		
 		// log4j	
-		log4j:                  	'log4j:log4j:1.2.17',
+		log4j:                  	"log4j:log4j:1.2.17",
 		
 		// Log4j 2
 		log4j_api:					"org.apache.logging.log4j:log4j-api:2.3",
@@ -362,66 +378,66 @@ ext {
 		
 		jcl_over_slf4j:         	"org.slf4j:jcl-over-slf4j:${versions.slf4j}",
 		log4j_over_slf4j:       	"org.slf4j:log4j-over-slf4j:${versions.slf4j}",
-		logback:                	'ch.qos.logback:logback-classic:1.0.13',
-		logback_ext:	    		'org.logback-extensions:logback-ext-spring:0.1.1',
+		logback:                	"ch.qos.logback:logback-classic:1.0.13",
+		logback_ext:	    		"org.logback-extensions:logback-ext-spring:0.1.1",
 	
 		
 		// lucene
-		luecne_core:            	'org.apache.lucene:lucene-core:3.6.2',
-		IKAnalyzer:             	'org.wltea.analyzer.lucene:IKAnalyzer:2012_u6',
+		luecne_core:            	"org.apache.lucene:lucene-core:3.6.2",
+		IKAnalyzer:             	"org.wltea.analyzer.lucene:IKAnalyzer:2012_u6",
 	
 		/* M */
 	
 		// mail
-		mail:                   	'javax.mail:mail:1.4.7',
+		mail:                   	"javax.mail:mail:1.4.7",
 	
 		// mchange
-		mchange_commons_java:   	'com.mchange:mchange-commons-java:0.2.6',
+		mchange_commons_java:   	"com.mchange:mchange-commons-java:0.2.6",
 	
 		//mockito
-		mockito:                	'org.mockito:mockito-all:1.8.4',
+		mockito:                	"org.mockito:mockito-all:1.8.4",
 	
 		// moco
-		moco:						'com.github.dreamhead:moco-core:0.10.1',
+		moco:						"com.github.dreamhead:moco-core:0.10.1",
 		
 		// mongodb
-		mongo_java_driver:      	'org.mongodb:mongo-java-driver:3.0.2',
+		mongo_java_driver:      	"org.mongodb:mongo-java-driver:3.0.2",
 		morphia:                	"com.github.jmkgreen.morphia:morphia:${versions.morphia}",
 		morphia_validation:     	"com.github.jmkgreen.morphia:morphia-validation:${versions.morphia}",
 		morphia_logging_slf4j: 		"com.github.jmkgreen.morphia:morphia-logging-slf4j:${versions.morphia}",
 	
 		// mx4j
-		mx4j_tools:             	'mx4j:mx4j-tools:3.0.1',
+		mx4j_tools:             	"mx4j:mx4j-tools:3.0.1",
 	
 		// mybatis
-		mybatis:                	'org.mybatis:mybatis:3.2.5',
-		mybatis_spring:         	'org.mybatis:mybatis-spring:1.2.2',
-		mybatis_generator:      	'org.mybatis.generator:mybatis-generator-core:1.3.2',
+		mybatis:                	"org.mybatis:mybatis:3.2.5",
+		mybatis_spring:         	"org.mybatis:mybatis-spring:1.2.2",
+		mybatis_generator:      	"org.mybatis.generator:mybatis-generator-core:1.3.2",
 	
 		// htmlcleaner
-		htmlcleaner:	    		'net.sourceforge.htmlcleaner:htmlcleaner:2.10',
-		myhtmlcleaner:          	'com.travelzen.tops.myhtmlcleaner:htmlcleaner:2.1',
+		htmlcleaner:	    		"net.sourceforge.htmlcleaner:htmlcleaner:2.10",
+		myhtmlcleaner:          	"com.travelzen.tops.myhtmlcleaner:htmlcleaner:2.1",
 	
 		// mysql connector
-		mysql_connector:        	'mysql:mysql-connector-java:5.1.30',
+		mysql_connector:        	"mysql:mysql-connector-java:5.1.30",
 	
 		/* N */
 		//netty
 		netty5:						"io.netty:netty-all:5.0.0.Alpha2",
-		netty3:                     'org.jboss.netty:netty:3.1.5.GA',
+		netty3:                     "org.jboss.netty:netty:3.1.5.GA",
 
 
 		
 		/* O */
 	
 		// op4j
-		op4j:                   	'org.op4j:op4j:1.2',
+		op4j:                   	"org.op4j:op4j:1.2",
 	
 		// opencsv
-		opencsv:                   	'net.sf.opencsv:opencsv:2.3',
+		opencsv:                   	"net.sf.opencsv:opencsv:2.3",
 	
 		// oracle
-		oracle:                 	'oracle:ojdbc:11.2.0.1.0',
+		oracle:                 	"oracle:ojdbc:11.2.0.1.0",
 	
 		// org.json	
 		orgjson:					"org.json:json:20090211",
@@ -429,10 +445,10 @@ ext {
 		/* P */
 	
 		// perf4j
-		perf4j:                 	'org.perf4j:perf4j:0.9.16',
+		perf4j:                 	"org.perf4j:perf4j:0.9.16",
 	
 		// pinyin4j
-		pinyin4j:               	'com.belerweb:pinyin4j:2.5.0',
+		pinyin4j:               	"com.belerweb:pinyin4j:2.5.0",
 		
 		// poi	
 		poi:                    	"org.apache.poi:poi:${versions.poi}",
@@ -440,10 +456,10 @@ ext {
 		poi_scratchpad:         	"org.apache.poi:poi-scratchpad:${versions.poi}",
 		
 		// postgresql	
-		postgresql:             	'postgresql:postgresql:9.1-901.jdbc4',
+		postgresql:             	"postgresql:postgresql:9.1-901.jdbc4",
 		
 		// proxytoys	
-		proxytoys:              	'com.thoughtworks.proxytoys:proxytoys:1.0',
+		proxytoys:              	"com.thoughtworks.proxytoys:proxytoys:1.0",
 		
 		protobuf_java:				"com.google.protobuf:protobuf-java:2.6.1",
 		protobuf_rpc_pro_duplex:	"com.googlecode.protobuf-rpc-pro:protobuf-rpc-pro-duplex:3.3",
@@ -452,40 +468,40 @@ ext {
 		/* Q */	
 		
 		// quartz	
-		quartz:                 	'org.quartz-scheduler:quartz:2.1.7',
+		quartz:                 	"org.quartz-scheduler:quartz:2.1.7",
 		
 		/* R */	
 		
 		// rabbitmq	
-		rabbitmq:               	'com.rabbitmq:amqp-client:3.5.2',
+		rabbitmq:               	"com.rabbitmq:amqp-client:3.5.2",
 		
 		// reflections	
-		reflections:            	'org.reflections:reflections:0.9.8',
+		reflections:            	"org.reflections:reflections:0.9.8",
 		
 		// resteasy
-		resteasy_jaxrs:					'org.jboss.resteasy:resteasy-jaxrs:3.0.12.Final',
+		resteasy_jaxrs:					"org.jboss.resteasy:resteasy-jaxrs:3.0.12.Final",
 		
 		// rhino	
-		rhino:                  	'org.mozilla:rhino:1.7R4',
+		rhino:                  	"org.mozilla:rhino:1.7R4",
 		
 		// rome atom+rss	
-		rome:                   	'net.java.dev.rome:rome:1.0.0',
+		rome:                   	"net.java.dev.rome:rome:1.0.0",
 		
 		/* S */	
 		
 		// servlet api	
-		servlet_api:            	'javax.servlet:javax.servlet-api:3.1.0',
+		servlet_api:            	"javax.servlet:javax.servlet-api:3.1.0",
 		
 		// simple xml	
-		simple_xml:             	'org.simpleframework:simple-xml:2.7',
+		simple_xml:             	"org.simpleframework:simple-xml:2.7",
 		
 		// snakeyaml	
-		snakeyaml:              	'org.yaml:snakeyaml:1.12',
+		snakeyaml:              	"org.yaml:snakeyaml:1.12",
 		
 		// spring	
 		
 		spring_aop:					"org.springframework:spring-aop:${versions.spring}",
-		spring_agent:           	'org.springframework:spring-agent:2.5.6',
+		spring_agent:           	"org.springframework:spring-agent:2.5.6",
 		spring_aspects:         	"org.springframework:spring-aspects:${versions.spring}",
 		spring_core:				"org.springframework:spring-core:${versions.spring}",
 		spring_context:         	"org.springframework:spring-context:${versions.spring}",
@@ -501,10 +517,10 @@ ext {
 			
 			
 		// spring batch	
-		spring_batch_core:      	'org.springframework.batch:spring-batch-core:2.1.9.RELEASE',
+		spring_batch_core:      	"org.springframework.batch:spring-batch-core:2.1.9.RELEASE",
 		
 		// spring data	
-		spring_data_redis:      	'org.springframework.data:spring-data-redis:1.0.4.RELEASE',
+		spring_data_redis:      	"org.springframework.data:spring-data-redis:1.0.4.RELEASE",
 		
 		// spring security	
 		spring_security_acl:    	"org.springframework.security:spring-security-acl:${versions.spring_security}",
@@ -513,67 +529,67 @@ ext {
 		spring_security_web:    	"org.springframework.security:spring-security-web:${versions.spring_security}",
 		
 		// spring unitils	
-		spring_unitils:         	'org.unitils:unitils-spring:3.3',
+		spring_unitils:         	"org.unitils:unitils-spring:3.3",
 		
 		// spring rabbitmq	
-		spring_rabbit:          	'org.springframework.amqp:spring-rabbit:1.2.0.RELEASE',
+		spring_rabbit:          	"org.springframework.amqp:spring-rabbit:1.2.0.RELEASE",
 		
 		// spring retry	
 		spring_retry:           	"org.springframework.retry:spring-retry:1.0.0.RELEASE",
 		
 		// sqljdbc4	
-		sqljdbc4:               	'com.microsoft.sqlserver:sqljdbc4:1.0',
+		sqljdbc4:               	"com.microsoft.sqlserver:sqljdbc4:1.0",
 		
 		// sstable	
-		sstable:                	'com.google:sstable:1.0.1',
+		sstable:                	"com.google:sstable:1.0.1",
 		
 		
 		// org.eclipse.swt.win32.win32
-		swt:		    			'org.eclipse.swt.win32.win32:x86:3.3.0-v3346',
+		swt:		    			"org.eclipse.swt.win32.win32:x86:3.3.0-v3346",
 	
 		// storm
-		storm:		    			'storm:storm:0.9.0.1',
-		storm_core:					'org.apache.storm:storm-core:0.9.5',
-		storm_kafka:				'org.apache.storm:storm-kafka:0.9.5',
+		storm:		    			"storm:storm:0.9.0.1",
+		storm_core:					"org.apache.storm:storm-core:0.9.5",
+		storm_kafka:				"org.apache.storm:storm-kafka:0.9.5",
 		
 		
 		/* T */
 	
 		// thrift
-		thrift:                 	'org.apache.thrift:libthrift:0.9.2',
+		thrift:                 	"org.apache.thrift:libthrift:0.9.2",
 	
-		trilead_ssh2:				'com.trilead:trilead-ssh2:1.0.0-build219',
+		trilead_ssh2:				"com.trilead:trilead-ssh2:1.0.0-build219",
 		
 		/* U */
-		unicompayment:          	'unicompayment.unicompayment_decoder:1.0.0.1',
+		unicompayment:          	"unicompayment.unicompayment_decoder:1.0.0.1",
 		/* V */
 	
 		// validation
-		validation:             	'javax.validation:validation-api:1.0.0.GA',
+		validation:             	"javax.validation:validation-api:1.0.0.GA",
 	
-		velocity:					'org.apache.velocity:velocity:1.7',
+		velocity:					"org.apache.velocity:velocity:1.7",
 		/* W */
 	
 		// webdriver
-		webdriver:              	'net.sourceforge.htmlunit:webdriver:2.6',
+		webdriver:              	"net.sourceforge.htmlunit:webdriver:2.6",
 	
 		/* X */
 	
 		// xstream
-		xstream:                	'com.thoughtworks.xstream:xstream:1.4.4',
+		xstream:                	"com.thoughtworks.xstream:xstream:1.4.4",
 		
 		// xerces
-		xerces:		    			'xerces:xercesImpl:2.9.1',
+		xerces:		    			"xerces:xercesImpl:2.9.1",
 		/* Y */
 	
 		/* Z */
 	
 		// zookeeper
-		zookeeper:              	'org.apache.zookeeper:zookeeper:3.4.6',
+		zookeeper:              	"org.apache.zookeeper:zookeeper:3.4.6",
 		
 	
 		// maria jdbc
-		maria_jdbc:             	'org.jumpmind.symmetric.jdbc:mariadb-java-client:1.1.1'
+		maria_jdbc:             	"org.jumpmind.symmetric.jdbc:mariadb-java-client:1.1.1"
     
     ]
 }
