@@ -5,7 +5,6 @@ ext {
 		flume:						"1.6.0",
 		groovy:                 	"2.1.3",
 		hibernate:              	"4.3.10.Final",
-		hbase:						"0.98.13-hadoop2",
 		httpcomponents:         	"4.5",
 		jetty:                  	"8.1.10.v20130312",
 		jstl:                   	"1.2",
@@ -197,27 +196,6 @@ ext {
 		hadoop_hdfs:						"org.apache.hadoop:hadoop-hdfs:2.7.1",
 		
 
-		
-		// hbase	
-		hbase:                  			"org.apache.hbase:hbase:0.90.5",
-		
-		hbase_annotations:					"org.apache.hadoop.hbase:hbase-annotations:${versions.hbase}",
-		hbase_client:						"org.apache.hadoop.hbase:hbase-client:${versions.hbase}",
-		hbase_common:						"org.apache.hadoop.hbase:hbase-common:${versions.hbase}",
-		hbase_examples:						"org.apache.hadoop.hbase:hbase-examples:${versions.hbase}",
-		hbase_hadoop_compat:				"org.apache.hadoop:hbase-hadoop-compat:${versions.hbase}",
-		hbase_hadoop2_compat:				"org.apache.hadoop:hbase-hadoop2-compat:${versions.hbase}",
-		hbase_it:							"org.apache.hadoop.hbase:hbase-it:${versions.hbase}",
-		hbase_prefix_tree:					"org.apache.hadoop.hbase:hbase-prefix-tree:${versions.hbase}",
-		hbase_protocol:						"org.apache.hadoop.hbase:hbase-protocol:${versions.hbase}",
-		hbase_rest:							"org.apache.hadoop.hbase:hbase-rest:${versions.hbase}",
-		hbase_server:						"org.apache.hadoop.hbase:hbase-server:${versions.hbase}",
-		htrace_core:						"org.cloudera.htrace:htrace-core:2.04",
-				
-		hamcrest_all:						"org.hamcrest:hamcrest-all:${versions.hamcrest}",
-		hbase_checkstyle:					"org.apache.hadoop.hbase:hbase-checkstyle:${versions.hbase}",
-		
-		
 		// hibernate	
 		hibernate_annotation:   	"org.hibernate:hibernate-annotations:${versions.hibernate}",
 		hibernate_core:         	"org.hibernate:hibernate-core:${versions.hibernate}",
