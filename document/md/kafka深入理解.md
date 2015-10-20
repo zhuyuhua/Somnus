@@ -1,6 +1,7 @@
 ## Kafka ##
 
 http://blog.csdn.net/zhongwen7710/article/details/41252649
+http://blog.csdn.net/lizhitao/article/details/39499283
 
 ## 二、HA(高可用)
 

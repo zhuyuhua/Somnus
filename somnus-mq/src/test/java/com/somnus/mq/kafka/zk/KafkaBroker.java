@@ -12,28 +12,55 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.somnus.ddd.domain;
-
-import java.util.List;
+package com.somnus.mq.kafka.zk;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
  * TODO
- *
- * @author zhuyuhua 2015年7月16日
+ * @author zhuyuhua
  * @version 0.0.1
+ * @since 2015年10月20日
  */
-public class CriteriaQuery {
+public class KafkaBroker {
 
-	private static Logger logger = LoggerFactory.getLogger(CriteriaQuery.class);
+	private static Logger logger = LoggerFactory.getLogger(KafkaBroker.class);
 
-	private EntityRepository repository;
+	private String host;
+	
+	private String port;
+	
+	/**
+	 * 构建MafkaBroker
+	 * @param brokerId
+	 * @param brokerInfoStr
+	 * @return
+	 * @since JDK 1.6
+	 */
+	public static KafkaBroker createBroker(int brokerId, String brokerInfoStr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	public <T> List<T> list() {
-		return repository.find(this);
+	/**
+	 * TODO
+	 * @return
+	 * @since JDK 1.6
+	 */
+	public String getHost() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * TODO
+	 * @return
+	 * @since JDK 1.6
+	 */
+	public String getPort() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

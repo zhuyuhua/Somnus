@@ -1,82 +1,43 @@
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 package com.somnus.mq.kafka;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.somnus.common.config.GlobalConfigConstant;
-import com.somnus.utils.properties.PropertiesUtil;
-
-import kafka.javaapi.producer.Producer;
-import kafka.producer.KeyedMessage;
-import kafka.producer.ProducerConfig;
-
 public class KafkaProducerTest {
-	private static Logger logger = LoggerFactory.getLogger(KafkaProducerTest.class);
-	private Producer<String, String> producer;
 
-	private String kafkaProducerConfig = GlobalConfigConstant.CLASS_PATH + "kafka/kafka.producer.properties";
+	private static String producerConfig = GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
+			+ "producer1.test.properties";
 
-	public KafkaProducerTest() throws Exception {
+	public static void main(String[] args) throws Exception {
 
-		PropertiesUtil properties = PropertiesUtil.getInstance(kafkaProducerConfig);
-		ProducerConfig config = new ProducerConfig(properties.getProperties());
-		producer = new Producer<String, String>(config);
-	}
+		KafkaProducerHelper helper = new KafkaProducerHelper(producerConfig);
+		// Thread.sleep(5000);
+		System.out.println("----start send----");
+		long start = System.currentTimeMillis();
+		for (int i = 0; i < 10000; i++) {
 
-	public void send(String topicName, String message) {
-		if (topicName == null || message == null) {
-			return;
-		}
-		KeyedMessage<String, String> keyedMessage = new KeyedMessage<String, String>(topicName, message);
-
-		producer.send(keyedMessage);
-	}
-
-	public void send(String topicName, Collection<String> messages) {
-		if (topicName == null || messages == null) {
-			return;
-		}
-		if (messages.isEmpty()) {
-			return;
-		}
-		List<KeyedMessage<String, String>> keyedMessages = new ArrayList<KeyedMessage<String, String>>();
-		for (String entry : messages) {
-			KeyedMessage<String, String> keyedMessage = new KeyedMessage<String, String>(topicName, entry);
-			keyedMessages.add(keyedMessage);
-		}
-		producer.send(keyedMessages);
-	}
-
-	public void shutdown() {
-		producer.close();
-	}
-
-	public static void main(String[] args) {
-		KafkaProducerTest producer = null;
-		try {
-			producer = new KafkaProducerTest();
-
-			// while (true) {
-			Long start = System.currentTimeMillis();
-
-			for (int i = 0; i < 10; i++) {
-				producer.send("test", System.currentTimeMillis() + "-" + i);
-			}
-
-			System.out.println(System.currentTimeMillis() - start);
-
+			String message = i + "";
+			helper.send("topic-part3", message);
+			// RecordMetadata metadata = future.get();Future<RecordMetadata>
+			// future =
+			// System.out.println(metadata);
 			// Thread.sleep(1000);
-			// }
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (producer != null) {
-				producer.shutdown();
-			}
+
 		}
+		System.out.println("cost:" + (System.currentTimeMillis() - start));
+		System.out.println("----end send ----");
+		// helper.shutdown();
+
 	}
 }

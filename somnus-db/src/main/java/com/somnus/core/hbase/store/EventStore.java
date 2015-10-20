@@ -12,28 +12,20 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.somnus.ddd.domain;
+package com.somnus.core.hbase.store;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.somnus.core.hbase.store.base.HBaseStore;
 
 /**
- *
  * TODO
- *
- * @author zhuyuhua 2015年7月16日
+ * @author ZHANGDONGXUAN727
  * @version 0.0.1
  */
-public class CriteriaQuery {
+public interface EventStore {
 
-	private static Logger logger = LoggerFactory.getLogger(CriteriaQuery.class);
-
-	private EntityRepository repository;
-
-	public <T> List<T> list() {
-		return repository.find(this);
-	}
-
+	<T> void putObject(T t,String tableName,String identifier);
+	
+	<T> T getObject(String tableName,String identifier,String className);
+	
+	void setHbaseStore(HBaseStore hbaseStore);
 }

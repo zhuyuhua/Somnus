@@ -12,28 +12,28 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.somnus.ddd.domain;
+package com.somnus.core.hbase.factory;
 
-import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+public interface HBaseFactory {
 
-/**
- *
- * TODO
- *
- * @author zhuyuhua 2015年7月16日
- * @version 0.0.1
- */
-public class CriteriaQuery {
+	/**
+	 * ͨ�� tableName ����ȡ��ￄ1�7 Table
+	 */
+	HTableInterface getHTable(String tableName);
 
-	private static Logger logger = LoggerFactory.getLogger(CriteriaQuery.class);
+	HBaseAdmin getHBaseAdmin();
 
-	private EntityRepository repository;
+	/**
+	 * �ر�ĳ��table
+	 */
+	void closeHTable(HTableInterface hTableInterface);
 
-	public <T> List<T> list() {
-		return repository.find(this);
-	}
+	/** only for unit test */
+	boolean deleteTable(String tableName);
 
+	/** only for unit test */
+	HTableDescriptor createTable(String tableName, String[] family);
+
+	void destroy();
 }

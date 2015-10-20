@@ -12,28 +12,23 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.somnus.ddd.domain;
-
-import java.util.List;
+package com.somnus.mq.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
  * TODO
- *
- * @author zhuyuhua 2015年7月16日
+ * @author zhuyuhua
  * @version 0.0.1
+ * @since 2015年10月20日
  */
-public class CriteriaQuery {
+public class GlobalDocConstant {
 
-	private static Logger logger = LoggerFactory.getLogger(CriteriaQuery.class);
-
-	private EntityRepository repository;
-
-	public <T> List<T> list() {
-		return repository.find(this);
-	}
+	private static Logger logger = LoggerFactory.getLogger(GlobalDocConstant.class);
+	public static String CLASS_RESOURCES_PATH = GlobalDocConstant.class
+			.getResource("/").getPath();
+	
+	public static final String CLASS_RESOURCES_CONFIG_PATH = CLASS_RESOURCES_PATH+"config";
 
 }

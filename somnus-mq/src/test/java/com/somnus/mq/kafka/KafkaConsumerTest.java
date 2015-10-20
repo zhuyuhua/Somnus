@@ -1,25 +1,29 @@
+/*
+ * Copyright (c) 2010-2015. Somnus Framework
+ * The Somnus Framework licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 package com.somnus.mq.kafka;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.somnus.common.config.GlobalConfigConstant;
 import com.somnus.utils.properties.PropertiesUtil;
 
-import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
-import kafka.consumer.ConsumerIterator;
-import kafka.consumer.KafkaStream;
-import kafka.javaapi.consumer.ConsumerConnector;
-import kafka.message.MessageAndMetadata;
 
 /**
  * 
@@ -30,111 +34,39 @@ import kafka.message.MessageAndMetadata;
  */
 public class KafkaConsumerTest {
 
-	private static Logger logger = LoggerFactory.getLogger("testReceive");
-	private static String consumerConfig = GlobalConfigConstant.CLASS_PATH + "kafka/kafka.consumer.properties";
+	private static Logger logger = LoggerFactory
+			.getLogger(KafkaConsumerTest.class);
 
-	private List<String> topics; // topic
-	private int threadNum; // 每个topic线程数
+	private static String consumerConfig = GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
+			+ "kafka.consumer.test.properties";
 
-	private int totalThreadNum;// 线程总数
-
-	private ConsumerConnector consumerConnector;// 负责和Kafka服务端联通
-	private ExecutorService executorService;// 运行所有线程
-
-	/**
-	 * @param topics
-	 *            订阅topic
-	 * @param threadNum
-	 *            处理每个topic的线程数
-	 */
-	public KafkaConsumerTest(List<String> topics, int threadNum) {
-
-		// 连通kafka
-		consumerConnector = Consumer.createJavaConsumerConnector(createConsumerConfig());
-		this.topics = topics;
-		this.threadNum = threadNum;
-		this.totalThreadNum = threadNum * topics.size();
-	}
-
-	private ConsumerConfig createConsumerConfig() {
-		PropertiesUtil properties = PropertiesUtil.getInstance(consumerConfig);
-
-		return new ConsumerConfig(properties.getProperties());
-	}
-
-	public void startup() {
-
-		Map<String, Integer> topicAndThread = new HashMap<String, Integer>();
-
-		for (String topic : topics) {
-			topicAndThread.put(topic, threadNum);// 每个topic配置threadNum个线程
-			logger.debug("message topic is:{}", topic);
-		}
-
-		// 根据map或者所有主题对应的消息流
-		Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumerConnector
-				.createMessageStreams(topicAndThread);
-
-		//
-		executorService = Executors.newFixedThreadPool(totalThreadNum);
-
-		for (String topic : topics) {
-
-			// 获取某个主题的消息流
-			List<KafkaStream<byte[], byte[]>> streams = consumerMap.get(topic);
-			logger.debug("streams size:{}", streams.size());
-
-			// 根据消息流的大小，创建相同的线程处理
-			for (int i = 0; i < streams.size(); i++) {
-				final KafkaStream<byte[], byte[]> stream = streams.get(i);
-				executorService.execute(new MessageRunner(stream, i));
-			}
-		}
-	}
-
-	public void shutdown() {
-		if (consumerConnector != null)
-			consumerConnector.shutdown();
-		if (executorService != null)
-			executorService.shutdown();
-		try {
-			if (!executorService.awaitTermination(5000, TimeUnit.MILLISECONDS)) {
-				logger.error("Timed out waiting for consumer threads to shut down, exiting uncleanly");
-			}
-		} catch (InterruptedException e) {
-			logger.error("Interrupted during shutdown, exiting uncleanly");
-		}
-	}
-
-	class MessageRunner implements Runnable {
-		private KafkaStream<byte[], byte[]> stream;
-		int index;
-
-		MessageRunner(KafkaStream<byte[], byte[]> stream, int i) {
-			this.stream = stream;
-			this.index = i;
-		}
-
-		@Override
-		public void run() {
-			ConsumerIterator<byte[], byte[]> it = stream.iterator();
-			while (it.hasNext()) {
-				MessageAndMetadata<byte[], byte[]> item = it.next();
-
-				String message = new String(item.message());
-				 System.out.println(message + " from the index is " + index);
-			}
-		}
-	}
+	private static String[] consumerConfigs = new String[] {
+			GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
+					+ "consumer11.test.properties",
+			GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
+					+ "consumer21.test.properties",
+			GlobalDocConstant.CLASS_RESOURCES_CONFIG_PATH
+					+ "consumer22.test.properties" };
 
 	public static void main(String[] args) {
 
-		logger.debug(KafkaConsumerTest.class.getName());
+		int threadNumPerTopic = 5;
+
+		// for (String config : consumerConfigs) {
 
 		List<String> topics = new ArrayList<String>();
-			topics.add("test");
-		
-		KafkaConsumerTest consumer = new KafkaConsumerTest(topics, 1);
-		consumer.startup();
+		topics.add("topic-part3");
+
+		Properties prop = PropertiesUtil.getInstance(consumerConfigs[1]).getProperties();
+		// Properties prop = PropertiesReader.read(config);
+		ConsumerConfig consumerConfig = new ConsumerConfig(prop);
+		KafkaConsumerHelper consumer = new KafkaConsumerHelper(topics,
+				threadNumPerTopic, consumerConfig);
+
+		consumer.start();
+		// }
+
+		System.out.println("--consumer start--");
 	}
+
 }

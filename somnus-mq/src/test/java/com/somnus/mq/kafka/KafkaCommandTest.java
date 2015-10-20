@@ -12,28 +12,36 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.somnus.ddd.domain;
-
-import java.util.List;
+package com.somnus.mq.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import kafka.admin.TopicCommand;
+
 /**
- *
- * TODO
- *
- * @author zhuyuhua 2015年7月16日
+ * 记录各种java api操作Kafka命令
+ * 
+ * @author ZHUYUHUA129
  * @version 0.0.1
  */
-public class CriteriaQuery {
+public class KafkaCommandTest {
 
-	private static Logger logger = LoggerFactory.getLogger(CriteriaQuery.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(KafkaCommandTest.class);
 
-	private EntityRepository repository;
-
-	public <T> List<T> list() {
-		return repository.find(this);
+	public static void main(String[] args) {
+		createTopic();
 	}
 
+	/**
+	 * 创建topic
+	 */
+	public static void createTopic() {
+
+		String[] options = new String[] { "--create", "--zookeeper",
+				"10.20.19.97/2181", "--partition", "1", "--topic", "topic_name" };
+		TopicCommand.main(options);
+
+	}
 }
