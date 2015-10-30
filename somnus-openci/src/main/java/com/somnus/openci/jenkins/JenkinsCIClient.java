@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.danielpacak.jenkins.ci.core.Job;
+import com.github.danielpacak.jenkins.ci.core.client.JenkinsClient;
 import com.somnus.openci.api.CIClient;
 import com.somnus.openci.api.Developer;
 import com.somnus.openci.api.Project;
@@ -45,9 +47,9 @@ public class JenkinsCIClient implements CIClient {
 	private JenkinsClient client;
 
 	public JenkinsCIClient(String jenkinsUrl, String username, String passwordOrAPIToken) {
-	        JenkinsClientFactory factory = new JenkinsClientFactory(convert(jenkinsUrl), username, passwordOrAPIToken);
-	        client = factory.getJenkinsClient();
-	    }
+		JenkinsClientFactory factory = new JenkinsClientFactory(convert(jenkinsUrl), username, passwordOrAPIToken);
+		client = factory.getJenkinsClient();
+	}
 
 	public void setScmConfig(SomnusScmConfig scmConfig) {
 		this.scmConfig = scmConfig;
@@ -177,7 +179,6 @@ public class JenkinsCIClient implements CIClient {
 
 		return builder.toString();
 	}
-
 
 	private User createByDeveloper(String developerId, String developEmail) {
 		return new UserImpl(developerId, developEmail);

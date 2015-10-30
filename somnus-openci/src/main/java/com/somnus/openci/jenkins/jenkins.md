@@ -1,0 +1,1 @@
+1.jenkins:http://mirrors.jenkins-ci.org/windows/latest

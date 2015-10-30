@@ -44,4 +44,14 @@ public class ServerDispatcher {
 	public ServerDispatcher(ServiceConfig serviceConfig) {
 		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * TODO
+	 * 
+	 * @return
+	 */
+	public Server GetAllServer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

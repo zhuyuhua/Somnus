@@ -23,11 +23,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.somnus.protocol.server.annotation.AnnotationUtil;
-import com.somnus.protocol.server.annotation.Operation;
-import com.somnus.protocol.server.entity.Out;
 import com.somnus.rpc.client.proxy.InvokeResult;
 import com.somnus.rpc.client.proxy.ServiceProxy;
+import com.somnus.server.classz.AnnotationUtil;
+import com.somnus.server.component.annotation.Operation;
 
 /**
  *
@@ -49,9 +48,9 @@ public class MethodCaller {
 	}
 
 	/**
-	 * 
+	 *
 	 * 调用方法
-	 * 
+	 *
 	 * @param args
 	 *            方法参数
 	 * @param methodInfo

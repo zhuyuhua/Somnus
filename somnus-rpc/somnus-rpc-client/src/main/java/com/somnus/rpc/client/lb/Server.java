@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.somnus.utils.file.big;
+package com.somnus.rpc.client.lb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,19 +25,8 @@ import org.slf4j.LoggerFactory;
  * @author zhuyuhua
  * @since 0.0.1
  */
-public class Main {
+public class Server {
 
-	private static Logger logger = LoggerFactory.getLogger(Main.class);
-
-	public static void main(String[] args) {
-
-		// TextRowDecoder decoder = new TextRowDecoder(4, comma);
-		// FileReader<byte[][]> reader = FileReader.create(decoder,
-		// file.listFiles());
-		//
-		// for (List<byte[][]> chunk : reader) {
-		// // do something with each chunk
-		// }
-	}
+	private static Logger logger = LoggerFactory.getLogger(Server.class);
 
 }
