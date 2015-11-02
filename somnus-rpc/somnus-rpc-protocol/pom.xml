@@ -21,10 +21,10 @@
 		<artifactId>somnus-rpc</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>somnus-rpc-thrift</artifactId>
+	<artifactId>somnus-rpc-protocol</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
-	<description>The thrift rpc module of somnus project</description>
+	<description>The protocol rpc module of rpc project</description>
 	<properties>
 		<skip_maven_deploy>true</skip_maven_deploy>
 	</properties>

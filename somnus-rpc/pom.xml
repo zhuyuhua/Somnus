@@ -29,8 +29,8 @@
 		<skip_maven_deploy>true</skip_maven_deploy>
 	</properties>
 	<modules>
-		<module>somnus-rpc-api</module>
-		<module>somnus-rpc-thrift</module>
-	
+		<module>somnus-rpc-client</module>
+		<module>somnus-rpc-protocol</module>
+		<module>somnus-rpc-server</module>
 	</modules>
 </project>

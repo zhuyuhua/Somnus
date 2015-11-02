@@ -1,2 +1,1 @@
 apply from: 'somnus.framework.gradle'
-apply from: 'somnus.example.gradle'

@@ -3,12 +3,20 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.somnus</groupId>
-    <artifactId>somnus-bigdata</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
+        <groupId>com.somnus</groupId>
+        <artifactId>somnus-parent</artifactId>
+        <version>1.0.0</version>
+   </parent>
   <artifactId>somnus-strom</artifactId>
-  <name>somnus-strom</name>
-  <url>http://maven.apache.org</url>
-  
+  <packaging>jar</packaging>
+   <name>${project.artifactId}</name>
+  <description>The ioc module of somnus project</description>
+
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+    </properties>
+    <dependencies>
+       
+    </dependencies>
+	
 </project>

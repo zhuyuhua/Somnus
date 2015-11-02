@@ -1,1 +1,0 @@
-gradle --parallel cleaneclipse eclipse
