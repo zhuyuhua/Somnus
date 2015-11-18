@@ -29,6 +29,11 @@
         <skip_maven_deploy>true</skip_maven_deploy>
     </properties>
     <dependencies>
-       
+       <dependency>
+    		 	<groupId>com.somnus</groupId>
+    			<artifactId>somnus-common</artifactId>
+    			<version>${project.version}</version>
+    			<scope>compile</scope>
+    		</dependency>
     </dependencies>
 </project>

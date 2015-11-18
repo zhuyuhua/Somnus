@@ -1,20 +1,13 @@
-<!--
- - Copyright 2010-2015 Somnus Group.
- -
- - Licensed under the Apache License, Version 2.0 (the "License");
- - you may not use this file except in compliance with the License.
- - You may obtain a copy of the License at
- -
- -      http://www.apache.org/licenses/LICENSE-2.0
- -
- - Unless required by applicable law or agreed to in writing, software
- - distributed under the License is distributed on an "AS IS" BASIS,
- - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- - See the License for the specific language governing permissions and
- - limitations under the License.
--->
+<!-- - Copyright 2010-2015 Somnus Group. - - Licensed under the Apache License, 
+	Version 2.0 (the "License"); - you may not use this file except in compliance 
+	with the License. - You may obtain a copy of the License at - - http://www.apache.org/licenses/LICENSE-2.0 
+	- - Unless required by applicable law or agreed to in writing, software - 
+	distributed under the License is distributed on an "AS IS" BASIS, - WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
+	License for the specific language governing permissions and - limitations 
+	under the License. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.somnus</groupId>
@@ -38,33 +31,54 @@
 		<url>http://www.zhuyuhua.com</url>
 	</organization>
 	<modules>
+		<module>somnus-axon</module>
+		<module>somnus-activiti</module>
 		<module>somnus-cache</module>
 		<module>somnus-common</module>
 		<module>somnus-conf</module>
 		<module>somnus-core</module>
 		<module>somnus-db</module>
-		<module>somnus-ddd</module>
 		<module>somnus-example</module>
 		<module>somnus-ioc</module>
 		<module>somnus-mq</module>
 		<module>somnus-openci</module>
 		<module>somnus-restful</module>
-		
+
 		<module>somnus-rpc</module>
 		<module>somnus-strom</module>
 		<module>somnus-test</module>
 		<module>somnus-utils</module>
-		
+
 	</modules>
 	<profiles>
 		<profile></profile>
 	</profiles>
 	<properties>
-	
+
 		<!-- Common libs -->
 		<spring.bom.version>4.1.6.RELEASE</spring.bom.version>
 		<junit.version>4.11</junit.version>
-		<project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
+		<mysql.version>5.1.37</mysql.version>
+		<log4j2.version>2.3</log4j2.version>
+		<slf4j.version>1.7.13</slf4j.version>
+		<mybatis.version>3.3.0</mybatis.version>
+
+		<!-- Common config -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<profile.name>oss</profile.name>
+		<java.source.version>1.7</java.source.version>
+		<java.target.version>1.7</java.target.version>
+		<file.encoding>UTF-8</file.encoding>
+
+		<!-- for maven compiler plugin -->
+		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+		<maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+		<maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
+		<maven.source.plugin.version>2.4</maven.source.plugin.version>
+		<maven.surefire.plugin.version>2.19</maven.surefire.plugin.version>
+		<maven.war.plugin.version>2.6</maven.war.plugin.version>
 
 		<!-- generate idea copyright -->
 		<copyright>Copyright 1010-2015 Somnus Group.&#10; &#10;Licensed under
@@ -78,24 +92,6 @@
 			express or implied.&#10;See the License for the specific language
 			governing permissions and&#10;limitations under the License.
 		</copyright>
-		
-		
-		<profile.name>oss</profile.name>
-
-		<java.source.version>1.7</java.source.version>
-		<java.target.version>1.7</java.target.version>
-		<file.encoding>UTF-8</file.encoding>
-		
-		<!-- for maven compiler plugin -->
-		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
-		<maven.source.plugin.version>2.4</maven.source.plugin.version>
-		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
-		<maven.war.plugin.version>2.6</maven.war.plugin.version>
-		<maven.install.plugin.version>2.5.2</maven.install.plugin.version>
-		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-        <maven.surefire.plugin.version>2.19</maven.surefire.plugin.version>
-		
-		<maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
 
 	</properties>
 	<dependencyManagement>
@@ -108,7 +104,7 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		
+
 			<!-- Test libs -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -118,36 +114,46 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<dependencies>
 		<!--all init test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.plugin.version}</version>
 				<configuration>
 					<archive>
 						<addMavenDescriptor>true</addMavenDescriptor>
 						<index>true</index>
 						<manifest>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true
+							</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true
+							</addDefaultImplementationEntries>
 						</manifest>
 					</archive>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -161,12 +167,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-				<configuration>
-					<useSystemClassLoader>true</useSystemClassLoader>
-					<forkMode>once</forkMode>
-					<argLine>${argline}</argLine>
-				</configuration>
+				<version>${maven.surefire.plugin.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -203,18 +204,45 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${maven.compiler.plugin.version}</version>
-					<!--
 					<configuration>
-                        <fork>true</fork>
+						<fork>true</fork>
 						<source>${java.source.version}</source>
 						<target>${java.target.version}</target>
 						<encoding>${file.encoding}</encoding>
-                        <compilerArgs>
-                            <arg>-XX:MaxPermSize=512M</arg>
-                        </compilerArgs>
-					</configuration>-->
+					</configuration>
 				</plugin>
-				
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.1,)
+										</versionRange>
+										<goals>
+											<goal>unpack</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
@@ -229,5 +257,5 @@
 		<connection>scm:svn:http://scm.com/svn/somnus/trunk</connection>
 	</scm>
 
-	
+
 </project>

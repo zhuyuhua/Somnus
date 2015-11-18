@@ -27,8 +27,35 @@
     <description>The core module of somnus project</description>
     <properties>
         <skip_maven_deploy>true</skip_maven_deploy>
+        <avro.version>1.7.7</avro.version>
     </properties>
     <dependencies>
-       
+    		<dependency>
+    		 	<groupId>com.somnus</groupId>
+    			<artifactId>somnus-common</artifactId>
+    			<version>${project.version}</version>
+    			<scope>compile</scope>
+    		</dependency>
+       		<dependency>
+       			<groupId>org.apache.avro</groupId>
+       			<artifactId>avro</artifactId>
+       			<version>${avro.version}</version>
+       		</dependency>
+       		<dependency>
+       			<groupId>org.apache.avro</groupId>
+       			<artifactId>avro-tools</artifactId>
+       			<version>${avro.version}</version>
+       		</dependency>
+       		<dependency>
+       			<groupId>org.apache.flume</groupId>
+       			<artifactId>flume-ng-core</artifactId>
+       			<version>1.6.0</version>
+       		</dependency>
+       		<dependency>
+       			<groupId>org.apache.flume</groupId>
+       			<artifactId>flume-ng-sdk</artifactId>
+       			<version>1.6.0</version>
+       		</dependency>
+       		
     </dependencies>
 </project>
