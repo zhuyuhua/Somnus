@@ -27,11 +27,12 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.protocol.annotation.AnnotationUtil;
+import com.somnus.protocol.annotation.Operation;
+import com.somnus.protocol.annotation.Service;
+import com.somnus.protocol.annotation.ServiceImpl;
 import com.somnus.server.classz.loader.DynamicClassLoader;
 import com.somnus.server.common.ClassType;
-import com.somnus.server.component.annotation.Operation;
-import com.somnus.server.component.annotation.Service;
-import com.somnus.server.component.annotation.ServiceImpl;
 import com.somnus.server.deploy.annotation.HttpPathParameter;
 import com.somnus.server.deploy.annotation.HttpRequestMapping;
 import com.somnus.server.deploy.bean.ClassInfo;
@@ -74,7 +75,8 @@ public class ClassScanner {
 	 * @return
 	 * @throws Exception
 	 */
-	public static ContractInfo getContractInfo(String path, DynamicClassLoader classLoader) throws Exception {
+	public static ContractInfo getContractInfo(String path,
+			DynamicClassLoader classLoader) throws Exception {
 		if (contractInfo == null) {
 			synchronized (lockHelper) {
 				if (contractInfo == null) {
@@ -93,7 +95,8 @@ public class ClassScanner {
 	 * @param classLoader
 	 * @throws Exception
 	 */
-	private static void scan(String path, DynamicClassLoader classLoader) throws Exception {
+	private static void scan(String path, DynamicClassLoader classLoader)
+			throws Exception {
 
 		logger.info("begin scan class from path:" + path);
 
@@ -130,8 +133,8 @@ public class ClassScanner {
 		logger.info("finish scan class");
 	}
 
-	private static ContractInfo createContractInfo(List<ClassInfo> interfaceInfos,
-			List<ClassInfo> implementsClassInfos) {
+	private static ContractInfo createContractInfo(
+			List<ClassInfo> interfaceInfos, List<ClassInfo> implementsClassInfos) {
 
 		ContractInfo contractInfo = new ContractInfo();
 		List<SessionBean> sessionBeanList = new ArrayList<SessionBean>();
@@ -165,7 +168,8 @@ public class ClassScanner {
 	 * @return
 	 * @throws Exception
 	 */
-	private static ClassInfo generalImplementsClass(Class<?> cls) throws Exception {
+	private static ClassInfo generalImplementsClass(Class<?> cls)
+			throws Exception {
 		ServiceImpl behaviorAnn = cls.getAnnotation(ServiceImpl.class);
 
 		ClassInfo ci = new ClassInfo();
@@ -173,7 +177,9 @@ public class ClassScanner {
 		ci.setClassType(ClassType.CLASS);
 
 		// 服务名称
-		if (behaviorAnn != null && !behaviorAnn.lookUP().equalsIgnoreCase(AnnotationUtil.DEFAULT_VALUE)) {
+		if (behaviorAnn != null
+				&& !behaviorAnn.lookUP().equalsIgnoreCase(
+						AnnotationUtil.DEFAULT_VALUE)) {
 			ci.setLookUP(behaviorAnn.lookUP());
 		} else {
 			// 如果没有，默认取类名
@@ -185,11 +191,13 @@ public class ClassScanner {
 
 		for (Method m : methods) {
 			// only load public or protected method
-			if (Modifier.isPublic(m.getModifiers()) || Modifier.isProtected(m.getModifiers())) {
+			if (Modifier.isPublic(m.getModifiers())
+					|| Modifier.isProtected(m.getModifiers())) {
 				MethodInfo mi = new MethodInfo();
 				mi.setMethod(m);
 
-				HttpRequestMapping requestMappingAnn = m.getAnnotation(HttpRequestMapping.class);
+				HttpRequestMapping requestMappingAnn = m
+						.getAnnotation(HttpRequestMapping.class);
 				mi.setHttpRequestMapping(requestMappingAnn);
 
 				Class<?>[] paramAry = m.getParameterTypes();
@@ -201,7 +209,8 @@ public class ClassScanner {
 
 				// load RequestMapping
 				if (requestMappingAnn != null) {
-					Object[][] annotations = ClassHelper.getParamAnnotations(cls, m);
+					Object[][] annotations = ClassHelper.getParamAnnotations(
+							cls, m);
 					for (int i = 0; i < annotations.length; i++) {
 						for (int j = 0; j < annotations[i].length; j++) {
 							HttpPathParameter paramAnn = null;
@@ -230,8 +239,8 @@ public class ClassScanner {
 
 				ParamInfo[] paramInfoAry = new ParamInfo[paramAry.length];
 				for (int i = 0; i < paramAry.length; i++) {
-					paramInfoAry[i] = new ParamInfo(i, paramAry[i], types[i], paramNames[i], mapping[i],
-							paramAnnAry[i]);
+					paramInfoAry[i] = new ParamInfo(i, paramAry[i], types[i],
+							paramNames[i], mapping[i], paramAnnAry[i]);
 				}
 				mi.setParamInfoAry(paramInfoAry);
 
@@ -263,7 +272,8 @@ public class ClassScanner {
 			Method[] methods = interfaceCls.getDeclaredMethods();
 			if (contractAnn != null && contractAnn.defaultAll()) {
 				for (Method m : methods) {
-					if (Modifier.isPublic(m.getModifiers()) || Modifier.isProtected(m.getModifiers())) {
+					if (Modifier.isPublic(m.getModifiers())
+							|| Modifier.isProtected(m.getModifiers())) {
 						MethodInfo mi = new MethodInfo();
 						mi.setMethod(m);
 						methodInfos.add(mi);
@@ -271,7 +281,8 @@ public class ClassScanner {
 				}
 			} else {
 				for (Method m : methods) {
-					if (Modifier.isPublic(m.getModifiers()) || Modifier.isProtected(m.getModifiers())) {
+					if (Modifier.isPublic(m.getModifiers())
+							|| Modifier.isProtected(m.getModifiers())) {
 						Operation oc = m.getAnnotation(Operation.class);
 						if (oc != null) {
 							MethodInfo mi = new MethodInfo();

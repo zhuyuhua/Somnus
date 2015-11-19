@@ -23,6 +23,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.protocol.entity.Protocol;
 import com.somnus.protocol.entity.RequestProtocol;
 import com.somnus.protocol.enumeration.CompressType;
 import com.somnus.protocol.enumeration.PlatformType;
@@ -30,6 +31,7 @@ import com.somnus.protocol.enumeration.SDPType;
 import com.somnus.protocol.utility.KeyValuePair;
 import com.somnus.rpc.client.ConfigConstant;
 import com.somnus.rpc.client.config.ServiceConfig;
+import com.somnus.rpc.client.lb.Server;
 import com.somnus.rpc.client.lb.ServerDispatcher;
 import com.somnus.rpc.client.proxy.bean.Parameter;
 
@@ -55,8 +57,9 @@ public class ServiceProxy {
 
 	/**
 	 * @param serviceName
+	 * @throws Exception
 	 */
-	public ServiceProxy(String serviceName) {
+	public ServiceProxy(String serviceName) throws Exception {
 
 		config = ServiceConfig.getConfig(serviceName);
 
@@ -64,7 +67,8 @@ public class ServiceProxy {
 
 		requestTime = config.getSocketPool().getReconnectTime();
 		int serverCount = 1;
-		if (dispatcher.GetAllServer() != null && dispatcher.GetAllServer().size() > 0) {
+		if (dispatcher.GetAllServer() != null
+				&& dispatcher.GetAllServer().size() > 0) {
 			serverCount = dispatcher.GetAllServer().size();
 		}
 
@@ -98,9 +102,11 @@ public class ServiceProxy {
 	 * @param methodName
 	 * @param paras
 	 * @return
+	 * @throws Throwable
 	 * @since JDK 1.6
 	 */
-	public InvokeResult invoke(Parameter returnType, String typeName, String methodName, Parameter[] parameters) {
+	public InvokeResult invoke(Parameter returnType, String typeName,
+			String methodName, Parameter[] parameters) throws Throwable {
 		long watcher = System.currentTimeMillis();
 
 		List<KeyValuePair> listPara = new ArrayList<KeyValuePair>();
@@ -108,9 +114,13 @@ public class ServiceProxy {
 			listPara.add(new KeyValuePair(p.getSimpleName(), p.getValue()));
 		}
 
-		RequestProtocol requestProtocol = new RequestProtocol(typeName, methodName, listPara);
-		Protocol sendP = new Protocol(createSessionId(), (byte) config.getServiceid(), SDPType.Request,
-				CompressType.UnCompress, config.getProtocol().getSerializerType(), PlatformType.Java, requestProtocol);
+		RequestProtocol requestProtocol = new RequestProtocol(typeName,
+				methodName, listPara);
+		Protocol sendP = new Protocol(createSessionId(),
+				(byte) config.getServiceid(), SDPType.Request,
+				CompressType.UnCompress, config.getProtocol()
+						.getSerializerType(), PlatformType.Java,
+				requestProtocol);
 
 		Protocol receiveP = null;
 		Server server = null;
@@ -129,24 +139,8 @@ public class ServiceProxy {
 					throw io;
 				}
 				if (i < count && i < ioreconnect) {
-					logger.error(server.getName() + " server has IOException,system will change normal server!");
-					continue;
-				}
-			} catch (RebootException rb) {
-				this.createReboot(server);
-				if (count == 0 || i == ioreconnect) {
-					throw new IOException("connect fail!");
-				}
-				if (i < count && i < ioreconnect) {
-					logger.error(server.getName() + " server has reboot,system will change normal server!");
-					continue;
-				}
-			} catch (TimeoutException te) {
-				if (count == 0 || i == requestTime) {
-					throw new TimeoutException("Receive data timeout or error!");
-				}
-				if (i < count && i < requestTime) {
-					logger.error(server.getName() + " server has TimeoutException,system will change normal server!");
+					logger.error(server.getName()
+							+ " server has IOException,system will change normal server!");
 					continue;
 				}
 			} catch (Throwable ex) {
@@ -158,6 +152,7 @@ public class ServiceProxy {
 		if (receiveP == null) {
 			throw new Exception("userdatatype error!");
 		}
+		return null;
 	}
 
 	private int createSessionId() {

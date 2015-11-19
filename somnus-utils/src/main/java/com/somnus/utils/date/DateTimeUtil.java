@@ -15,6 +15,7 @@
  */
 package com.somnus.utils.date;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,8 +25,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.Days;
@@ -56,7 +57,8 @@ public class DateTimeUtil {
 
 	private final static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
-	public final static String DATE_TIME_PATTERN = DATE_PATTERN + " " + TIME_PATTERN;
+	public final static String DATE_TIME_PATTERN = DATE_PATTERN + " "
+			+ TIME_PATTERN;
 
 	private DateTimeUtil() {
 	}
@@ -100,7 +102,8 @@ public class DateTimeUtil {
 			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(sFormat).withLocale(locale);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern(sFormat).withLocale(locale);
 
 		dValue = dateTimeFormatter.parseDateTime(sDate);
 
@@ -115,7 +118,8 @@ public class DateTimeUtil {
 			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(sFormat);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern(sFormat);
 
 		dValue = dateTimeFormatter.parseDateTime(sDate);
 
@@ -151,7 +155,8 @@ public class DateTimeUtil {
 		if (StringUtils.isBlank(sFormat)) {
 			sFormat = YYYY_MM_DD_HH_MM_SS;
 		}
-		return formatDate(date, DateTimeZone.getDefault(), Locale.getDefault(), sFormat);
+		return formatDate(date, DateTimeZone.getDefault(), Locale.getDefault(),
+				sFormat);
 	}
 
 	public static String formatDate(DateTime date, DateTimeZone DateTimeZone) {
@@ -164,7 +169,8 @@ public class DateTimeUtil {
 
 	}
 
-	public static String formatDate(DateTime date, DateTimeZone dateTimeZone, Locale locale, String sFormat) {
+	public static String formatDate(DateTime date, DateTimeZone dateTimeZone,
+			Locale locale, String sFormat) {
 
 		DateTimeFormatter dateFormat = DateTimeFormat.forPattern(sFormat);
 
@@ -181,7 +187,8 @@ public class DateTimeUtil {
 
 	public static String getTodayStr() {
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern("yyyy-MM-dd");
 
 		DateTime todate = new DateTime(System.currentTimeMillis());
 		String today = dateTimeFormatter.print(todate);
@@ -190,7 +197,8 @@ public class DateTimeUtil {
 
 	public static String getFullTodayStr() {
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(YYYY_MM_DD_HH_MM_SS);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern(YYYY_MM_DD_HH_MM_SS);
 
 		DateTime todate = new DateTime(System.currentTimeMillis());
 		String today = dateTimeFormatter.print(todate);
@@ -314,7 +322,8 @@ public class DateTimeUtil {
 		return DateTimeFormat.forPattern(strFormat);
 	}
 
-	public static String formatDateStr(String dateStr, int newtimestampType, int oldtimestampType) {
+	public static String formatDateStr(String dateStr, int newtimestampType,
+			int oldtimestampType) {
 		DateTime oldDate = findFormat(oldtimestampType).parseDateTime(dateStr);
 		return format(oldDate, newtimestampType);
 	}
@@ -355,7 +364,8 @@ public class DateTimeUtil {
 
 		DateTime endDate = sdf.parseDateTime(endTime + " 23:59:59");
 
-		double minutes = (endDate.getMillis() - startDate.getMillis()) / (1000 * 60);
+		double minutes = (endDate.getMillis() - startDate.getMillis())
+				/ (1000 * 60);
 
 		return (long) Math.ceil(minutes);
 	}
@@ -399,7 +409,8 @@ public class DateTimeUtil {
 		return returnValue;
 	}
 
-	public static final DateTime convertStringToDate(String pattern, Locale locale, DateTimeZone zone, String strDate) {
+	public static final DateTime convertStringToDate(String pattern,
+			Locale locale, DateTimeZone zone, String strDate) {
 		if (locale == null) {
 			locale = Locale.getDefault();
 		}
@@ -407,7 +418,8 @@ public class DateTimeUtil {
 			zone = DateTimeZone.getDefault();
 		}
 
-		DateTimeFormatter df = DateTimeFormat.forPattern(pattern).withLocale(locale).withZone(zone);
+		DateTimeFormatter df = DateTimeFormat.forPattern(pattern)
+				.withLocale(locale).withZone(zone);
 
 		return df.parseDateTime(strDate);
 
@@ -422,7 +434,8 @@ public class DateTimeUtil {
 		}
 	}
 
-	public static final DateTime convertStringToDate(String strDate, String sytle) {
+	public static final DateTime convertStringToDate(String strDate,
+			String sytle) {
 		Locale locale = Locale.CHINESE;
 		try {
 			return convertStringToDate(sytle, locale, null, strDate);
@@ -431,7 +444,8 @@ public class DateTimeUtil {
 		}
 	}
 
-	public static final String convertDateToString(String pattern, Locale locale, DateTimeZone zone, DateTime aDate) {
+	public static final String convertDateToString(String pattern,
+			Locale locale, DateTimeZone zone, DateTime aDate) {
 		if (locale == null) {
 			locale = Locale.getDefault();
 		}
@@ -439,12 +453,14 @@ public class DateTimeUtil {
 			zone = DateTimeZone.getDefault();
 		}
 
-		DateTimeFormatter df = DateTimeFormat.forPattern(pattern).withLocale(locale).withZone(zone);
+		DateTimeFormatter df = DateTimeFormat.forPattern(pattern)
+				.withLocale(locale).withZone(zone);
 
 		return df.print(aDate);
 	}
 
-	public static final String convertDateToString(String pattern, DateTime aDate) {
+	public static final String convertDateToString(String pattern,
+			DateTime aDate) {
 		Locale locale = Locale.CHINESE;
 		return convertDateToString(pattern, locale, null, aDate);
 	}
@@ -466,7 +482,8 @@ public class DateTimeUtil {
 	public static final DateTime getBeginDate(String beginDate) {
 		Locale locale = Locale.CHINESE;
 		try {
-			return convertStringToDate("yyyy-MM-dd HH:mm:ss", locale, null, beginDate + " 00:00:00");
+			return convertStringToDate("yyyy-MM-dd HH:mm:ss", locale, null,
+					beginDate + " 00:00:00");
 		} catch (Exception e) {
 			return null;
 		}
@@ -479,7 +496,8 @@ public class DateTimeUtil {
 	public static final DateTime getEndDate(String endDate) {
 		Locale locale = Locale.CHINESE;
 		try {
-			DateTime date = convertStringToDate("yyyy-MM-dd HH:mm:ss", locale, null, endDate + " 00:00:00");
+			DateTime date = convertStringToDate("yyyy-MM-dd HH:mm:ss", locale,
+					null, endDate + " 00:00:00");
 			return new DateTime(date.getMillis() + 24 * 3600 * 1000);
 		} catch (Exception e) {
 			return null;
@@ -493,7 +511,8 @@ public class DateTimeUtil {
 
 		DateTime now = new DateTime();
 
-		return DateTimeFormat.fullDateTime().withLocale(Locale.CHINESE).print(now);
+		return DateTimeFormat.fullDateTime().withLocale(Locale.CHINESE)
+				.print(now);
 
 	}
 
@@ -507,7 +526,8 @@ public class DateTimeUtil {
 
 	public static int diffdates(DateTime date1, DateTime date2) {
 
-		int days = Days.daysBetween(getStartDateTime(date1, null), new DateTime(date2)).getDays();
+		int days = Days.daysBetween(getStartDateTime(date1, null),
+				new DateTime(date2)).getDays();
 
 		return days;
 	}
@@ -534,7 +554,8 @@ public class DateTimeUtil {
 	 */
 	public static String addDays(String date, int amount) {
 
-		DateTimeFormatter frm = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter frm = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:ss");
 
 		DateTime dt = frm.parseDateTime(date).plusDays(amount);
 
@@ -561,7 +582,8 @@ public class DateTimeUtil {
 	 */
 	public static String addMinutes(String date, int amount) {
 
-		DateTimeFormatter frm = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter frm = DateTimeFormat
+				.forPattern("yyyy-MM-dd HH:mm:ss");
 
 		DateTime dt = frm.parseDateTime(date).plusMinutes(amount);
 
@@ -589,7 +611,8 @@ public class DateTimeUtil {
 		if (StringUtils.isBlank(date) || date.length() != 8) {
 			return "0000-00-00";
 		}
-		return date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6, 8);
+		return date.substring(0, 4) + "-" + date.substring(4, 6) + "-"
+				+ date.substring(6, 8);
 	}
 
 	/***
@@ -599,7 +622,8 @@ public class DateTimeUtil {
 	 */
 	public static boolean isSameDay(DateTime atime, DateTime nowDate) {
 
-		return atime.getDayOfYear() == nowDate.getDayOfYear() && atime.getYear() == nowDate.getYear();
+		return atime.getDayOfYear() == nowDate.getDayOfYear()
+				&& atime.getYear() == nowDate.getYear();
 
 		// Calendar calendar = Calendar.getInstance();
 		// calendar.setTime(atime);
@@ -639,7 +663,8 @@ public class DateTimeUtil {
 		if (date1 == null || date2 == null) {
 			return false;
 		}
-		return truncate(date1, Calendar.DAY_OF_MONTH).after(truncate(date2, Calendar.DAY_OF_MONTH));
+		return truncate(date1, Calendar.DAY_OF_MONTH).after(
+				truncate(date2, Calendar.DAY_OF_MONTH));
 	}
 
 	/**
@@ -654,7 +679,8 @@ public class DateTimeUtil {
 		if (date1 == null || date2 == null) {
 			return false;
 		}
-		return truncate(date1, Calendar.DAY_OF_MONTH).before(truncate(date2, Calendar.DAY_OF_MONTH));
+		return truncate(date1, Calendar.DAY_OF_MONTH).before(
+				truncate(date2, Calendar.DAY_OF_MONTH));
 	}
 
 	/**
@@ -675,7 +701,8 @@ public class DateTimeUtil {
 		} else if (unit == Calendar.MONTH) {
 			c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), 1, 0, 0, 0);
 		} else if (unit == Calendar.DATE) {
-			c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE), 0, 0, 0);
+			c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH),
+					c.get(Calendar.DATE), 0, 0, 0);
 		} else if (unit == Calendar.DAY_OF_YEAR) {
 			c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR));
 			c.set(Calendar.HOUR_OF_DAY, 0);
@@ -754,7 +781,8 @@ public class DateTimeUtil {
 	}
 
 	public static String getGMTTimeString(long milliSeconds) {
-		DateTimeFormatter sdf = DateTimeFormat.forPattern("E, d MMM yyyy HH:mm:ss 'GMT'");
+		DateTimeFormatter sdf = DateTimeFormat
+				.forPattern("E, d MMM yyyy HH:mm:ss 'GMT'");
 		return sdf.print(milliSeconds);
 	}
 
@@ -822,7 +850,8 @@ public class DateTimeUtil {
 
 	public static String datetime14() {
 
-		return DateTimeFormat.forPattern("yyyyMMddHHmmss").print(new DateTime());
+		return DateTimeFormat.forPattern("yyyyMMddHHmmss")
+				.print(new DateTime());
 
 	}
 
@@ -831,7 +860,8 @@ public class DateTimeUtil {
 	}
 
 	public static String datetime14Readable() {
-		return DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").print(new DateTime());
+		return DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").print(
+				new DateTime());
 	}
 
 	public static String datetime14(DateTime date) {
@@ -902,7 +932,8 @@ public class DateTimeUtil {
 
 	public static DateTime parseDate(String format, String date, Locale locale) {
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(format).withLocale(locale);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(format)
+				.withLocale(locale);
 
 		return dateTimeFormatter.parseDateTime(date);
 
@@ -910,7 +941,8 @@ public class DateTimeUtil {
 
 	public static DateTime parseDate8(String date) {
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyyMMdd");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern("yyyyMMdd");
 
 		return dateTimeFormatter.parseDateTime(date);
 
@@ -940,7 +972,8 @@ public class DateTimeUtil {
 
 	public static DateTime parseTime8(String datetime) {
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("HH:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormat
+				.forPattern("HH:mm:ss");
 
 		return dateTimeFormatter.parseDateTime(datetime);
 
@@ -1015,7 +1048,8 @@ public class DateTimeUtil {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static List<DateTime[]> slice(DateTime beginDate, DateTime endDate, int interval_sec) {
+	public static List<DateTime[]> slice(DateTime beginDate, DateTime endDate,
+			int interval_sec) {
 		List pieces = new ArrayList();
 		while (beginDate.compareTo(endDate) <= 0) {
 			DateTime nextEndDate = addSec(beginDate, interval_sec);
@@ -1031,7 +1065,8 @@ public class DateTimeUtil {
 		return pieces;
 	}
 
-	public static boolean isInTimeSpan(DateTime time, DateTime startTime, DateTime endTime) {
+	public static boolean isInTimeSpan(DateTime time, DateTime startTime,
+			DateTime endTime) {
 		if (time != null && startTime != null && endTime != null) {
 
 			long startTimeMins = startTime.getMillis();
@@ -1044,7 +1079,8 @@ public class DateTimeUtil {
 		return false;
 	}
 
-	public static List<String> getDates(DateTime from, DateTime to, String dateFormat) {
+	public static List<String> getDates(DateTime from, DateTime to,
+			String dateFormat) {
 		if (from == null || to == null) {
 			return null;
 		}
@@ -1084,7 +1120,8 @@ public class DateTimeUtil {
 		return getStartDateTime(beginDate, dateFormat);
 	}
 
-	public static final String convertDateToString(String pattern, Locale locale, TimeZone zone, Date aDate) {
+	public static final String convertDateToString(String pattern,
+			Locale locale, TimeZone zone, Date aDate) {
 		if (locale == null) {
 			locale = Locale.getDefault();
 		}

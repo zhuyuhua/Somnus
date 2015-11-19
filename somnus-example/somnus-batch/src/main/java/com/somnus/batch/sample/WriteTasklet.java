@@ -15,8 +15,8 @@
  */
 package com.somnus.batch.sample;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -24,29 +24,34 @@ import org.springframework.batch.repeat.RepeatStatus;
 
 /**
  * TODO
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年10月29日
  */
-public class WriteTasklet implements Tasklet{
+public class WriteTasklet implements Tasklet {
+	private static Logger logger = LoggerFactory.getLogger(WriteTasklet.class);
+	/** Message */
+	private String message;
 
-	private static final Logger logger = LogManager.getLogger(WriteTasklet.class);
-	 /** Message */
-    private String message;
+	/**
+	 * @param message
+	 *            the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-    /**
-     * @param message
-     *            the message to set
-     */
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-	/* TODO 简单描述该方法的实现功能（可选）. 
-	 * @see org.springframework.batch.core.step.tasklet.Tasklet#execute(org.springframework.batch.core.StepContribution, org.springframework.batch.core.scope.context.ChunkContext)
+	/*
+	 * TODO 简单描述该方法的实现功能（可选）.
+	 * 
+	 * @see org.springframework.batch.core.step.tasklet.Tasklet#execute(org.
+	 * springframework.batch.core.StepContribution,
+	 * org.springframework.batch.core.scope.context.ChunkContext)
 	 */
 	@Override
-	public RepeatStatus execute(StepContribution stepContribution, ChunkContext context) throws Exception {
+	public RepeatStatus execute(StepContribution stepContribution,
+			ChunkContext context) throws Exception {
 		logger.debug(message);
 		return RepeatStatus.FINISHED;
 	}

@@ -25,10 +25,11 @@
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>The common module of somnus project</description>
-    <properties>
-        <skip_maven_deploy>true</skip_maven_deploy>
-    </properties>
     <dependencies>
-       
+       <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
     </dependencies>
 </project>

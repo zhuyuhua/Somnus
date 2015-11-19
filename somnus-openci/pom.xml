@@ -27,8 +27,35 @@
     <description>The openci module of somnus project</description>
     <properties>
         <skip_maven_deploy>true</skip_maven_deploy>
+        <github.version>1.69</github.version>
+        <jgit.version>4.0.1.201506240215-r</jgit.version>
+        <egit.version>2.1.5</egit.version>
     </properties>
     <dependencies>
+    	<dependency>
+    	
+    	<groupId>org.kohsuke</groupId>
+    	<artifactId>github-api</artifactId>
+    	<version>${github.version}</version>
+    	</dependency>
+    	
+    	<dependency>
+    	<groupId>org.eclipse.jgit</groupId>
+    	<artifactId>org.eclipse.jgit</artifactId>
+    	<version>${jgit.version}</version>
+    	</dependency>
+       
+       <dependency>
+       
+       <groupId>org.eclipse.mylyn.github</groupId>
+       <artifactId>org.eclipse.egit.github.core</artifactId>
+       <version>${egit.version}</version>
+       </dependency>
+       <dependency>
+       	<groupId>com.trilead</groupId>
+       <artifactId>trilead-ssh2</artifactId>
+       <version>1.0.0-build219</version>
+       </dependency>
        
     </dependencies>
 </project>

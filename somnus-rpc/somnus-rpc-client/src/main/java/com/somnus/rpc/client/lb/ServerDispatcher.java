@@ -33,7 +33,8 @@ import com.somnus.rpc.client.config.ServiceConfig;
  */
 public class ServerDispatcher {
 
-	private static Logger logger = LoggerFactory.getLogger(ServerDispatcher.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(ServerDispatcher.class);
 
 	private List<Server> ServerPool = new ArrayList<Server>();
 	private AtomicInteger requestCount = new AtomicInteger(0);
@@ -45,12 +46,20 @@ public class ServerDispatcher {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @return
-	 */
-	public Server GetAllServer() {
+	public List<Server> GetAllServer() {
+		return ServerPool;
+	}
+
+	public Server GetServer(String name) {
+		for (Server s : ServerPool) {
+			if (s.getName().equalsIgnoreCase(name)) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	public Server GetServer() {
 		// TODO Auto-generated method stub
 		return null;
 	}

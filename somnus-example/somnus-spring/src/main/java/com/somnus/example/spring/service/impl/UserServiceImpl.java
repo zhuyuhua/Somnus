@@ -30,7 +30,8 @@ import com.somnus.example.spring.service.UserService;
  */
 public class UserServiceImpl implements UserService {
 
-	private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
+	private static final Logger logger = LogManager
+			.getLogger(UserServiceImpl.class);
 
 	private UserDAO userDAO;
 	private LogInfoDAO logInfoDAO;

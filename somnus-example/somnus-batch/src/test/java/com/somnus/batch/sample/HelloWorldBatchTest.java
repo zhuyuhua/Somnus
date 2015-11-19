@@ -15,9 +15,9 @@
  */
 package com.somnus.batch.sample;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
@@ -27,28 +27,30 @@ import com.somnus.batch.SpringBaseTestCase;
 
 /**
  * TODO
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年10月29日
  */
-public class HelloWorldBatchTest extends SpringBaseTestCase{
+public class HelloWorldBatchTest extends SpringBaseTestCase {
 
-	private static final Logger logger = LogManager.getLogger(HelloWorldBatchTest.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(HelloWorldBatchTest.class);
 
 	@Test
-	public void test(){
-		
-		JobLauncher launcher = applicationContext.getBean(JobLauncher.class);
-        Job job = (Job) applicationContext.getBean("helloWorldJob");
+	public void test() {
 
-        try {
-            /* 运行Job */
-            JobExecution result = launcher.run(job, new JobParameters());
-            /* 处理结束，控制台打印处理结果 */
-            
-            System.out.println(result.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		JobLauncher launcher = applicationContext.getBean(JobLauncher.class);
+		Job job = (Job) applicationContext.getBean("helloWorldJob");
+
+		try {
+			/* 运行Job */
+			JobExecution result = launcher.run(job, new JobParameters());
+			/* 处理结束，控制台打印处理结果 */
+
+			System.out.println(result.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

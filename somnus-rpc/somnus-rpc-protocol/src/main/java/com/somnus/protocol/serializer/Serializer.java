@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * TODO
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年9月30日
@@ -26,5 +27,15 @@ import org.slf4j.LoggerFactory;
 public class Serializer {
 
 	private static Logger logger = LoggerFactory.getLogger(Serializer.class);
+
+	public byte[] Serialize(Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object Derialize(byte[] data, Class<?> cls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -23,10 +23,11 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.protocol.annotation.AnnotationUtil;
+import com.somnus.protocol.annotation.Operation;
+import com.somnus.protocol.proxy.bean.Out;
 import com.somnus.rpc.client.proxy.InvokeResult;
 import com.somnus.rpc.client.proxy.ServiceProxy;
-import com.somnus.server.classz.AnnotationUtil;
-import com.somnus.server.component.annotation.Operation;
 
 /**
  *
@@ -60,7 +61,8 @@ public class MethodCaller {
 	 * @throws Throwable
 	 * @since JDK 1.6
 	 */
-	public Object doMethodCall(Object[] args, Method methodInfo) throws Exception, Throwable {
+	public Object doMethodCall(Object[] args, Method methodInfo)
+			throws Exception, Throwable {
 
 		Type[] typeAry = methodInfo.getGenericParameterTypes();
 		Class<?>[] clsAry = methodInfo.getParameterTypes();
@@ -80,14 +82,17 @@ public class MethodCaller {
 
 				// TODO -这里需要修改
 				if (args[i] instanceof Out) {
-					paras[i] = new Parameter(args[i], clsAry[i], typeAry[i], ParaType.Out);
+					paras[i] = new Parameter(args[i], clsAry[i], typeAry[i],
+							ParaType.Out);
 					outParas.add(i);
 				} else {
-					paras[i] = new Parameter(args[i], clsAry[i], typeAry[i], ParaType.In);
+					paras[i] = new Parameter(args[i], clsAry[i], typeAry[i],
+							ParaType.In);
 				}
 			}
 		}
-		Parameter returnPara = new Parameter(null, methodInfo.getReturnType(), methodInfo.getGenericReturnType());
+		Parameter returnPara = new Parameter(null, methodInfo.getReturnType(),
+				methodInfo.getGenericReturnType());
 		String methodName = methodInfo.getName();
 		Operation operation = methodInfo.getAnnotation(Operation.class);
 		if (operation != null) {
@@ -95,10 +100,12 @@ public class MethodCaller {
 				methodName = "$" + operation.methodName();
 			}
 		}
-		InvokeResult result = proxy.invoke(returnPara, lookup, methodName, paras);
+		InvokeResult result = proxy.invoke(returnPara, lookup, methodName,
+				paras);
 
 		if (result != null && result.getOutPara() != null) {
-			for (int i = 0; i < outParas.size() && i < result.getOutPara().length; i++) {
+			for (int i = 0; i < outParas.size()
+					&& i < result.getOutPara().length; i++) {
 				Object op = args[outParas.get(i)];
 				if (op instanceof Out) {
 					((Out) op).setOutPara(result.getOutPara()[i]);

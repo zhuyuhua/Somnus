@@ -21,23 +21,30 @@ import com.somnus.protocol.enumeration.CompressType;
 
 /**
  * 压缩基础类
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年9月30日
  */
-public class CompressBase {
+public abstract class CompressBase {
 
 	private static Logger logger = LoggerFactory.getLogger(CompressBase.class);
 
-	/**
-	 * TODO
-	 * @param compressType
-	 * @return
-	 * @since JDK 1.6
-	 */
-	public static CompressBase getInstance(CompressType compressType) {
-		// TODO Auto-generated method stub
-		return null;
+	private static CompressBase sevenZip = new SevenZip();
+	private static CompressBase unCompress = new UnCompress();
+
+	public static CompressBase getInstance(CompressType ct) throws Exception {
+		if (ct == CompressType.UnCompress) {
+			return unCompress;
+		} else if (ct == CompressType.SevenZip) {
+			return sevenZip;
+		}
+
+		throw new Exception("末知的压缩格式");
 	}
+
+	public abstract byte[] unzip(byte[] buffer) throws Exception;
+
+	public abstract byte[] zip(byte[] buffer) throws Exception;
 
 }

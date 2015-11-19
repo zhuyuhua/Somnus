@@ -7,6 +7,6 @@
      <typeAlias type="com.somnus.mybatis.domain.User" alias="User" />
   </typeAliases>
    <mappers>
-      <mapper resource="com/somnus/mybatis/domain/user.map.xml" />
+      <mapper resource="mybatis/user.map.xml" />
     </mappers>
 </configuration>

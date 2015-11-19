@@ -29,9 +29,8 @@
 		<skip_maven_deploy>true</skip_maven_deploy>
 	</properties>
 	<modules>
-		<module>somnus-example-leetcode</module>
+		<module>somnus-leetcode</module>
 		<module>somnus-spring</module>
-		<module>somnus-restli</module>
 		<module>somnus-mybatis</module>
 		<module>somnus-batch</module>
 	</modules>

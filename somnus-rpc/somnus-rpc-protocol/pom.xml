@@ -31,7 +31,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.somnus</groupId>
-			<artifactId>somnus-rpc-api</artifactId>
+			<artifactId>somnus-utils</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		

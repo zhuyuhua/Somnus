@@ -14,10 +14,11 @@
  */
 package com.somnus.protocol.entity;
 
-import com.somnus.protocol.server.annotation.Member;
+import com.somnus.protocol.annotation.Member;
 
 /**
  * TODO
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年9月30日

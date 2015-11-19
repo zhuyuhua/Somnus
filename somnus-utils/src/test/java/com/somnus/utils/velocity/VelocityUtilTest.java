@@ -39,39 +39,40 @@ import com.somnus.utils.file.FileUtil;
  */
 public class VelocityUtilTest {
 
-	private static Logger logger = LoggerFactory.getLogger(VelocityUtilTest.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(VelocityUtilTest.class);
 
 	public static String CLASS_PATH = Thread.class.getResource("/").getPath();
 
-	public static String velocity = CLASS_PATH+"velocity/";
-	
+	public static String velocity = CLASS_PATH + "velocity/";
+
 	@Test
 	public void testVmToFile() throws IOException {
 
 		VelocityContext context = new VelocityContext();
 		context.put("name", "testname");
 
-		String destFilePath = velocity+"test.file";
+		String destFilePath = velocity + "test.file";
 		File destFile = new File(destFilePath);
-		
+
 		if (destFile.exists()) {
 			destFile.delete();
 		}
 		assertFalse(destFile.exists());
 
-		 VelocityUtil.vmToFile(context, "velocity/test.vm", destFilePath);
-		 assertTrue(destFile.exists());
-		 assertEquals("testname",FileUtil.getFileContent(destFile));
+		VelocityUtil.vmToFile(context, "velocity/test.vm", destFilePath);
+		assertTrue(destFile.exists());
+		assertEquals("testname", FileUtil.getFileContent(destFile));
 
-//		destFile.delete();
+		destFile.delete();
 	}
-	
+
 	public static void main(String[] args) {
 		ClassLoader classLoader = Thread.currentThread()
-                .getContextClassLoader();
+				.getContextClassLoader();
 		InputStream in = classLoader.getResourceAsStream("velocity/test.vm");
-		assertNotNull("inputstream is null",in);
-		
+		assertNotNull("inputstream is null", in);
+
 	}
 
 }

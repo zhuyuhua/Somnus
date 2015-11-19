@@ -16,7 +16,7 @@ package com.somnus.protocol.entity;
 
 import java.util.List;
 
-import com.somnus.protocol.server.annotation.Member;
+import com.somnus.protocol.annotation.Member;
 import com.somnus.protocol.utility.KeyValuePair;
 
 /**
@@ -38,7 +38,8 @@ public class RequestProtocol {
 	public RequestProtocol() {
 	}
 
-	public RequestProtocol(String lookup, String methodName, List<KeyValuePair> paraKVList) {
+	public RequestProtocol(String lookup, String methodName,
+			List<KeyValuePair> paraKVList) {
 		this.lookup = lookup;
 		this.methodName = methodName;
 		this.paraKVList = paraKVList;

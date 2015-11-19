@@ -18,6 +18,8 @@ package com.somnus.rpc.client.lb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.somnus.protocol.entity.Protocol;
+
 /**
  *
  * TODO
@@ -28,5 +30,15 @@ import org.slf4j.LoggerFactory;
 public class Server {
 
 	private static Logger logger = LoggerFactory.getLogger(Server.class);
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Protocol request(Protocol p) throws Exception, Throwable {
+
+		return null;
+	}
 
 }

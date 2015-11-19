@@ -23,7 +23,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
-import com.somnus.utils.json.JSONUtils;
+import com.somnus.utils.json.GsonSerializer;
 import com.somnus.utils.properties.PropertiesUtil;
 
 public class KafkaProducerHelper {
@@ -31,7 +31,8 @@ public class KafkaProducerHelper {
 	private KafkaProducer<byte[], byte[]> producer;
 
 	public KafkaProducerHelper(String producerConfig) {
-		Properties properties = PropertiesUtil.getInstance(producerConfig).getProperties();
+		Properties properties = PropertiesUtil.getInstance(producerConfig)
+				.getProperties();
 		producer = new KafkaProducer<byte[], byte[]>(properties);
 	}
 
@@ -86,7 +87,8 @@ class KafkaProducerThread extends Thread {
 	@Override
 	public void run() {
 		map.put("time", System.currentTimeMillis());
-		kafkaProducer.send(topic, JSONUtils.toJSONString(map));
+		GsonSerializer serializer = new GsonSerializer();
+		kafkaProducer.send(topic, serializer.serialize(map));
 	}
 
 }

@@ -16,11 +16,12 @@ package com.somnus.protocol.utility;
 
 import java.io.Serializable;
 
-import com.somnus.protocol.server.annotation.Member;
-import com.somnus.protocol.server.entity.Out;
+import com.somnus.protocol.annotation.Member;
+import com.somnus.protocol.proxy.bean.Out;
 
 /**
  * TODO
+ * 
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年9月30日
