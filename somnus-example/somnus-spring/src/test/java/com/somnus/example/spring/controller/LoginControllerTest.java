@@ -24,12 +24,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.somnus.example.spring.aop.business.IBaseBusiness;
 import com.somnus.example.spring.aop.business.aspect.AspectBusiness;
-import com.somnus.example.spring.core.SpringTransactionalTestCase;
 import com.somnus.example.spring.service.LoginService;
+import com.somnus.spring.SpringTXBaseTestCase;
 
-public class LoginControllerTest extends SpringTransactionalTestCase {
+public class LoginControllerTest extends SpringTXBaseTestCase {
 
-	private static final Logger logger = LogManager.getLogger(LoginControllerTest.class);
+	private static final Logger logger = LogManager
+			.getLogger(LoginControllerTest.class);
 
 	@Autowired
 	private LoginService loginService;
@@ -64,12 +65,15 @@ public class LoginControllerTest extends SpringTransactionalTestCase {
 		// LoginService service = (LoginService) factory.getBean("loginS");
 		// service.showLogin();
 
-		ApplicationContext context = new ClassPathXmlApplicationContext(classPath);
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				classPath);
 
-		IBaseBusiness business = (IBaseBusiness) context.getBean("businessProxy");
+		IBaseBusiness business = (IBaseBusiness) context
+				.getBean("businessProxy");
 		business.delete("猫");
 
-		AspectBusiness aspectBusiness = (AspectBusiness) context.getBean("aspectBusiness");
+		AspectBusiness aspectBusiness = (AspectBusiness) context
+				.getBean("aspectBusiness");
 		aspectBusiness.delete("狗+++++");
 		logger.debug("=======");
 	}

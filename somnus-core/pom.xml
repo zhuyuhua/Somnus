@@ -25,10 +25,6 @@
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>The core module of somnus project</description>
-    <properties>
-        <skip_maven_deploy>true</skip_maven_deploy>
-        <avro.version>1.7.7</avro.version>
-    </properties>
     <dependencies>
     		<dependency>
     		 	<groupId>com.somnus</groupId>
@@ -36,6 +32,19 @@
     			<version>${project.version}</version>
     			<scope>compile</scope>
     		</dependency>
+    		<dependency>
+    		 	<groupId>com.somnus</groupId>
+    			<artifactId>somnus-ioc</artifactId>
+    			<version>${project.version}</version>
+    			<scope>compile</scope>
+    		</dependency>
+    		
+    		<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+    		
        		<dependency>
        			<groupId>org.apache.avro</groupId>
        			<artifactId>avro</artifactId>

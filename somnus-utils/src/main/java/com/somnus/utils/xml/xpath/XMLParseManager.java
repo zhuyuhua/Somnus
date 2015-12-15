@@ -36,7 +36,8 @@ import org.xml.sax.SAXParseException;
  */
 public class XMLParseManager {
 
-	private static Logger logger = LoggerFactory.getLogger(XMLParseManager.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(XMLParseManager.class);
 
 	private XMLParseUtil xmlParser;
 
@@ -53,18 +54,22 @@ public class XMLParseManager {
 	 * @throws ServiceException
 	 * @see [类、类#方法、类#成员]
 	 */
-	private Document getDocument(File file) throws ServiceException {
+	public Document getDocument(File file) throws ServiceException {
 		Document document = null;
 		try {
 			document = xmlParser.parseDocument(file);
 		} catch (IllegalArgumentException e) {
-			throw new ServiceException("XMLParseManager@getDocument: " + "An illegal or inappropriate argument!" + e);
+			throw new ServiceException("XMLParseManager@getDocument: "
+					+ "An illegal or inappropriate argument!" + e);
 		} catch (SAXParseException e) {
-			throw new ServiceException("XMLParseManager@getDocument: " + "XML file error, can not parse!" + e);
+			throw new ServiceException("XMLParseManager@getDocument: "
+					+ "XML file error, can not parse!" + e);
 		} catch (SAXException e) {
-			throw new ServiceException("XMLParseManager@getDocument: " + "There is a SAXException！" + e);
+			throw new ServiceException("XMLParseManager@getDocument: "
+					+ "There is a SAXException！" + e);
 		} catch (IOException e) {
-			throw new ServiceException("XMLParseManager@getDocument: " + "There is an IOException!" + e);
+			throw new ServiceException("XMLParseManager@getDocument: "
+					+ "There is an IOException!" + e);
 		}
 
 		return document;
@@ -77,48 +82,15 @@ public class XMLParseManager {
 	 * @throws ServiceException
 	 * @see [类、类#方法、类#成员]
 	 */
-	private String getNodeValue(Node node, String xpath) throws ServiceException {
+	public String getNodeValue(Node node, String xpath) throws ServiceException {
 		String nodeValue = null;
 		try {
 			nodeValue = xmlParser.getNodeStringValue(node, xpath);
 		} catch (XPathExpressionException e) {
-			throw new ServiceException(
-					"XMLParseManager@getNodeValue: " + "XPath expression [" + xpath + "] error！" + e);
+			throw new ServiceException("XMLParseManager@getNodeValue: "
+					+ "XPath expression [" + xpath + "] error！" + e);
 		}
 		return nodeValue;
 	}
 
-	/**
-	 * 根据作者姓名获取书籍
-	 *
-	 * @param file
-	 *            XML文件对象
-	 * @param name
-	 *            书籍作者姓名
-	 * @return myBook
-	 * @throws ServiceException
-	 * @see [类、类#方法、类#成员]
-	 */
-	public Book getBookByAuthor(File file, String name) throws ServiceException {
-		Book myBook = null;
-
-		if (null != file) {
-			Document doc = getDocument(file);
-			if (null != doc) {
-				/*
-				 * [author='" + name + "'] 表示只取author为name参数值的book节点
-				 */
-				String title = getNodeValue(doc, "//book[author='" + name + "']/title");
-				String lang = getNodeValue(doc, "//book[author='" + name + "']/title/@lang");
-				String author = getNodeValue(doc, "//book[author='" + name + "']/author");
-				String year = getNodeValue(doc, "//book[author='" + name + "']/year");
-				String price = getNodeValue(doc, "//book[author='" + name + "']/price");
-				myBook = new Book(lang, title, author, year, price);
-			}
-		} else {
-			throw new ServiceException("XMLParseManager@getBookByAuthor: " + "File is null!");
-		}
-
-		return myBook;
-	}
 }

@@ -14,6 +14,8 @@
  */
 package com.pingan.mybatis;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -22,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.somnus.mybatis.DefaultComponent;
 import com.somnus.mybatis.DefaultRepository;
 import com.somnus.mybatis.DefaultService;
+import com.somnus.mybatis.domain.User;
 
 /**
  * TODO
@@ -51,15 +54,22 @@ public class TestService extends SpringBaseTestCase {
 		logger.debug(defaultRepository);
 	}
 
-	// @Test
-	// public void testSaveUser() {
-	// User user = new User();
-	// SecureRandom random = new SecureRandom();
-	// user.setId(random.nextInt());
-	// user.setName("name:101");
-	// defaultRepository.saveUser(user);
-	//
-	// logger.debug(defaultRepository.getUserById(user));
-	// }
+	@Test
+	public void testUserList() {
+		List<String> list = defaultRepository.queryList();
+		for (String string : list) {
+			System.out.println(string);
+		}
+	}
+
+	@Test
+	public void testSaveUser() {
+		User user = new User();
+		user.setId(101);
+		// user.setName("name:101");
+		// defaultRepository.saveUser(user);
+
+		logger.debug(defaultRepository.getUserById(user));
+	}
 
 }

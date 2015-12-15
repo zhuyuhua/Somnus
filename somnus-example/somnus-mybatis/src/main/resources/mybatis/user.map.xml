@@ -18,4 +18,8 @@
      	insert into user(id,name) values(#{id},#{name})
      
      </select>
+     
+     <select id="queryUserList" parameterType="java.util.HashMap" resultType="java.util.ArrayList<E>">
+     	select name from user
+     </select>
 </mapper>
