@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
   
-<mapper namespace="com.somnus.batch.mybatis.domain.User">
+<mapper namespace="com.somnus.mybatis.domain.User">
 
      <resultMap type="User" id="userMap">
         <id property="id" column="id" />
@@ -19,7 +19,7 @@
      
      </select>
      
-     <select id="queryUserList" parameterType="java.util.HashMap" resultType="java.util.ArrayList<E>">
+     <select id="queryUserList" parameterType="java.util.HashMap" resultType="java.util.ArrayList">
      	select name from user
      </select>
 </mapper>

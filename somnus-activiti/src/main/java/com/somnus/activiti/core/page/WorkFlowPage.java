@@ -1,4 +1,4 @@
-package com.somnus.core.page;
+package com.somnus.activiti.core.page;
 
 import java.util.ArrayList;
 import java.util.List;

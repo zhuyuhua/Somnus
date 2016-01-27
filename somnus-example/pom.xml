@@ -19,7 +19,7 @@
 	<parent>
         <groupId>com.somnus</groupId>
         <artifactId>somnus-parent</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 	<artifactId>somnus-example</artifactId>
 	<packaging>pom</packaging>
@@ -29,9 +29,9 @@
 		<skip_maven_deploy>true</skip_maven_deploy>
 	</properties>
 	<modules>
+		<module>somnus-batch</module>	
 		<module>somnus-leetcode</module>
-		<module>somnus-spring</module>
 		<module>somnus-mybatis</module>
-		<module>somnus-batch</module>
+		<module>somnus-spring</module>
 	</modules>
 </project>

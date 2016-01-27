@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.pingan.mybatis;
+package com.somnus.mybatis;
 
 import java.util.List;
 
@@ -21,22 +21,18 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.somnus.mybatis.DefaultComponent;
-import com.somnus.mybatis.DefaultRepository;
-import com.somnus.mybatis.DefaultService;
 import com.somnus.mybatis.domain.User;
 
 /**
  * TODO
- * 
+ *
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年10月29日
  */
 public class TestService extends SpringBaseTestCase {
 
-	private static final Logger logger = LogManager
-			.getLogger(DefaultService.class);
+	private static final Logger logger = LogManager.getLogger(DefaultService.class);
 
 	@Autowired
 	DefaultService defaultService;
@@ -55,21 +51,21 @@ public class TestService extends SpringBaseTestCase {
 	}
 
 	@Test
+	public void testSaveUser() {
+		User user = new User();
+		user.setId(101);
+		user.setName("name:101");
+		defaultRepository.saveUser(user);
+
+		logger.debug(defaultRepository.getUserById(user));
+	}
+
+	@Test
 	public void testUserList() {
 		List<String> list = defaultRepository.queryList();
 		for (String string : list) {
 			System.out.println(string);
 		}
-	}
-
-	@Test
-	public void testSaveUser() {
-		User user = new User();
-		user.setId(101);
-		// user.setName("name:101");
-		// defaultRepository.saveUser(user);
-
-		logger.debug(defaultRepository.getUserById(user));
 	}
 
 }

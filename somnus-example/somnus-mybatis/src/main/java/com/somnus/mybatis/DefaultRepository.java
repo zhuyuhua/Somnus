@@ -24,7 +24,7 @@ import com.somnus.mybatis.domain.User;
 
 /**
  * TODO
- * 
+ *
  * @author zhuyuhua
  * @version 0.0.1
  * @since 2015年10月29日
@@ -33,18 +33,15 @@ import com.somnus.mybatis.domain.User;
 public class DefaultRepository extends MybatisBaseDao {
 
 	public User getUserById(User user) {
-		return (User) getSqlSession().selectOne(
-				"com.somnus.batch.mybatis.domain.User.getUser", user);
+		return (User) getSqlSession().selectOne("com.somnus.mybatis.domain.User.getUser", user);
 	}
 
 	public void saveUser(User user) {
-		getSqlSession().insert("com.somnus.batch.mybatis.domain.User.saveUser",
-				user);
+		getSqlSession().insert("com.somnus.mybatis.domain.User.saveUser", user);
 	}
 
 	public List<String> queryList() {
 		Map<String, String> map = new HashMap<>();
-		return getSqlSession().selectList(
-				"com.somnus.batch.mybatis.domain.User.queryUserList", map);
+		return getSqlSession().selectList("com.somnus.mybatis.domain.User.queryUserList", map);
 	}
 }

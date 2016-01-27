@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>com.somnus</groupId>
 		<artifactId>somnus-parent</artifactId>
-		<version>1.0.0</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>somnus-test</artifactId>
 	<packaging>jar</packaging>
