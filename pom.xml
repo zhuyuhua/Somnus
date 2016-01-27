@@ -110,6 +110,7 @@
 		<maven.source.plugin.version>2.4</maven.source.plugin.version>
 		<maven.surefire.plugin.version>2.19</maven.surefire.plugin.version>
 		<maven.war.plugin.version>2.6</maven.war.plugin.version>
+		<maven.source.plugin.version>2.4</maven.source.plugin.version>
 		<!-- end of maven -->
 
 		<mysql.version>5.1.37</mysql.version>
@@ -209,6 +210,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<executions>
 					<execution>
@@ -252,6 +254,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>${maven.install.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven.source.plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
