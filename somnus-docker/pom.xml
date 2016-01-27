@@ -8,7 +8,7 @@
   </parent>
   <artifactId>somnus-docker</artifactId>
   <packaging>war</packaging>
-  <name>somnus-docker Maven Webapp</name>
+  <name>somnus-docker</name>
   <url>http://maven.apache.org</url>
   <dependencies>
   </dependencies>
